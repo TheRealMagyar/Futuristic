@@ -23,6 +23,30 @@
   --futuristic-modal-out: 0.09s cubic-bezier(0.4, 0, 1, 1);
   --futuristic-liquid: rgba(24, 24, 30, 0.58);
   --futuristic-overlay-filter: none;
+  --home-native: revert;
+  --icon-native: revert;
+  --icon-fill: transparent;
+  --icon-discover: none;
+  --icon-add: none;
+  --icon-settings: none;
+  --icon-inbox: none;
+  --icon-help: none;
+  --icon-nitro: none;
+  --icon-shop: none;
+  --icon-gift: none;
+  --icon-emoji: none;
+  --icon-gif: none;
+  --icon-sticker: none;
+  --icon-search: none;
+  --icon-pins: none;
+  --icon-threads: none;
+  --icon-members: none;
+  --icon-call: none;
+  --icon-video: none;
+  --icon-mute: none;
+  --icon-deaf: none;
+  --icon-send: none;
+  --icon-ai: none;
 }
 
 /* THEME SPECIFIC SHADING */
@@ -312,18 +336,18 @@
   color: var(--text-muted) !important;
 }
 
-/* Native DMs / home icon — engine stretched the SVG to 100% of the 48px button */
+/* Native DMs / home — custom --home-icon paints the SVG box; paths stay unless the pack is on */
 .childWrapper__6e9f8 {
   display: grid !important;
   place-items: center;
 }
 .childWrapper__6e9f8 > svg {
-  background: none !important;
   width: 24px !important;
   height: 24px !important;
+  background: var(--home-icon) center / 24px no-repeat !important;
 }
 .childWrapper__6e9f8 path {
-  display: revert !important;
+  display: var(--home-native, revert) !important;
 }
 
 /* ==================== GLASS LAYER ==================== */
@@ -1449,4 +1473,187 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 .reduce-motion .navItem__551b0::after,
 .reduce-motion .member__5d473 .nameContainer__703b9::after {
   transition: none !important;
+}
+
+/* ==================== ICONS ==================== */
+/* Off by default (--icon-*: none). The settings file pack sets urls + --icon-native: none. */
+[aria-label="Explore Discoverable Servers"] svg,
+[aria-label*="Discover"] svg,
+[aria-label*="Felfedez"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-discover) center / contain no-repeat;
+  mask: var(--icon-discover) center / contain no-repeat;
+}
+[aria-label="Add a Server"] svg,
+[aria-label*="Add Server"] svg,
+[aria-label*="Szerver hozzá"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-add) center / contain no-repeat;
+  mask: var(--icon-add) center / contain no-repeat;
+}
+[aria-label="User Settings"] svg,
+[aria-label*="User Settings"] svg,
+[aria-label*="Felhasználói beállítás"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-settings) center / contain no-repeat;
+  mask: var(--icon-settings) center / contain no-repeat;
+}
+[aria-label="Inbox"] svg,
+[aria-label*="Inbox"] svg,
+[aria-label*="Bejövő"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-inbox) center / contain no-repeat;
+  mask: var(--icon-inbox) center / contain no-repeat;
+}
+[aria-label="Help"] svg,
+[aria-label*="Súgó"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-help) center / contain no-repeat;
+  mask: var(--icon-help) center / contain no-repeat;
+}
+[aria-label="Shop"] svg,
+[aria-label*="Shop"] svg,
+[aria-label*="Bolt"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-shop) center / contain no-repeat;
+  mask: var(--icon-shop) center / contain no-repeat;
+}
+[aria-label*="Nitro"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-nitro) center / contain no-repeat;
+  mask: var(--icon-nitro) center / contain no-repeat;
+}
+[aria-label*="gift" i] svg,
+[aria-label*="Ajándék"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-gift) center / contain no-repeat;
+  mask: var(--icon-gift) center / contain no-repeat;
+}
+[aria-label*="emoji" i] svg,
+[aria-label*="Emoji"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-emoji) center / contain no-repeat;
+  mask: var(--icon-emoji) center / contain no-repeat;
+}
+[aria-label*="GIF"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-gif) center / contain no-repeat;
+  mask: var(--icon-gif) center / contain no-repeat;
+}
+[aria-label*="sticker" i] svg,
+[aria-label*="Matrica"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-sticker) center / contain no-repeat;
+  mask: var(--icon-sticker) center / contain no-repeat;
+}
+[aria-label="Search"] svg,
+[aria-label*="Search"] svg,
+[aria-label*="Keres"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-search) center / contain no-repeat;
+  mask: var(--icon-search) center / contain no-repeat;
+}
+[aria-label*="inned Messages"] svg,
+[aria-label*="Kitűzött"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-pins) center / contain no-repeat;
+  mask: var(--icon-pins) center / contain no-repeat;
+}
+[aria-label="Threads"] svg,
+[aria-label*="Threads"] svg,
+[aria-label*="Szálak"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-threads) center / contain no-repeat;
+  mask: var(--icon-threads) center / contain no-repeat;
+}
+[aria-label*="Member List"] svg,
+[aria-label*="Taglista"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-members) center / contain no-repeat;
+  mask: var(--icon-members) center / contain no-repeat;
+}
+[aria-label*="Voice Call"] svg,
+[aria-label*="Start Voice"] svg,
+[aria-label*="Hívás"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-call) center / contain no-repeat;
+  mask: var(--icon-call) center / contain no-repeat;
+}
+[aria-label*="Video Call"] svg,
+[aria-label*="Start Video"] svg,
+[aria-label*="Videó"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-video) center / contain no-repeat;
+  mask: var(--icon-video) center / contain no-repeat;
+}
+[aria-label="Mute"] svg,
+[aria-label="Unmute"] svg,
+[aria-label*="Némít"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-mute) center / contain no-repeat;
+  mask: var(--icon-mute) center / contain no-repeat;
+}
+[aria-label="Deafen"] svg,
+[aria-label="Undeafen"] svg,
+[aria-label*="Süket"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-deaf) center / contain no-repeat;
+  mask: var(--icon-deaf) center / contain no-repeat;
+}
+.vc-grokai-icon.vc-grokai-chat-button,
+.vc-grokai-sl-btn svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-ai) center / contain no-repeat;
+  mask: var(--icon-ai) center / contain no-repeat;
+}
+.vc-grokai-sl-btn svg *,
+.vc-grokai-icon.vc-grokai-chat-button *,
+[aria-label="Explore Discoverable Servers"] svg *,
+[aria-label*="Discover"] svg *,
+[aria-label*="Felfedez"] svg *,
+[aria-label="Add a Server"] svg *,
+[aria-label*="Add Server"] svg *,
+[aria-label*="Szerver hozzá"] svg *,
+[aria-label="User Settings"] svg *,
+[aria-label*="User Settings"] svg *,
+[aria-label*="Felhasználói beállítás"] svg *,
+[aria-label="Inbox"] svg *,
+[aria-label*="Inbox"] svg *,
+[aria-label*="Bejövő"] svg *,
+[aria-label="Help"] svg *,
+[aria-label*="Súgó"] svg *,
+[aria-label="Shop"] svg *,
+[aria-label*="Shop"] svg *,
+[aria-label*="Bolt"] svg *,
+[aria-label*="Nitro"] svg *,
+[aria-label*="gift" i] svg *,
+[aria-label*="Ajándék"] svg *,
+[aria-label*="emoji" i] svg *,
+[aria-label*="Emoji"] svg *,
+[aria-label*="GIF"] svg *,
+[aria-label*="sticker" i] svg *,
+[aria-label*="Matrica"] svg *,
+[aria-label="Search"] svg *,
+[aria-label*="Search"] svg *,
+[aria-label*="Keres"] svg *,
+[aria-label*="inned Messages"] svg *,
+[aria-label*="Kitűzött"] svg *,
+[aria-label="Threads"] svg *,
+[aria-label*="Threads"] svg *,
+[aria-label*="Szálak"] svg *,
+[aria-label*="Member List"] svg *,
+[aria-label*="Taglista"] svg *,
+[aria-label*="Voice Call"] svg *,
+[aria-label*="Start Voice"] svg *,
+[aria-label*="Hívás"] svg *,
+[aria-label*="Video Call"] svg *,
+[aria-label*="Start Video"] svg *,
+[aria-label*="Videó"] svg *,
+[aria-label="Mute"] svg *,
+[aria-label="Unmute"] svg *,
+[aria-label*="Némít"] svg *,
+[aria-label="Deafen"] svg *,
+[aria-label="Undeafen"] svg *,
+[aria-label*="Süket"] svg * {
+  display: var(--icon-native, revert) !important;
 }

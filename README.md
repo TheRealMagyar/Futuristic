@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-2.2.4-7c5cff?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-2.2.5-7c5cff?style=flat-square">
   <img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-6b7280?style=flat-square">
   <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
 </p>
@@ -60,6 +60,23 @@ Or any HTTPS photo:
 ```
 
 `--background-shading-percent` (default `64%`): lower shows more of the photo through the glass. Wallpaper blocks already drop this to ~40%.
+
+---
+
+## Icons
+
+Discord's own icons stay on by default (nothing extra is fetched).
+
+A geometric set lives in [`assets/icons/`](assets/icons/). Uncomment the **Icons** block at the bottom of `Futuristic.theme.css` to swap home, discover, add, settings, inbox, help, nitro, shop, gift, emoji, gif, sticker, search, pins, threads, members, call, video, mute, deaf, and the AI button.
+
+Or turn on a single icon, for example:
+
+```css
+:root {
+  --home-native: none;
+  --home-icon: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/home.svg");
+}
+```
 
 ---
 
