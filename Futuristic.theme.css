@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheReal + Grok
- * @version 2.1.0
+ * @version 2.1.1
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin (vc-grokai).
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -133,6 +133,8 @@
     color-mix(in srgb, var(--main-color) 26%, transparent);
   --futuristic-ease: 0.16s cubic-bezier(0.22, 1, 0.36, 1);
   --futuristic-ease-out: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  --futuristic-modal-in: 0.13s cubic-bezier(0.22, 1, 0.36, 1);
+  --futuristic-modal-out: 0.09s cubic-bezier(0.4, 0, 1, 1);
   --futuristic-liquid: rgba(24, 24, 30, 0.58);
   /* menus / popouts only — set to `none` if Discord still stutters */
   --futuristic-overlay-filter: blur(14px) saturate(1.18);
@@ -805,6 +807,17 @@ dialog::backdrop,
   }
 }
 
+@keyframes futuristic-ai-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ==================== AI PLUGIN (vc-grokai) ==================== */
 .vc-grokai-root {
   --vc-grokai-line: rgba(255, 255, 255, 0.12);
@@ -835,8 +848,9 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   border: 1px solid var(--futuristic-border) !important;
   border-radius: 16px !important;
   box-shadow: var(--futuristic-glow) !important;
-  opacity: 1 !important;
   overflow: hidden;
+  transform-origin: center center;
+  animation: futuristic-ai-in var(--futuristic-modal-in) backwards;
 }
 
 :is(.theme-light, .theme-dark .theme-light)
@@ -901,6 +915,31 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   border-radius: 8px !important;
   background: transparent !important;
   border: none !important;
+}
+
+/*
+ * Discord fades/slides the layer. Engine unsets transform, and we used
+ * to lock opacity — close then hung at full strength and popped off.
+ * Keep the card motion on the window; let the layer fade quickly.
+ */
+[class*="layer"]:has(.vc-grokai-root),
+[class*="layer"]:has(.vc-grokai-nc),
+[class*="layer"]:has(.vc-grokai-root) [class*="animator"],
+[class*="layer"]:has(.vc-grokai-nc) [class*="animator"],
+[class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
+[class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0,
+[class*="layer"]:has(.vc-grokai-root) [class*="focusLock"],
+[class*="layer"]:has(.vc-grokai-nc) [class*="focusLock"] {
+  animation-duration: var(--futuristic-modal-out) !important;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
+  transition-duration: var(--futuristic-modal-out) !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
+  transition-property: opacity !important;
+}
+
+.full-motion [class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
+.full-motion [class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+  transform: none !important;
 }
 
 .vc-grokai-root,
@@ -1447,7 +1486,21 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   .vc-grokai-tool.vc-grokai-running .vc-grokai-tool-dot,
   .vc-grokai-spinner,
   .wrapper_d852db,
-  .loadingCard_f369db {
+  .loadingCard_f369db,
+  [role="dialog"][class*="root"]:has(.vc-grokai-root),
+  [role="dialog"][class*="root"]:has(.vc-grokai-nc),
+  .root__49fc1:has(.vc-grokai-root),
+  .root__49fc1:has(.vc-grokai-nc) {
+    animation: none !important;
+  }
+
+  [class*="layer"]:has(.vc-grokai-root),
+  [class*="layer"]:has(.vc-grokai-nc),
+  [class*="layer"]:has(.vc-grokai-root) [class*="animator"],
+  [class*="layer"]:has(.vc-grokai-nc) [class*="animator"],
+  [class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
+  [class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+    transition: none !important;
     animation: none !important;
   }
 }

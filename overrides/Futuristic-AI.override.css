@@ -15,6 +15,19 @@
   --futuristic-ai-border: rgba(255, 255, 255, 0.085);
   --futuristic-ai-glow: 0 8px 24px -10px color-mix(in srgb, var(--futuristic-ai-accent) 26%, transparent);
   --futuristic-ai-ease: 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+  --futuristic-ai-modal-in: 0.13s cubic-bezier(0.22, 1, 0.36, 1);
+  --futuristic-ai-modal-out: 0.09s cubic-bezier(0.4, 0, 1, 1);
+}
+
+@keyframes futuristic-ai-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .theme-light {
@@ -37,6 +50,24 @@
   border: 1px solid var(--futuristic-ai-border) !important;
   border-radius: 20px !important;
   box-shadow: var(--futuristic-ai-glow);
+  transform-origin: center center;
+  animation: futuristic-ai-in var(--futuristic-ai-modal-in) backwards;
+}
+
+[class*="layer"]:has(.vc-grokai-root),
+[class*="layer"]:has(.vc-grokai-nc),
+[class*="layer"]:has(.vc-grokai-root) [class*="animator"],
+[class*="layer"]:has(.vc-grokai-nc) [class*="animator"],
+[class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
+[class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+  animation-duration: var(--futuristic-ai-modal-out) !important;
+  transition-duration: var(--futuristic-ai-modal-out) !important;
+  transition-property: opacity !important;
+}
+
+.full-motion [class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
+.full-motion [class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+  transform: none !important;
 }
 
 .vc-grokai-sidebar {
@@ -248,8 +279,11 @@
 @media (prefers-reduced-motion: reduce) {
   .vc-grokai-send,
   .vc-grokai-sl-btn,
-  .vc-grokai-thread {
+  .vc-grokai-thread,
+  [role="dialog"]:has(.vc-grokai-root),
+  [role="dialog"]:has(.vc-grokai-nc) {
     transition: none !important;
     transform: none !important;
+    animation: none !important;
   }
 }
