@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-2.2.5-7c5cff?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-2.2.6-7c5cff?style=flat-square">
   <img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-6b7280?style=flat-square">
   <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
 </p>
@@ -74,7 +74,7 @@ Or turn on a single icon, for example:
 ```css
 :root {
   --home-native: none;
-  --home-icon: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/home.svg");
+  --home-icon: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/home.svg");
 }
 ```
 
