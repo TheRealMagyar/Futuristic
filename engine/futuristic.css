@@ -353,13 +353,21 @@
 /* ==================== GLASS LAYER ==================== */
 /* classes: appMount / bg / layer / chatForm / sidebar / button */
 html,
-body,
-.appMount__51fd7,
-#app-mount {
+body {
   background-color: var(--futuristic-void);
 }
 
-/* One wallpaper layer only. Do not paint html/body/#app-mount — that is 3 extra full-screen decodes. */
+/* One live wallpaper surface. #app-mount always exists; .bg is bonus. */
+#app-mount,
+.appMount__51fd7 {
+  background-color: var(--futuristic-void);
+  background-image: var(--background-image);
+  background-position: var(--background-position);
+  background-size: var(--background-size);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
 .bg__960e4,
 .app_a3002d > [class^="bg__"] {
   background-color: transparent !important;

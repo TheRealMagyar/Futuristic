@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheRealMagyar
- * @version 2.2.6
+ * @version 2.2.7
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin.
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -44,11 +44,11 @@
   --background-size: cover;
   --background-attachment: scroll;
   --background-filter: none;
-  --futuristic-void-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg");
-  --futuristic-nebula-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/nebula.jpg");
-  --futuristic-ice-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/ice.jpg");
-  --futuristic-orbit-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/orbit.jpg");
-  --futuristic-aurora-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/aurora.jpg");
+  --futuristic-void-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
+  --futuristic-nebula-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/nebula.jpg");
+  --futuristic-ice-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/ice.jpg");
+  --futuristic-orbit-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/orbit.jpg");
+  --futuristic-aurora-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/aurora.jpg");
 
   /* User popout / modal (ignored for Nitro profiles) */
   --user-popout-image: var(--background-image);
@@ -116,12 +116,13 @@
 }
 */
 
-/* Wallpapers — uncomment ONE. Photos live in assets/. */
+/* Wallpapers — uncomment ONE. Photos live in assets/.
+   Discord blocks raw.githubusercontent.com inside CSS url(); jsDelivr serves the same GitHub files. */
 
 /* Void — abstract purple bokeh */
 /*
 :root {
-  --background-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg");
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
   --background-shading-percent: 40%;
 }
 */
@@ -129,7 +130,7 @@
 /* Nebula — violet dust, dark center */
 /*
 :root {
-  --background-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/nebula.jpg");
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/nebula.jpg");
   --background-shading-percent: 40%;
 }
 */
@@ -137,7 +138,7 @@
 /* Ice — cyan / teal nebula */
 /*
 :root {
-  --background-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/ice.jpg");
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/ice.jpg");
   --background-shading-percent: 42%;
 }
 */
@@ -145,7 +146,7 @@
 /* Orbit — ringed planet and moon */
 /*
 :root {
-  --background-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/orbit.jpg");
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/orbit.jpg");
   --background-shading-percent: 38%;
 }
 */
@@ -153,7 +154,7 @@
 /* Aurora — glass shards and ribbons */
 /*
 :root {
-  --background-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/aurora.jpg");
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/aurora.jpg");
   --background-shading-percent: 40%;
 }
 */
@@ -164,28 +165,28 @@
   --home-native: none;
   --icon-native: none;
   --icon-fill: currentColor;
-  --home-icon: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/home.svg");
-  --icon-discover: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/discover.svg");
-  --icon-add: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/add.svg");
-  --icon-settings: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/settings.svg");
-  --icon-inbox: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/inbox.svg");
-  --icon-help: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/help.svg");
-  --icon-nitro: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/nitro.svg");
-  --icon-shop: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/shop.svg");
-  --icon-gift: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/gift.svg");
-  --icon-emoji: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/emoji.svg");
-  --icon-gif: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/gif.svg");
-  --icon-sticker: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/sticker.svg");
-  --icon-search: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/search.svg");
-  --icon-pins: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/pins.svg");
-  --icon-threads: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/threads.svg");
-  --icon-members: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/members.svg");
-  --icon-call: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/call.svg");
-  --icon-video: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/video.svg");
-  --icon-mute: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/mute.svg");
-  --icon-deaf: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/deaf.svg");
-  --icon-send: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/send.svg");
-  --icon-ai: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/ai.svg");
+  --home-icon: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/home.svg");
+  --icon-discover: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/discover.svg");
+  --icon-add: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/add.svg");
+  --icon-settings: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/settings.svg");
+  --icon-inbox: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/inbox.svg");
+  --icon-help: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/help.svg");
+  --icon-nitro: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/nitro.svg");
+  --icon-shop: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/shop.svg");
+  --icon-gift: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/gift.svg");
+  --icon-emoji: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/emoji.svg");
+  --icon-gif: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/gif.svg");
+  --icon-sticker: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/sticker.svg");
+  --icon-search: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/search.svg");
+  --icon-pins: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/pins.svg");
+  --icon-threads: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/threads.svg");
+  --icon-members: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/members.svg");
+  --icon-call: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/call.svg");
+  --icon-video: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/video.svg");
+  --icon-mute: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/mute.svg");
+  --icon-deaf: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/deaf.svg");
+  --icon-send: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/send.svg");
+  --icon-ai: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/ai.svg");
 }
 */
 

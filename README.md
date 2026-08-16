@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-2.2.6-7c5cff?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-2.2.7-7c5cff?style=flat-square">
   <img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-6b7280?style=flat-square">
   <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
 </p>
@@ -53,6 +53,8 @@ Default is an accent-tinted void gradient. Uncomment **one** wallpaper block at 
 | Orbit | [`assets/orbit.jpg`](assets/orbit.jpg) | Ringed planet and moon |
 | Aurora | [`assets/aurora.jpg`](assets/aurora.jpg) | Glass shards and light ribbons |
 
+Wallpaper and icon `url()`s go through jsDelivr. Discord blocks `raw.githubusercontent.com` in CSS images; the files are still the ones in this repo.
+
 Or any HTTPS photo:
 
 ```css
@@ -74,7 +76,7 @@ Or turn on a single icon, for example:
 ```css
 :root {
   --home-native: none;
-  --home-icon: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/icons/home.svg");
+  --home-icon: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/home.svg");
 }
 ```
 
