@@ -4,7 +4,7 @@ Liquid-glass Discord theme for Vencord, Equicord, Vesktop, and BetterDiscord. De
 
 Source: [https://github.com/TheRealMagyar/Futuristic](https://github.com/TheRealMagyar/Futuristic)
 
-The engine CSS is loaded from this repository (`engine/main.css`, `engine/vencord.css`, `engine/betterdiscord.css`).
+`Futuristic.theme.css` is settings only (colors, wallpaper, fonts). The rest is loaded from this repository (`engine/main.css`, `engine/vencord.css`, `engine/betterdiscord.css`, `engine/futuristic.css`).
 
 ## Install
 
@@ -84,6 +84,6 @@ If Discord still stutters, add this under `:root` in `Futuristic.theme.css`:
 
 ## Notes
 
-- The first load needs internet (the engine is fetched from GitHub).
+- The first load needs internet (the engine is fetched from GitHub). One extra file (`engine/futuristic.css`) is not a runtime FPS cost.
 - Intended Discord appearance: **Dark / Darker / Midnight**.
 - Do not enable another full theme at the same time.
