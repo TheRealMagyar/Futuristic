@@ -298,27 +298,46 @@ body,
 }
 
 /*
- * Scrim around dialogs (AI window, etc.).
- * Discord paints this as solid black + element opacity, often on a hashed
- * backdrop node that is a sibling of the dialog — not the dialog itself.
+ * Area around the AI / Discord modal.
+ * Discord's dimmer is a hashed node with inline black + opacity, so class
+ * targeting keeps missing it. Frost the app layer behind the modal instead,
+ * and force every possible overlay node to a light glass fill.
  */
-[class*="layer"]:has([role="dialog"]) > :not(:has([role="dialog"])):not([role="dialog"]),
-[class*="layer"]:has(.vc-grokai-root) > :not(:has(.vc-grokai-root)):not(:has([role="dialog"])),
-[class*="layerContainer"] [class*="layer"]:has([role="dialog"]) > [class*="backdrop"],
-[class*="layer_"] > [class*="backdrop"],
+html:has(.vc-grokai-root) .baseLayer__960e4,
+html:has(.vc-grokai-nc) .baseLayer__960e4,
+html:has(.vc-grokai-root) [class*="baseLayer"],
+html:has(.vc-grokai-nc) [class*="baseLayer"] {
+  filter: blur(20px) saturate(1.25) brightness(0.72);
+}
+
+html:has(.vc-grokai-root) [class*="layer"]:has(.vc-grokai-root),
+html:has(.vc-grokai-nc) [class*="layer"]:has(.vc-grokai-nc),
+.layer_bc663c:has(.vc-grokai-root),
+.layer_bc663c:has(.vc-grokai-nc) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+html:has(.vc-grokai-root) [class*="backdrop"],
+html:has(.vc-grokai-nc) [class*="backdrop"],
+html:has(.vc-grokai-root) [class*="layer"] [style*="opacity"],
+html:has(.vc-grokai-nc) [class*="layer"] [style*="opacity"],
+[class*="layer"]:has(.vc-grokai-root) > :not(:has(.vc-grokai-root)):not([role="dialog"]),
+[class*="layer"]:has(.vc-grokai-nc) > :not(:has(.vc-grokai-nc)):not([role="dialog"]),
 .backdrop__78332,
 .withLayer__78332,
-.layer_bc663c > [class*="backdrop"] {
-  --black-500: rgba(6, 6, 10, 0.2);
-  --opacity-black-860: 1;
-  --opacity-black-800: 1;
-  --opacity-black-700: 1;
-  --bg-overlay-3: rgba(6, 6, 10, 0.2);
-  background: rgba(6, 6, 10, 0.22) !important;
-  background-color: rgba(6, 6, 10, 0.22) !important;
+dialog::backdrop,
+[role="dialog"]::backdrop {
+  --black-500: transparent;
+  --opacity-black-860: 0;
+  --opacity-black-800: 0;
+  --opacity-black-700: 0;
+  --bg-overlay-3: transparent;
+  background: rgba(6, 6, 10, 0.18) !important;
+  background-color: rgba(6, 6, 10, 0.18) !important;
   opacity: 1 !important;
-  backdrop-filter: blur(40px) saturate(1.6) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(1.6) !important;
+  backdrop-filter: blur(28px) saturate(1.45) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.45) !important;
 }
 
 .layer_da8173 [role="dialog"],
