@@ -1,24 +1,26 @@
 # Futuristic
 
-Liquid-glass Discord téma Vencord / Equicord / Vesktop / BetterDiscord-hoz. Mély sötét tónusok, frosted glass, és a [Vencord AI plugin](https://github.com/TheRealMagyar/Vencord-ai-plugin) (`vc-grokai-*`) teljesen a témához van igazítva.
+Liquid-glass Discord theme for Vencord, Equicord, Vesktop, and BetterDiscord. Deep dark tones, frosted glass, and a full restyle of the [Vencord AI plugin](https://github.com/TheRealMagyar/Vencord-ai-plugin) (`vc-grokai-*`).
 
-A motor CSS ebből a repóból töltődik (`engine/main.css`, `engine/vencord.css`, `engine/betterdiscord.css`).
+Source: [https://github.com/TheRealMagyar/Futuristic](https://github.com/TheRealMagyar/Futuristic)
 
-## Telepítés
+The engine CSS is loaded from this repository (`engine/main.css`, `engine/vencord.css`, `engine/betterdiscord.css`).
 
-1. Másold a `Futuristic.theme.css` fájlt a themes mappába:
+## Install
 
-   | Kliens | mappa |
+1. Copy `Futuristic.theme.css` into your themes folder:
+
+   | Client | Folder |
    | --- | --- |
    | Vencord (Windows) | `%appdata%\Vencord\themes` |
    | Equicord (Windows) | `%appdata%\Equicord\themes` |
    | Vesktop (Windows) | `%appdata%\vesktop\themes` |
    | Vencord / Equicord (macOS) | `~/Library/Application Support/Vencord/themes` |
    | Vesktop (macOS) | `~/Library/Application Support/vesktop/themes` |
-   | BetterDiscord | `%appdata%\BetterDiscord\themes` vagy `~/Library/Application Support/BetterDiscord/themes` |
+   | BetterDiscord | `%appdata%\BetterDiscord\themes` or `~/Library/Application Support/BetterDiscord/themes` |
 
-2. Discord → **Settings → Themes → Local Themes** → kapcsold be a **Futuristic**-et.
-3. Kapcsold ki a többi teljes témát, hogy ne ütközzenek.
+2. Discord → **Settings → Themes → Local Themes** → enable **Futuristic**.
+3. Disable any other full theme so they do not clash.
 
 Online import:
 
@@ -26,11 +28,11 @@ Online import:
 @import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/Futuristic.theme.css");
 ```
 
-## Háttérkép
+## Background
 
-Alapból egy accent-tinted void gradient.
+The default is an accent-tinted void gradient.
 
-Fotóhoz írd át a `:root` blokkban:
+To use a photo, set this in the `:root` block:
 
 ```css
 --background-image: url(https://example.com/your-image.jpg);
@@ -42,33 +44,29 @@ Repo wallpaper:
 --background-image: url(https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg);
 ```
 
-`--background-shading-percent` (alap `64%`): kisebb szám = több háttér látszik a glass mögött.
+`--background-shading-percent` (default `64%`): a lower value shows more of the wallpaper through the glass.
 
-## Színvariánsok
+## Color variants
 
-A témafájl tetején, a `:root` után, kommentezd ki **egyet**:
+In `Futuristic.theme.css`, uncomment **one** block after `:root`:
 
-| Variáns | accent |
+| Variant | Accent |
 | --- | --- |
-| Violet (alap) | `#7c5cff` |
+| Violet (default) | `#7c5cff` |
 | Cyan | `#22d3ee` |
 | Emerald | `#34d399` |
 | Rose | `#fb7185` |
 | Amber | `#f59e0b` |
-| Pure black | világos szürke accent, laposabb void |
+| Pure black | light gray accent, flatter void |
 
-Vagy írd át a `--main-color` / `--hover-color` sorokat.
+Or edit `--main-color` and `--hover-color` directly.
 
-## Csak az AI plugin
+## AI plugin only
 
-Ha meg akarod tartani egy másik témádat, és csak a plugin kinézetét akarod:
+If you want to keep another theme and only restyle the AI plugin, paste [`overrides/Futuristic-AI.override.css`](overrides/Futuristic-AI.override.css) into Vencord → Settings → **QuickCSS**.
 
-másold be: [`overrides/Futuristic-AI.override.css`](overrides/Futuristic-AI.override.css)
+## Notes
 
-Vencord → Settings → **QuickCSS**.
-
-## Fontos
-
-- Internet kell az első betöltéshez (a motor a GitHubról jön).
-- Discord Appearance-ben **Dark / Darker / Midnight** a szándékolt.
-- Ne kapcsold be egyszerre egy másik teljes témát.
+- The first load needs internet (the engine is fetched from GitHub).
+- Intended Discord appearance: **Dark / Darker / Midnight**.
+- Do not enable another full theme at the same time.

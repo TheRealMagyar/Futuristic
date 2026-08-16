@@ -36,7 +36,7 @@
      Must be ONE layer (url or a single gradient). The engine applies:
      background: var(--background-image) center / cover no-repeat;
      Photo: --background-image: url(https://…);
-     Repo wallpaper after push: url(https://raw.githubusercontent.com/<you>/Futuristic/main/assets/futuristic-void.jpg) */
+     Wallpaper: url(https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg) */
   --background-shading-percent: 64%; /* 0 = wallpaper fully visible */
   --background-image: radial-gradient(
     1400px 920px at 16% -8%,
@@ -67,14 +67,14 @@
     saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8);
 
   /* HOME ICON */
-  --home-icon: url(https://clearvision.github.io/icons/discord.svg);
+  --home-icon: url(https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/home.svg);
   --home-size: cover;
 
   /* FONTS */
   --main-font: "gg sans", "Inter", "Segoe UI", system-ui, sans-serif;
   --code-font: "JetBrains Mono", "Fira Code", "gg mono", Consolas, monospace;
 
-  /* CHANNEL COLORS — selected bg is the sliding fill in src/theme/sidebar/_channels.scss */
+  /* CHANNEL COLORS */
   --channel-normal: var(--interactive-text-default);
   --channel-muted: var(--interactive-muted);
   --channel-hover: var(--interactive-text-hover);
