@@ -820,14 +820,25 @@ dialog::backdrop,
 [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc),
 [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root):is([role="dialog"]),
 [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc):is([role="dialog"]) {
-  background: var(--futuristic-glass-strong) !important;
-  background-color: var(--futuristic-glass-strong) !important;
+  background: rgba(12, 12, 18, 0.97) !important;
+  background-color: rgba(12, 12, 18, 0.97) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: 1px solid var(--futuristic-border) !important;
   border-radius: 16px !important;
   box-shadow: var(--futuristic-glow) !important;
   overflow: hidden;
+}
+
+:is(.theme-light, .theme-dark .theme-light)
+  .root__49fc1:has(.vc-grokai-root),
+:is(.theme-light, .theme-dark .theme-light) .root__49fc1:has(.vc-grokai-nc),
+:is(.theme-light, .theme-dark .theme-light)
+  [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root),
+:is(.theme-light, .theme-dark .theme-light)
+  [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
+  background: rgba(248, 248, 252, 0.97) !important;
+  background-color: rgba(248, 248, 252, 0.97) !important;
 }
 
 .root__49fc1:has(.vc-grokai-root) > [class*="header"],
@@ -850,7 +861,7 @@ dialog::backdrop,
 /* Fallback if header + body are siblings under a transparent wrapper */
 [role="dialog"]:has(.vc-grokai-root):not([class*="root"]) > [class*="header"],
 [role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="header"] {
-  background: var(--futuristic-glass-strong) !important;
+  background: rgba(12, 12, 18, 0.97) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: 1px solid var(--futuristic-border) !important;
@@ -863,7 +874,7 @@ dialog::backdrop,
 [role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="header"] + *,
 [role="dialog"]:has(.vc-grokai-root):not([class*="root"]) > [class*="content"],
 [role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="content"] {
-  background: var(--futuristic-glass-strong) !important;
+  background: rgba(12, 12, 18, 0.97) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: 1px solid var(--futuristic-border) !important;
