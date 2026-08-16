@@ -1,14 +1,71 @@
-# Futuristic
+<p align="center">
+  <img src="assets/nebula.jpg" alt="Futuristic nebula wallpaper" width="100%">
+</p>
 
-Liquid-glass Discord theme for Vencord, Equicord, Vesktop, and BetterDiscord. Deep dark tones, frosted glass, and a full restyle of the [Vencord AI plugin](https://github.com/TheRealMagyar/Vencord-ai-plugin) (`vc-grokai-*`).
+<h1 align="center">Futuristic</h1>
 
-Source: [https://github.com/TheRealMagyar/Futuristic](https://github.com/TheRealMagyar/Futuristic)
+<p align="center">
+  Liquid-glass Discord theme — deep void, frosted chrome,<br>
+  and a full restyle of the <a href="https://github.com/TheRealMagyar/Vencord-ai-plugin">Vencord AI plugin</a>.
+</p>
 
-`Futuristic.theme.css` is settings only (colors, wallpaper, fonts). The rest is loaded from this repository (`engine/main.css`, `engine/vencord.css`, `engine/betterdiscord.css`, `engine/futuristic.css`).
+<p align="center">
+  <img alt="version" src="https://img.shields.io/badge/version-2.2.3-7c5cff?style=flat-square">
+  <img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-6b7280?style=flat-square">
+  <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
+</p>
+
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#wallpapers">Wallpapers</a> ·
+  <a href="#colors">Colors</a> ·
+  <a href="#settings">Settings</a>
+</p>
+
+`Futuristic.theme.css` is **settings only** — colors, wallpaper, fonts. Glass, AI chrome, and motion live in `engine/` and load from this repo.
+
+Intended appearance: **Dark / Darker / Midnight**. Enable only this theme.
+
+---
+
+## Wallpapers
+
+Default is an accent-tinted void gradient. Uncomment **one** wallpaper block at the bottom of `Futuristic.theme.css`.
+
+<p align="center">
+  <img src="assets/futuristic-void.jpg" alt="Void" width="49%">
+  <img src="assets/nebula.jpg" alt="Nebula" width="49%">
+</p>
+<p align="center"><sub>Void · Nebula</sub></p>
+
+<p align="center">
+  <img src="assets/ice.jpg" alt="Ice" width="32%">
+  <img src="assets/orbit.jpg" alt="Orbit" width="32%">
+  <img src="assets/aurora.jpg" alt="Aurora" width="32%">
+</p>
+<p align="center"><sub>Ice · Orbit · Aurora</sub></p>
+
+| Name | File | Look |
+| --- | --- | --- |
+| Void | [`assets/futuristic-void.jpg`](assets/futuristic-void.jpg) | Abstract purple bokeh |
+| Nebula | [`assets/nebula.jpg`](assets/nebula.jpg) | Violet dust, dark center |
+| Ice | [`assets/ice.jpg`](assets/ice.jpg) | Cyan / teal nebula |
+| Orbit | [`assets/orbit.jpg`](assets/orbit.jpg) | Ringed planet and moon |
+| Aurora | [`assets/aurora.jpg`](assets/aurora.jpg) | Glass shards and light ribbons |
+
+Or any HTTPS photo:
+
+```css
+--background-image: url("https://example.com/your-image.jpg");
+```
+
+`--background-shading-percent` (default `64%`): lower shows more of the photo through the glass. Wallpaper blocks already drop this to ~40%.
+
+---
 
 ## Install
 
-1. Copy `Futuristic.theme.css` into your themes folder:
+1. Copy [`Futuristic.theme.css`](Futuristic.theme.css) into your themes folder:
 
    | Client | Folder |
    | --- | --- |
@@ -17,10 +74,10 @@ Source: [https://github.com/TheRealMagyar/Futuristic](https://github.com/TheReal
    | Vesktop (Windows) | `%appdata%\vesktop\themes` |
    | Vencord / Equicord (macOS) | `~/Library/Application Support/Vencord/themes` |
    | Vesktop (macOS) | `~/Library/Application Support/vesktop/themes` |
-   | BetterDiscord | `%appdata%\BetterDiscord\themes` or `~/Library/Application Support/BetterDiscord/themes` |
+   | BetterDiscord | `%appdata%\BetterDiscord\themes` |
 
 2. Discord → **Settings → Themes → Local Themes** → enable **Futuristic**.
-3. Disable any other full theme so they do not clash.
+3. Turn off any other full theme so they do not clash.
 
 Online import:
 
@@ -28,52 +85,54 @@ Online import:
 @import url("https://github.com/TheRealMagyar/Futuristic/raw/main/Futuristic.theme.css");
 ```
 
-## Background
+First load needs internet. The engine is fetched from GitHub.
 
-The default is an accent-tinted void gradient.
+---
 
-Uncomment **one** wallpaper block in `Futuristic.theme.css`:
+## Colors
 
-| Wallpaper | File | Look |
+Uncomment **one** accent block in `Futuristic.theme.css`, or edit `--main-color` / `--hover-color`.
+
+| Variant | Accent | Hover |
 | --- | --- | --- |
-| Void | `assets/futuristic-void.jpg` | Abstract purple bokeh |
-| Nebula | `assets/nebula.jpg` | Violet dust, dark center |
-| Ice | `assets/ice.jpg` | Cyan / teal nebula |
-| Orbit | `assets/orbit.jpg` | Ringed planet and moon |
-| Aurora | `assets/aurora.jpg` | Glass shards and light ribbons |
+| Violet (default) | `#7c5cff` | `#9b82ff` |
+| Cyan | `#22d3ee` | `#67e8f9` |
+| Emerald | `#34d399` | `#6ee7b7` |
+| Rose | `#fb7185` | `#fda4af` |
+| Amber | `#f59e0b` | `#fbbf24` |
+| Pure black | `#e5e7eb` | `#ffffff` |
 
-Or any photo:
+Status colors (`--online-color`, `--idle-color`, `--dnd-color`, …) sit in the same `:root` block.
 
-```css
---background-image: url(https://example.com/your-image.jpg);
-```
+---
 
-`--background-shading-percent` (default `64%`): a lower value shows more of the wallpaper through the glass.
+## Settings
 
-## Color variants
+Everything users change is in [`Futuristic.theme.css`](Futuristic.theme.css).
 
-In `Futuristic.theme.css`, uncomment **one** block after `:root`:
-
-| Variant | Accent |
+| Token | What it does |
 | --- | --- |
-| Violet (default) | `#7c5cff` |
-| Cyan | `#22d3ee` |
-| Emerald | `#34d399` |
-| Rose | `#fb7185` |
-| Amber | `#f59e0b` |
-| Pure black | light gray accent, flatter void |
+| `--main-color` / `--hover-color` | Accent |
+| `--background-image` | Gradient or `url(...)` |
+| `--background-shading-percent` | How much glass sits on the wallpaper |
+| `--background-filter` | Saturate / brightness on photo wallpapers |
+| `--user-popout-filter` / `--user-modal-filter` | Frost on profile popout / modal |
+| `--main-font` / `--code-font` | UI and code (must be installed, except Orbitron) |
+| `--futuristic-overlay-filter` | Menu frost — set to `none` if Discord stutters |
 
-Or edit `--main-color` and `--hover-color` directly.
+---
 
 ## AI plugin only
 
-If you want to keep another theme and only restyle the AI plugin, paste [`overrides/Futuristic-AI.override.css`](overrides/Futuristic-AI.override.css) into Vencord → Settings → **QuickCSS**.
+Keep another theme and only restyle the AI windows: paste [`overrides/Futuristic-AI.override.css`](overrides/Futuristic-AI.override.css) into Vencord → Settings → **QuickCSS**.
+
+---
 
 ## Performance
 
-Chat, the channel list, and plugin cards no longer run live `backdrop-filter` blur. Menus still frost.
+Chat, the channel list, and plugin cards do not run live `backdrop-filter`. Menus still frost.
 
-If Discord still stutters, add this under `:root` in `Futuristic.theme.css`:
+If Discord stutters, add this under `:root`:
 
 ```css
 --futuristic-overlay-filter: none;
@@ -81,8 +140,8 @@ If Discord still stutters, add this under `:root` in `Futuristic.theme.css`:
 --user-modal-filter: none;
 ```
 
-## Notes
+---
 
-- The first load needs internet (the engine is fetched from GitHub). One extra file (`engine/futuristic.css`) is not a runtime FPS cost.
-- Intended Discord appearance: **Dark / Darker / Midnight**.
-- Do not enable another full theme at the same time.
+## License
+
+Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
