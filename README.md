@@ -47,9 +47,14 @@ Enable **only this theme**. Another full theme on top will clash.
 ## Screenshots
 
 <p align="center">
-  <img src="assets/screenshots/server.png" alt="Chat" width="100%">
+  <img src="assets/screenshots/basic.png" alt="Default chat" width="100%">
 </p>
-<p align="center"><sub>Chat</sub></p>
+<p align="center"><sub>Default</sub></p>
+
+<p align="center">
+  <img src="assets/screenshots/server.png" alt="Chat with wallpaper" width="100%">
+</p>
+<p align="center"><sub>Wallpaper</sub></p>
 
 <p align="center">
   <img src="assets/screenshots/server2.png" alt="AI plugin over chat" width="100%">
