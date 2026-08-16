@@ -488,7 +488,29 @@ dialog::backdrop,
   box-shadow: var(--futuristic-glow);
 }
 
-/* Server-rail hover labels — Apple liquid glass */
+/*
+ * Server-rail hover labels — baked liquid glass, first frame complete.
+ * Live backdrop-filter + Discord's slide/fade (translate_/animator_)
+ * paint in two passes: fill first, blur/highlight later. No live blur
+ * on these short-lived pills; the gradient already looks like glass.
+ */
+.full-motion .translate_faf9c0,
+.full-motion [class*="animator"].translate_faf9c0,
+.full-motion [class*="animatorLeft"],
+.full-motion [class*="animatorRight"],
+.full-motion [class*="animatorTop"],
+.full-motion [class*="animatorBottom"],
+.tooltipDisablePointerEvents_c36707,
+[class*="tooltipDisablePointerEvents"] {
+  animation: none !important;
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: unset !important;
+}
+
 [role="tooltip"],
 [class*="tooltipPrimary"],
 [class*="listItemTooltip"],
@@ -497,26 +519,84 @@ dialog::backdrop,
 .dialogWrapper_b1f768,
 .tooltip_c36707,
 .tooltipPrimary_c36707 {
-  background: var(--futuristic-liquid) !important;
-  background-color: var(--futuristic-liquid) !important;
-  backdrop-filter: blur(40px) saturate(2.1) brightness(1.1) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(2.1) brightness(1.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  background:
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.06) 34%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    rgba(30, 30, 38, 0.94) !important;
+  background-color: rgba(30, 30, 38, 0.94) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 10px !important;
   color: #f5f5f7 !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.32),
-    0 12px 36px rgba(0, 0, 0, 0.4) !important;
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 10px 28px rgba(0, 0, 0, 0.42) !important;
+  animation: none !important;
+  animation-duration: 0s !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+@starting-style {
+  [role="tooltip"],
+  [class*="tooltipPrimary"],
+  [class*="listItemTooltip"],
+  .dialogWrapper_b1f768,
+  .tooltip_c36707,
+  .tooltipPrimary_c36707,
+  .tooltipDisablePointerEvents_c36707,
+  .full-motion .translate_faf9c0 {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+:is(.theme-light, .theme-dark .theme-light) [role="tooltip"],
+:is(.theme-light, .theme-dark .theme-light) [class*="tooltipPrimary"],
+:is(.theme-light, .theme-dark .theme-light) [class*="listItemTooltip"],
+:is(.theme-light, .theme-dark .theme-light) .dialogWrapper_b1f768,
+:is(.theme-light, .theme-dark .theme-light) .tooltip_c36707,
+:is(.theme-light, .theme-dark .theme-light) .tooltipPrimary_c36707 {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(244, 244, 248, 0.94) 100%
+    ) !important;
+  background-color: rgba(244, 244, 248, 0.94) !important;
+  color: #1c1c24 !important;
+  border-color: rgba(20, 20, 30, 0.1) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 10px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 [role="tooltip"] [class*="tooltipContent"],
 .tooltipContent_c36707 {
   background: transparent !important;
-  color: #f5f5f7 !important;
+  color: inherit !important;
+  animation: none !important;
+  transition: none !important;
 }
 
+[class*="tooltipPointer"],
 .tooltipPointer_c36707,
-[class*="listItemTooltip"] [class*="tooltipPointer"] {
+[class*="tooltipPointer"]::before,
+[class*="tooltipPointer"]::after {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 /* Chat input: one surface, no stacked rings */
