@@ -455,8 +455,8 @@ html:has(.vc-grokai-nc) [class*="focusLock"],
 
 html:has(.vc-grokai-root) [class*="backdrop"],
 html:has(.vc-grokai-nc) [class*="backdrop"],
-html:has(.vc-grokai-root) [class*="layer"] [style*="opacity"],
-html:has(.vc-grokai-nc) [class*="layer"] [style*="opacity"],
+html:has(.vc-grokai-root) [class*="layer"] > [class*="backdrop"][style*="opacity"],
+html:has(.vc-grokai-nc) [class*="layer"] > [class*="backdrop"][style*="opacity"],
 [class*="layer"]:has(.vc-grokai-root)
   > :not(:has(.vc-grokai-root)):not([role="dialog"]),
 [class*="layer"]:has(.vc-grokai-nc)
@@ -812,33 +812,40 @@ dialog::backdrop,
  * One window: Discord ModalRoot wraps title + close + body.
  * Same fill as the inner panels — no Apple liquid glass.
  */
-.root__49fc1:has(.vc-grokai-root),
-.root__49fc1:has(.vc-grokai-nc),
-.container__8a031:has(.vc-grokai-root),
-.container__8a031:has(.vc-grokai-nc),
-[class*="root"]:has(> [class*="header"]):has(.vc-grokai-root),
-[class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc),
-[class*="root"]:has(> [class*="header"]):has(.vc-grokai-root):is([role="dialog"]),
-[class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc):is([role="dialog"]) {
-  background: rgba(12, 12, 18, 0.97) !important;
-  background-color: rgba(12, 12, 18, 0.97) !important;
+html:has(.vc-grokai-root) [role="dialog"][class*="root"],
+html:has(.vc-grokai-nc) [role="dialog"][class*="root"],
+html .root__49fc1:has(.vc-grokai-root),
+html .root__49fc1:has(.vc-grokai-nc),
+html .container__8a031:has(.vc-grokai-root),
+html .container__8a031:has(.vc-grokai-nc),
+html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root),
+html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
+  --modal-background: #0c0c12;
+  --modal-shading: #0c0c12;
+  --hsl-modal-shading: #0c0c12;
+  background: #0c0c12 !important;
+  background-color: #0c0c12 !important;
+  background-image: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: 1px solid var(--futuristic-border) !important;
   border-radius: 16px !important;
   box-shadow: var(--futuristic-glow) !important;
+  opacity: 1 !important;
   overflow: hidden;
 }
 
 :is(.theme-light, .theme-dark .theme-light)
-  .root__49fc1:has(.vc-grokai-root),
-:is(.theme-light, .theme-dark .theme-light) .root__49fc1:has(.vc-grokai-nc),
+  [role="dialog"][class*="root"]:has(.vc-grokai-root),
 :is(.theme-light, .theme-dark .theme-light)
-  [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root),
-:is(.theme-light, .theme-dark .theme-light)
-  [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
-  background: rgba(248, 248, 252, 0.97) !important;
-  background-color: rgba(248, 248, 252, 0.97) !important;
+  [role="dialog"][class*="root"]:has(.vc-grokai-nc),
+:is(.theme-light, .theme-dark .theme-light) .root__49fc1:has(.vc-grokai-root),
+:is(.theme-light, .theme-dark .theme-light) .root__49fc1:has(.vc-grokai-nc) {
+  --modal-background: #f4f4f8;
+  --modal-shading: #f4f4f8;
+  --hsl-modal-shading: #f4f4f8;
+  background: #f4f4f8 !important;
+  background-color: #f4f4f8 !important;
 }
 
 .root__49fc1:has(.vc-grokai-root) > [class*="header"],
@@ -861,7 +868,7 @@ dialog::backdrop,
 /* Fallback if header + body are siblings under a transparent wrapper */
 [role="dialog"]:has(.vc-grokai-root):not([class*="root"]) > [class*="header"],
 [role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="header"] {
-  background: rgba(12, 12, 18, 0.97) !important;
+  background: #0c0c12 !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: 1px solid var(--futuristic-border) !important;
@@ -874,7 +881,7 @@ dialog::backdrop,
 [role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="header"] + *,
 [role="dialog"]:has(.vc-grokai-root):not([class*="root"]) > [class*="content"],
 [role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="content"] {
-  background: rgba(12, 12, 18, 0.97) !important;
+  background: #0c0c12 !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: 1px solid var(--futuristic-border) !important;
