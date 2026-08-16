@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheRealMagyar
- * @version 2.2.1
+ * @version 2.2.2
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin.
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -44,7 +44,7 @@
   --background-size: cover;
   --background-attachment: scroll;
   --background-filter: none;
-  --futuristic-void-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg");
+  --futuristic-void-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
 
   /* User popout / modal (ignored for Nitro profiles) */
   --user-popout-image: var(--background-image);
@@ -115,8 +115,9 @@
 /* Void photo — assets/futuristic-void.jpg */
 /*
 :root {
-  --background-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg");
-  --background-shading-percent: 52%;
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
+  --background-shading-percent: 40%;
+  --background-attachment: fixed;
   --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12)) brightness(0.88) contrast(1.04);
 }
 */

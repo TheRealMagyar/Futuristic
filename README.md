@@ -36,8 +36,9 @@ To use the repo wallpaper (`assets/futuristic-void.jpg`), uncomment the **Void p
 
 ```css
 :root {
-  --background-image: url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg");
-  --background-shading-percent: 52%;
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
+  --background-shading-percent: 40%;
+  --background-attachment: fixed;
   --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12))
     brightness(0.88) contrast(1.04);
 }

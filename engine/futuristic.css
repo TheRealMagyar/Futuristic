@@ -333,8 +333,27 @@
 /* classes: appMount / bg / layer / chatForm / sidebar / button */
 html,
 body,
-.appMount__51fd7 {
+.appMount__51fd7,
+#app-mount {
   background-color: var(--futuristic-void);
+  background-image: var(--background-image);
+  background-position: var(--background-position);
+  background-size: var(--background-size);
+  background-repeat: no-repeat;
+  background-attachment: var(--background-attachment);
+}
+
+/* Engine paints .bg__960e4; hashes change. Longhand so url() in a custom prop works. */
+.bg__960e4,
+[class*="app"] > [class^="bg_"],
+#app-mount [class^="bg_"] {
+  background-color: transparent !important;
+  background-image: var(--background-image) !important;
+  background-position: var(--background-position) !important;
+  background-size: var(--background-size) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: var(--background-attachment) !important;
+  filter: var(--background-filter);
 }
 
 /*
