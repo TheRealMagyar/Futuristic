@@ -46,30 +46,20 @@ Enable **only this theme**. Another full theme on top will clash.
 
 ## Screenshots
 
-Drop three Discord captures in [`assets/screenshots/`](assets/screenshots/) using these names. GitHub will show them here.
-
 <p align="center">
-  <img src="assets/screenshots/01-chat.png" alt="Chat" width="100%">
+  <img src="assets/screenshots/server.png" alt="Chat" width="100%">
 </p>
 <p align="center"><sub>Chat</sub></p>
 
 <p align="center">
-  <img src="assets/screenshots/02-server.png" alt="Servers and channels" width="100%">
-</p>
-<p align="center"><sub>Servers and channels</sub></p>
-
-<p align="center">
-  <img src="assets/screenshots/03-ai.png" alt="AI plugin" width="100%">
+  <img src="assets/screenshots/server2.png" alt="AI plugin over chat" width="100%">
 </p>
 <p align="center"><sub>AI plugin</sub></p>
 
-| # | File | Show |
-| --- | --- | --- |
-| 1 | [`assets/screenshots/01-chat.png`](assets/screenshots/01-chat.png) | Chat |
-| 2 | [`assets/screenshots/02-server.png`](assets/screenshots/02-server.png) | Servers and channels |
-| 3 | [`assets/screenshots/03-ai.png`](assets/screenshots/03-ai.png) | AI plugin |
-
-PNG or JPG is fine if you keep the file name (or change the `src` above). Wide 16:9 reads best.
+<p align="center">
+  <img src="assets/screenshots/AI-plugin.png" alt="AI conversation" width="100%">
+</p>
+<p align="center"><sub>AI conversation</sub></p>
 
 ---
 
