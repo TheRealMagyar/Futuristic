@@ -438,17 +438,16 @@ body,
 }
 
 /*
- * AI / Discord modal: role=dialog is often the FULL VIEWPORT wrapper.
- * Painting it (or the layer) hid Discord behind the theme fill.
- * Keep the overlay empty so chat stays visible; glass only on the card.
+ * Overlay only — layer / focusLock / backdrop. Do not clear the
+ * modal root: that node is the window (title + close + body).
  */
 html:has(.vc-grokai-root) [class*="layer"]:has(.vc-grokai-root),
 html:has(.vc-grokai-nc) [class*="layer"]:has(.vc-grokai-nc),
 html:has(.vc-grokai-root) [class*="focusLock"],
 html:has(.vc-grokai-nc) [class*="focusLock"],
 .layer_bc663c,
-[role="dialog"]:has(.vc-grokai-root),
-[role="dialog"]:has(.vc-grokai-nc) {
+[role="dialog"]:has(.vc-grokai-root):not([class*="root"]),
+[role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -488,7 +487,29 @@ dialog::backdrop,
   box-shadow: var(--futuristic-glow);
 }
 
-/* Server-rail hover labels — Apple liquid glass */
+/*
+ * Server-rail hover labels — complete on the first frame.
+ * Live backdrop-filter waits for Discord's slide, so the pill used
+ * to fill in two steps. Baked gradient; only tooltip layers snap in.
+ */
+.full-motion .translate_faf9c0:has([role="tooltip"]),
+.full-motion .translate_faf9c0:has([class*="tooltipPrimary"]),
+.full-motion .translate_faf9c0:has([class*="listItemTooltip"]),
+.full-motion .translate_faf9c0:has(.dialogWrapper_b1f768),
+.full-motion [class*="animator"]:has([role="tooltip"]),
+.full-motion [class*="animator"]:has([class*="tooltipPrimary"]),
+.full-motion [class*="animator"]:has([class*="listItemTooltip"]),
+.tooltipDisablePointerEvents_c36707,
+[class*="tooltipDisablePointerEvents"] {
+  animation: none !important;
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: unset !important;
+}
+
 [role="tooltip"],
 [class*="tooltipPrimary"],
 [class*="listItemTooltip"],
@@ -497,26 +518,84 @@ dialog::backdrop,
 .dialogWrapper_b1f768,
 .tooltip_c36707,
 .tooltipPrimary_c36707 {
-  background: var(--futuristic-liquid) !important;
-  background-color: var(--futuristic-liquid) !important;
-  backdrop-filter: blur(40px) saturate(2.1) brightness(1.1) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(2.1) brightness(1.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  background:
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.06) 34%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    rgba(30, 30, 38, 0.94) !important;
+  background-color: rgba(30, 30, 38, 0.94) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 10px !important;
   color: #f5f5f7 !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.32),
-    0 12px 36px rgba(0, 0, 0, 0.4) !important;
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 10px 28px rgba(0, 0, 0, 0.42) !important;
+  animation: none !important;
+  animation-duration: 0s !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+@starting-style {
+  [role="tooltip"],
+  [class*="tooltipPrimary"],
+  [class*="listItemTooltip"],
+  .dialogWrapper_b1f768,
+  .tooltip_c36707,
+  .tooltipPrimary_c36707,
+  .tooltipDisablePointerEvents_c36707,
+  .full-motion .translate_faf9c0:has([role="tooltip"]) {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+:is(.theme-light, .theme-dark .theme-light) [role="tooltip"],
+:is(.theme-light, .theme-dark .theme-light) [class*="tooltipPrimary"],
+:is(.theme-light, .theme-dark .theme-light) [class*="listItemTooltip"],
+:is(.theme-light, .theme-dark .theme-light) .dialogWrapper_b1f768,
+:is(.theme-light, .theme-dark .theme-light) .tooltip_c36707,
+:is(.theme-light, .theme-dark .theme-light) .tooltipPrimary_c36707 {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(244, 244, 248, 0.94) 100%
+    ) !important;
+  background-color: rgba(244, 244, 248, 0.94) !important;
+  color: #1c1c24 !important;
+  border-color: rgba(20, 20, 30, 0.1) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 10px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 [role="tooltip"] [class*="tooltipContent"],
 .tooltipContent_c36707 {
   background: transparent !important;
-  color: #f5f5f7 !important;
+  color: inherit !important;
+  animation: none !important;
+  transition: none !important;
 }
 
+[class*="tooltipPointer"],
 .tooltipPointer_c36707,
-[class*="listItemTooltip"] [class*="tooltipPointer"] {
+[class*="tooltipPointer"]::before,
+[class*="tooltipPointer"]::after {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 /* Chat input: one surface, no stacked rings */
@@ -730,16 +809,17 @@ dialog::backdrop,
 }
 
 /*
- * One window card around title + body + close. Same fill as the
- * inner panels — not the Apple liquid glass used on hover labels.
- * Never paint [role=dialog] itself (that node is often the viewport).
+ * One window: Discord ModalRoot wraps title + close + body.
+ * Same fill as the inner panels — no Apple liquid glass.
  */
-.root__49fc1:has(.vc-grokai-root):not([role="dialog"]),
-.root__49fc1:has(.vc-grokai-nc):not([role="dialog"]),
-[role="dialog"]:has(.vc-grokai-root) > :only-child,
-[role="dialog"]:has(.vc-grokai-nc) > :only-child,
-[role="dialog"]:has(.vc-grokai-root) [class*="focusLock"] > :only-child,
-[role="dialog"]:has(.vc-grokai-nc) [class*="focusLock"] > :only-child {
+.root__49fc1:has(.vc-grokai-root),
+.root__49fc1:has(.vc-grokai-nc),
+.container__8a031:has(.vc-grokai-root),
+.container__8a031:has(.vc-grokai-nc),
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-root),
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc),
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-root):is([role="dialog"]),
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc):is([role="dialog"]) {
   background: var(--futuristic-glass-strong) !important;
   background-color: var(--futuristic-glass-strong) !important;
   backdrop-filter: none !important;
@@ -750,12 +830,16 @@ dialog::backdrop,
   overflow: hidden;
 }
 
-[role="dialog"]:has(.vc-grokai-root) > :only-child .header__49fc1,
-[role="dialog"]:has(.vc-grokai-nc) > :only-child .header__49fc1,
-[role="dialog"]:has(.vc-grokai-root) > :only-child [class^="header_"],
-[role="dialog"]:has(.vc-grokai-nc) > :only-child [class^="header_"],
-.root__49fc1:has(.vc-grokai-root):not([role="dialog"]) .header__49fc1,
-.root__49fc1:has(.vc-grokai-nc):not([role="dialog"]) .header__49fc1 {
+.root__49fc1:has(.vc-grokai-root) > [class*="header"],
+.root__49fc1:has(.vc-grokai-nc) > [class*="header"],
+.root__49fc1:has(.vc-grokai-root) > [class*="content"],
+.root__49fc1:has(.vc-grokai-nc) > [class*="content"],
+.root__49fc1:has(.vc-grokai-root) > [class*="footer"],
+.root__49fc1:has(.vc-grokai-nc) > [class*="footer"],
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-root) > [class*="header"],
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) > [class*="header"],
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-root) > [class*="content"],
+[class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) > [class*="content"] {
   background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -763,10 +847,9 @@ dialog::backdrop,
   box-shadow: none !important;
 }
 
-[role="dialog"]:has(.vc-grokai-root) > .header__49fc1,
-[role="dialog"]:has(.vc-grokai-nc) > .header__49fc1,
-[role="dialog"]:has(.vc-grokai-root) > [class^="header_"],
-[role="dialog"]:has(.vc-grokai-nc) > [class^="header_"] {
+/* Fallback if header + body are siblings under a transparent wrapper */
+[role="dialog"]:has(.vc-grokai-root):not([class*="root"]) > [class*="header"],
+[role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="header"] {
   background: var(--futuristic-glass-strong) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -776,12 +859,10 @@ dialog::backdrop,
   box-shadow: none !important;
 }
 
-[role="dialog"]:has(.vc-grokai-root) > .header__49fc1 + *,
-[role="dialog"]:has(.vc-grokai-nc) > .header__49fc1 + *,
-[role="dialog"]:has(.vc-grokai-root) > [class^="header_"] + *,
-[role="dialog"]:has(.vc-grokai-nc) > [class^="header_"] + *,
-[role="dialog"]:has(.vc-grokai-root) > .content__49fc1,
-[role="dialog"]:has(.vc-grokai-nc) > .content__49fc1 {
+[role="dialog"]:has(.vc-grokai-root):not([class*="root"]) > [class*="header"] + *,
+[role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="header"] + *,
+[role="dialog"]:has(.vc-grokai-root):not([class*="root"]) > [class*="content"],
+[role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) > [class*="content"] {
   background: var(--futuristic-glass-strong) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -791,10 +872,8 @@ dialog::backdrop,
   box-shadow: none !important;
 }
 
-[role="dialog"]:has(.vc-grokai-root) .close__49fc1,
-[role="dialog"]:has(.vc-grokai-nc) .close__49fc1,
-[role="dialog"]:has(.vc-grokai-root) .closeWithCircleBackground__49fc1,
-[role="dialog"]:has(.vc-grokai-nc) .closeWithCircleBackground__49fc1,
+[role="dialog"]:has(.vc-grokai-root) [class*="close"],
+[role="dialog"]:has(.vc-grokai-nc) [class*="close"],
 [role="dialog"]:has(.vc-grokai-root) button[aria-label*="lose"],
 [role="dialog"]:has(.vc-grokai-nc) button[aria-label*="lose"] {
   border-radius: 8px !important;
