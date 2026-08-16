@@ -82,8 +82,8 @@
   /* FUTURISTIC TOKENS */
   --futuristic-void: #06060a;
   --futuristic-ink: #0c0c12;
-  --futuristic-glass: rgba(14, 14, 20, 0.48);
-  --futuristic-glass-strong: rgba(10, 10, 16, 0.7);
+  --futuristic-glass: rgba(14, 14, 20, 0.78);
+  --futuristic-glass-strong: rgba(10, 10, 16, 0.9);
   --futuristic-glass-soft: rgba(255, 255, 255, 0.045);
   --futuristic-border: rgba(255, 255, 255, 0.085);
   --futuristic-border-hover: rgba(255, 255, 255, 0.16);
@@ -123,13 +123,13 @@
 :is(.theme-light, .theme-dark .theme-light) {
   --background-shading: rgba(248, 248, 252, 0.38); /* app background shading color [default: rgba(248, 248, 252, 0.38)] */
   --card-shading: rgba(255, 255, 255, 0.42); /* cards background shading color [default: rgba(255, 255, 255, 0.42)] */
-  --popout-shading: rgba(252, 252, 255, 0.68); /* popouts background shading color [default: rgba(252, 252, 255, 0.68)] */
-  --modal-shading: rgba(250, 250, 255, 0.56); /* modals background shading color [default: rgba(250, 250, 255, 0.56)] */
+  --popout-shading: rgba(252, 252, 255, 0.9); /* popouts background shading color [default: rgba(252, 252, 255, 0.9)] */
+  --modal-shading: rgba(250, 250, 255, 0.92); /* modals background shading color [default: rgba(250, 250, 255, 0.92)] */
   --input-shading: rgba(0, 0, 0, 0.06); /* inputs background shading color [default: rgba(0, 0, 0, 0.06)] */
   --normal-text: #1c1c24; /* text color [default: #1c1c24] */
   --muted-text: #6b6b78; /* muted text color [default: #6b6b78] */
-  --futuristic-glass: rgba(255, 255, 255, 0.46);
-  --futuristic-glass-strong: rgba(255, 255, 255, 0.62);
+  --futuristic-glass: rgba(255, 255, 255, 0.82);
+  --futuristic-glass-strong: rgba(255, 255, 255, 0.92);
   --futuristic-border: rgba(20, 20, 30, 0.1);
 }
 
@@ -137,8 +137,8 @@
 :is(.theme-dark, .theme-light .theme-dark) {
   --background-shading: rgba(6, 6, 10, 0.42); /* app background shading color [default: rgba(6, 6, 10, 0.42)] */
   --card-shading: rgba(16, 16, 24, 0.4); /* cards background shading color [default: rgba(16, 16, 24, 0.4)] */
-  --popout-shading: rgba(10, 10, 16, 0.64); /* popouts background shading color [default: rgba(10, 10, 16, 0.64)] */
-  --modal-shading: rgba(8, 8, 14, 0.56); /* modals background shading color [default: rgba(8, 8, 14, 0.56)] */
+  --popout-shading: rgba(10, 10, 16, 0.88); /* popouts background shading color [default: rgba(10, 10, 16, 0.88)] */
+  --modal-shading: rgba(8, 8, 14, 0.9); /* modals background shading color [default: rgba(8, 8, 14, 0.9)] */
   --input-shading: rgba(255, 255, 255, 0.045); /* inputs background shading color [default: rgba(255, 255, 255, 0.045)] */
   --normal-text: #e8e8ed; /* text color [default: #e8e8ed] */
   --muted-text: #9494a3; /* muted text color [default: #9494a3] */
@@ -148,8 +148,8 @@
 :is(.theme-darker, .theme-light .theme-darker) {
   --background-shading: rgba(4, 4, 8, 0.55); /* app background shading color [default: rgba(4, 4, 8, 0.55)] */
   --card-shading: rgba(12, 12, 18, 0.46); /* cards background shading color [default: rgba(12, 12, 18, 0.46)] */
-  --popout-shading: rgba(8, 8, 14, 0.72); /* popouts background shading color [default: rgba(8, 8, 14, 0.72)] */
-  --modal-shading: rgba(6, 6, 12, 0.62); /* modals background shading color [default: rgba(6, 6, 12, 0.62)] */
+  --popout-shading: rgba(8, 8, 14, 0.9); /* popouts background shading color [default: rgba(8, 8, 14, 0.9)] */
+  --modal-shading: rgba(6, 6, 12, 0.92); /* modals background shading color [default: rgba(6, 6, 12, 0.92)] */
   --input-shading: rgba(255, 255, 255, 0.04); /* inputs background shading color [default: rgba(255, 255, 255, 0.04)] */
   --normal-text: #f2f2f6; /* text color [default: #f2f2f6] */
   --muted-text: #8e8e9a; /* muted text color [default: #8e8e9a] */
@@ -159,8 +159,8 @@
 :is(.theme-midnight, .theme-light .theme-midnight) {
   --background-shading: rgba(0, 0, 0, 0.68); /* app background shading color [default: rgba(0, 0, 0, 0.68)] */
   --card-shading: rgba(10, 10, 14, 0.52); /* cards background shading color [default: rgba(10, 10, 14, 0.52)] */
-  --popout-shading: rgba(6, 6, 10, 0.78); /* popouts background shading color [default: rgba(6, 6, 10, 0.78)] */
-  --modal-shading: rgba(4, 4, 8, 0.7); /* modals background shading color [default: rgba(4, 4, 8, 0.7)] */
+  --popout-shading: rgba(6, 6, 10, 0.92); /* popouts background shading color [default: rgba(6, 6, 10, 0.92)] */
+  --modal-shading: rgba(4, 4, 8, 0.94); /* modals background shading color [default: rgba(4, 4, 8, 0.94)] */
   --input-shading: rgba(255, 255, 255, 0.035); /* inputs background shading color [default: rgba(255, 255, 255, 0.035)] */
   --normal-text: #e4e4ea; /* text color [default: #e4e4ea] */
   --muted-text: #848490; /* muted text color [default: #848490] */
@@ -301,22 +301,34 @@ body,
 .layer_da8173 [role="menu"],
 .layer_da8173 [role="listbox"],
 .layerContainer_da8173 [role="dialog"],
+.layer_bc663c [role="dialog"],
 .menu_c1e9c4,
 .root__49fc1,
+.focusLock__49fc1 > .root__49fc1,
 .tooltip_c36707,
 .tooltip__4e35b {
-  backdrop-filter: blur(24px) saturate(1.35);
-  -webkit-backdrop-filter: blur(24px) saturate(1.35);
+  backdrop-filter: blur(28px) saturate(1.35);
+  -webkit-backdrop-filter: blur(28px) saturate(1.35);
 }
 
-.layer_da8173
-  [role="dialog"]:not(:has(.vc-grokai-root)):not(:has(.vc-grokai-nc)),
+.layer_da8173 [role="dialog"],
 .layer_da8173 [role="menu"],
+.layer_bc663c [role="dialog"],
 .menu_c1e9c4,
-.root__49fc1 {
+.root__49fc1,
+.focusLock__49fc1 > .root__49fc1 {
+  background: var(--futuristic-glass-strong) !important;
   border: 1px solid var(--futuristic-border) !important;
   border-radius: var(--futuristic-radius-lg) !important;
   box-shadow: var(--futuristic-glow);
+}
+
+/* Modal / popout titles need a denser bar so the heading stays readable */
+.header__49fc1,
+.root__49fc1 > [class*="header"] {
+  background: var(--futuristic-glass-strong) !important;
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
 }
 
 /* Chat input: one surface, no stacked rings */
@@ -509,7 +521,11 @@ body,
 }
 
 [role="dialog"]:has(.vc-grokai-root),
-[role="dialog"]:has(.vc-grokai-nc) {
+[role="dialog"]:has(.vc-grokai-nc),
+.root__49fc1:has(.vc-grokai-root),
+.root__49fc1:has(.vc-grokai-nc),
+.layer_bc663c [role="dialog"]:has(.vc-grokai-root),
+.layer_bc663c [role="dialog"]:has(.vc-grokai-nc) {
   background: var(--futuristic-glass-strong) !important;
   backdrop-filter: blur(28px) saturate(1.4);
   -webkit-backdrop-filter: blur(28px) saturate(1.4);
@@ -517,6 +533,13 @@ body,
   border-radius: 20px !important;
   box-shadow: var(--futuristic-glow);
   outline: none !important;
+}
+
+[role="dialog"]:has(.vc-grokai-root) .header__49fc1,
+[role="dialog"]:has(.vc-grokai-nc) .header__49fc1,
+.root__49fc1:has(.vc-grokai-root) .header__49fc1,
+.root__49fc1:has(.vc-grokai-nc) .header__49fc1 {
+  background: var(--futuristic-glass-strong) !important;
 }
 
 .vc-grokai-sidebar {
