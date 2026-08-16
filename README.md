@@ -69,7 +69,7 @@ Or any HTTPS photo:
 
 Discord's own icons stay on by default (nothing extra is fetched).
 
-A geometric set lives in [`assets/icons/`](assets/icons/). Uncomment the **Icons** block at the bottom of `Futuristic.theme.css` to swap home, discover, add, settings, inbox, help, nitro, shop, gift, emoji, gif, sticker, search, pins, threads, members, call, video, mute, deaf, and the AI button.
+A geometric set lives in [`assets/icons/`](assets/icons/). Uncomment the **Icons** block at the bottom of `Futuristic.theme.css` to swap home, discover, add, settings, inbox, help, nitro, shop, gift, emoji, gif, sticker, search, pins, threads, members, call, video, mute, and deaf.
 
 Or turn on a single icon, for example:
 

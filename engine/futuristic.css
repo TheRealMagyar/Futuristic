@@ -46,7 +46,6 @@
   --icon-mute: none;
   --icon-deaf: none;
   --icon-send: none;
-  --icon-ai: none;
 }
 
 /* THEME SPECIFIC SHADING */
@@ -1608,14 +1607,6 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   -webkit-mask: var(--icon-deaf) center / contain no-repeat;
   mask: var(--icon-deaf) center / contain no-repeat;
 }
-.vc-grokai-icon.vc-grokai-chat-button,
-.vc-grokai-sl-btn svg {
-  background-color: var(--icon-fill);
-  -webkit-mask: var(--icon-ai) center / contain no-repeat;
-  mask: var(--icon-ai) center / contain no-repeat;
-}
-.vc-grokai-sl-btn svg *,
-.vc-grokai-icon.vc-grokai-chat-button *,
 [aria-label="Explore Discoverable Servers"] svg *,
 [aria-label*="Discover"] svg *,
 [aria-label*="Felfedez"] svg *,
