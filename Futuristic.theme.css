@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheRealMagyar
- * @version 2.2.8
+ * @version 2.2.9
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin.
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -186,6 +186,31 @@
   --icon-mute: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/mute.svg");
   --icon-deaf: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/deaf.svg");
   --icon-send: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/send.svg");
+  --icon-notifications: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/notifications.svg");
+  --icon-notifications-off: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/notifications-off.svg");
+  --icon-attach: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/attach.svg");
+  --icon-apps: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/apps.svg");
+  --icon-disconnect: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/disconnect.svg");
+  --icon-screenshare: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/screenshare.svg");
+  --icon-soundboard: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/soundboard.svg");
+  --icon-activity: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/activity.svg");
+  --icon-invite: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/invite.svg");
+  --icon-events: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/events.svg");
+  --icon-reply: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/reply.svg");
+  --icon-forward: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/forward.svg");
+  --icon-more: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/more.svg");
+  --icon-edit: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/edit.svg");
+  --icon-bookmark: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/bookmark.svg");
+  --icon-friends: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/friends.svg");
+  --icon-download: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/download.svg");
+  --icon-mention: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/mention.svg");
+  --icon-copy: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/copy.svg");
+  --icon-delete: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/delete.svg");
+  --icon-create: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/create.svg");
+  --icon-info: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/info.svg");
+  --icon-link: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/link.svg");
+  --icon-boost: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/boost.svg");
+  --icon-react: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/icons/react.svg");
 }
 */
 

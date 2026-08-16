@@ -46,6 +46,31 @@
   --icon-mute: none;
   --icon-deaf: none;
   --icon-send: none;
+  --icon-notifications: none;
+  --icon-notifications-off: none;
+  --icon-attach: none;
+  --icon-apps: none;
+  --icon-disconnect: none;
+  --icon-screenshare: none;
+  --icon-soundboard: none;
+  --icon-activity: none;
+  --icon-invite: none;
+  --icon-events: none;
+  --icon-reply: none;
+  --icon-forward: none;
+  --icon-more: none;
+  --icon-edit: none;
+  --icon-bookmark: none;
+  --icon-friends: none;
+  --icon-download: none;
+  --icon-mention: none;
+  --icon-copy: none;
+  --icon-delete: none;
+  --icon-create: none;
+  --icon-info: none;
+  --icon-link: none;
+  --icon-boost: none;
+  --icon-react: none;
 }
 
 /* THEME SPECIFIC SHADING */
@@ -1484,6 +1509,7 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 
 /* ==================== ICONS ==================== */
 /* Off by default (--icon-*: none). The settings file pack sets urls + --icon-native: none. */
+/* Never swap the Vencord AI plugin mark. */
 [aria-label="Explore Discoverable Servers"] svg,
 [aria-label*="Discover"] svg,
 [aria-label*="Felfedez"] svg {
@@ -1500,7 +1526,11 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 }
 [aria-label="User Settings"] svg,
 [aria-label*="User Settings"] svg,
-[aria-label*="Felhasználói beállítás"] svg {
+[aria-label*="Felhasználói beállítás"] svg,
+[aria-label="Server Settings"] svg,
+[aria-label*="Szerverbeállítás"] svg,
+[aria-label="Channel Settings"] svg,
+[aria-label*="Csatorna beállítás"] svg {
   background-color: var(--icon-fill);
   -webkit-mask: var(--icon-settings) center / contain no-repeat;
   mask: var(--icon-settings) center / contain no-repeat;
@@ -1616,14 +1646,19 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 }
 [aria-label*="Video Call"] svg,
 [aria-label*="Start Video"] svg,
-[aria-label*="Videó"] svg {
+[aria-label*="Videó"] svg,
+[aria-label*="Start Video Call"] svg {
   background-color: var(--icon-fill);
   -webkit-mask: var(--icon-video) center / contain no-repeat;
   mask: var(--icon-video) center / contain no-repeat;
 }
 [aria-label="Mute"] svg,
 [aria-label="Unmute"] svg,
-[aria-label*="Némít"] svg {
+[aria-label="Némítás"] svg,
+[aria-label="Némítás feloldása"] svg,
+[aria-label*="Mute Microphone"] svg,
+[aria-label*="Unmute Microphone"] svg,
+[aria-label*="Mikrofon"] svg {
   background-color: var(--icon-fill);
   -webkit-mask: var(--icon-mute) center / contain no-repeat;
   mask: var(--icon-mute) center / contain no-repeat;
@@ -1635,6 +1670,207 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   -webkit-mask: var(--icon-deaf) center / contain no-repeat;
   mask: var(--icon-deaf) center / contain no-repeat;
 }
+[aria-label="Send Message"] svg,
+[aria-label="Send a message"] svg,
+[aria-label="Küldés"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-send) center / contain no-repeat;
+  mask: var(--icon-send) center / contain no-repeat;
+}
+
+/* Notification Settings (channel header + menus). Unmute uses the slashed bell. */
+[aria-label*="Notification"] svg,
+[aria-label*="Értesít"] svg,
+[aria-label="Mute Channel"] svg,
+[aria-label*="Mute this Channel"] svg,
+[aria-label*="Csatorna némítása"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-notifications) center / contain no-repeat;
+  mask: var(--icon-notifications) center / contain no-repeat;
+}
+[aria-label*="Unmute Channel"] svg,
+[aria-label*="Unmute this Channel"] svg,
+[aria-label*="némításának feloldása"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-notifications-off) center / contain no-repeat;
+  mask: var(--icon-notifications-off) center / contain no-repeat;
+}
+
+/* Composer + voice + chrome */
+[aria-label*="Upload a File"] svg,
+[aria-label*="Attach File"] svg,
+[aria-label*="Attach a File"] svg,
+[aria-label*="Fájl csatol"] svg,
+[aria-label*="Fájl feltölt"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-attach) center / contain no-repeat;
+  mask: var(--icon-attach) center / contain no-repeat;
+}
+[aria-label="Apps"] svg,
+[aria-label="Open Apps"] svg,
+[aria-label*="App Launcher"] svg,
+[aria-label="Alkalmazások"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-apps) center / contain no-repeat;
+  mask: var(--icon-apps) center / contain no-repeat;
+}
+[aria-label="Disconnect"] svg,
+[aria-label="Leave Call"] svg,
+[aria-label*="Szétkapcsol"] svg,
+[aria-label*="Kilépés a hívásból"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-disconnect) center / contain no-repeat;
+  mask: var(--icon-disconnect) center / contain no-repeat;
+}
+[aria-label*="Share Your Screen"] svg,
+[aria-label*="Stop Sharing"] svg,
+[aria-label="Stream"] svg,
+[aria-label*="Képernyő megoszt"] svg,
+[aria-label*="Megosztás leállít"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-screenshare) center / contain no-repeat;
+  mask: var(--icon-screenshare) center / contain no-repeat;
+}
+[aria-label*="Soundboard"] svg,
+[aria-label*="Hangtábla"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-soundboard) center / contain no-repeat;
+  mask: var(--icon-soundboard) center / contain no-repeat;
+}
+[aria-label="Activities"] svg,
+[aria-label="Activity"] svg,
+[aria-label*="Tevékenység"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-activity) center / contain no-repeat;
+  mask: var(--icon-activity) center / contain no-repeat;
+}
+[aria-label*="Invite People"] svg,
+[aria-label*="Invite Members"] svg,
+[aria-label="Create Invite"] svg,
+[aria-label="Add Friend"] svg,
+[aria-label*="Emberek meghív"] svg,
+[aria-label*="Barát hozzá"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-invite) center / contain no-repeat;
+  mask: var(--icon-invite) center / contain no-repeat;
+}
+[aria-label="Events"] svg,
+[aria-label*="Server Events"] svg,
+[aria-label="Create Event"] svg,
+[aria-label*="Esemény"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-events) center / contain no-repeat;
+  mask: var(--icon-events) center / contain no-repeat;
+}
+[aria-label="Reply"] svg,
+[aria-label="Válasz"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-reply) center / contain no-repeat;
+  mask: var(--icon-reply) center / contain no-repeat;
+}
+[aria-label="Forward"] svg,
+[aria-label="Továbbítás"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-forward) center / contain no-repeat;
+  mask: var(--icon-forward) center / contain no-repeat;
+}
+[aria-label="More"] svg,
+[aria-label="More Options"] svg,
+[aria-label="Több"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-more) center / contain no-repeat;
+  mask: var(--icon-more) center / contain no-repeat;
+}
+[aria-label="Edit"] svg,
+[aria-label="Edit Message"] svg,
+[aria-label="Szerkesztés"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-edit) center / contain no-repeat;
+  mask: var(--icon-edit) center / contain no-repeat;
+}
+[aria-label="Bookmark"] svg,
+[aria-label="Add Bookmark"] svg,
+[aria-label*="Save for Later"] svg,
+[aria-label*="Könyvjelző"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-bookmark) center / contain no-repeat;
+  mask: var(--icon-bookmark) center / contain no-repeat;
+}
+[aria-label="Friends"] svg,
+[aria-label="Barátok"] svg,
+[aria-label*="New Group"] svg,
+[aria-label*="Group DM"] svg,
+[aria-label*="Új csoport"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-friends) center / contain no-repeat;
+  mask: var(--icon-friends) center / contain no-repeat;
+}
+[aria-label*="Download Apps"] svg,
+[aria-label*="Download Discord"] svg,
+[aria-label*="Alkalmazások letölt"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-download) center / contain no-repeat;
+  mask: var(--icon-download) center / contain no-repeat;
+}
+[aria-label="Mention"] svg,
+[aria-label="Említés"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-mention) center / contain no-repeat;
+  mask: var(--icon-mention) center / contain no-repeat;
+}
+[aria-label="Copy"] svg,
+[aria-label="Copy Text"] svg,
+[aria-label="Copy Message"] svg,
+[aria-label="Másolás"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-copy) center / contain no-repeat;
+  mask: var(--icon-copy) center / contain no-repeat;
+}
+[aria-label="Delete"] svg,
+[aria-label="Delete Message"] svg,
+[aria-label="Törlés"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-delete) center / contain no-repeat;
+  mask: var(--icon-delete) center / contain no-repeat;
+}
+[aria-label="Create Channel"] svg,
+[aria-label="Create Category"] svg,
+[aria-label*="Csatorna létrehozása"] svg,
+[aria-label*="Kategória létrehozása"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-create) center / contain no-repeat;
+  mask: var(--icon-create) center / contain no-repeat;
+}
+[aria-label="Channel Info"] svg,
+[aria-label*="About this Channel"] svg,
+[aria-label*="Csatorna infó"] svg,
+[aria-label="Információ"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-info) center / contain no-repeat;
+  mask: var(--icon-info) center / contain no-repeat;
+}
+[aria-label*="Copy Link"] svg,
+[aria-label*="Copy Message Link"] svg,
+[aria-label*="Hivatkozás másol"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-link) center / contain no-repeat;
+  mask: var(--icon-link) center / contain no-repeat;
+}
+[aria-label*="Server Boost"] svg,
+[aria-label="Boost"] svg,
+[aria-label*="Boost this Server"] svg,
+[aria-label*="Erősítés"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-boost) center / contain no-repeat;
+  mask: var(--icon-boost) center / contain no-repeat;
+}
+[aria-label="Add Reaction"] svg,
+[aria-label*="Reakció hozzáad"] svg {
+  background-color: var(--icon-fill);
+  -webkit-mask: var(--icon-react) center / contain no-repeat;
+  mask: var(--icon-react) center / contain no-repeat;
+}
+
 [aria-label="Explore Discoverable Servers"] svg *,
 [aria-label*="Discover"] svg *,
 [aria-label*="Felfedez"] svg *,
@@ -1644,6 +1880,10 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 [aria-label="User Settings"] svg *,
 [aria-label*="User Settings"] svg *,
 [aria-label*="Felhasználói beállítás"] svg *,
+[aria-label="Server Settings"] svg *,
+[aria-label*="Szerverbeállítás"] svg *,
+[aria-label="Channel Settings"] svg *,
+[aria-label*="Csatorna beállítás"] svg *,
 [aria-label="Inbox"] svg *,
 [aria-label*="Inbox"] svg *,
 [aria-label*="Bejövő"] svg *,
@@ -1678,9 +1918,105 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 [aria-label*="Videó"] svg *,
 [aria-label="Mute"] svg *,
 [aria-label="Unmute"] svg *,
-[aria-label*="Némít"] svg *,
+[aria-label="Némítás"] svg *,
+[aria-label="Némítás feloldása"] svg *,
+[aria-label*="Mute Microphone"] svg *,
+[aria-label*="Unmute Microphone"] svg *,
+[aria-label*="Mikrofon"] svg *,
 [aria-label="Deafen"] svg *,
 [aria-label="Undeafen"] svg *,
-[aria-label*="Süket"] svg * {
+[aria-label*="Süket"] svg *,
+[aria-label="Send Message"] svg *,
+[aria-label="Send a message"] svg *,
+[aria-label="Küldés"] svg *,
+[aria-label*="Notification"] svg *,
+[aria-label*="Értesít"] svg *,
+[aria-label="Mute Channel"] svg *,
+[aria-label*="Mute this Channel"] svg *,
+[aria-label*="Csatorna némítása"] svg *,
+[aria-label*="Unmute Channel"] svg *,
+[aria-label*="Unmute this Channel"] svg *,
+[aria-label*="némításának feloldása"] svg *,
+[aria-label*="Upload a File"] svg *,
+[aria-label*="Attach File"] svg *,
+[aria-label*="Attach a File"] svg *,
+[aria-label*="Fájl csatol"] svg *,
+[aria-label*="Fájl feltölt"] svg *,
+[aria-label="Apps"] svg *,
+[aria-label="Open Apps"] svg *,
+[aria-label*="App Launcher"] svg *,
+[aria-label="Alkalmazások"] svg *,
+[aria-label="Disconnect"] svg *,
+[aria-label="Leave Call"] svg *,
+[aria-label*="Szétkapcsol"] svg *,
+[aria-label*="Kilépés a hívásból"] svg *,
+[aria-label*="Share Your Screen"] svg *,
+[aria-label*="Stop Sharing"] svg *,
+[aria-label="Stream"] svg *,
+[aria-label*="Képernyő megoszt"] svg *,
+[aria-label*="Megosztás leállít"] svg *,
+[aria-label*="Soundboard"] svg *,
+[aria-label*="Hangtábla"] svg *,
+[aria-label="Activities"] svg *,
+[aria-label="Activity"] svg *,
+[aria-label*="Tevékenység"] svg *,
+[aria-label*="Invite People"] svg *,
+[aria-label*="Invite Members"] svg *,
+[aria-label="Create Invite"] svg *,
+[aria-label="Add Friend"] svg *,
+[aria-label*="Emberek meghív"] svg *,
+[aria-label*="Barát hozzá"] svg *,
+[aria-label="Events"] svg *,
+[aria-label*="Server Events"] svg *,
+[aria-label="Create Event"] svg *,
+[aria-label*="Esemény"] svg *,
+[aria-label="Reply"] svg *,
+[aria-label="Válasz"] svg *,
+[aria-label="Forward"] svg *,
+[aria-label="Továbbítás"] svg *,
+[aria-label="More"] svg *,
+[aria-label="More Options"] svg *,
+[aria-label="Több"] svg *,
+[aria-label="Edit"] svg *,
+[aria-label="Edit Message"] svg *,
+[aria-label="Szerkesztés"] svg *,
+[aria-label="Bookmark"] svg *,
+[aria-label="Add Bookmark"] svg *,
+[aria-label*="Save for Later"] svg *,
+[aria-label*="Könyvjelző"] svg *,
+[aria-label="Friends"] svg *,
+[aria-label="Barátok"] svg *,
+[aria-label*="New Group"] svg *,
+[aria-label*="Group DM"] svg *,
+[aria-label*="Új csoport"] svg *,
+[aria-label*="Download Apps"] svg *,
+[aria-label*="Download Discord"] svg *,
+[aria-label*="Alkalmazások letölt"] svg *,
+[aria-label="Mention"] svg *,
+[aria-label="Említés"] svg *,
+[aria-label="Copy"] svg *,
+[aria-label="Copy Text"] svg *,
+[aria-label="Copy Message"] svg *,
+[aria-label="Másolás"] svg *,
+[aria-label="Delete"] svg *,
+[aria-label="Delete Message"] svg *,
+[aria-label="Törlés"] svg *,
+[aria-label="Create Channel"] svg *,
+[aria-label="Create Category"] svg *,
+[aria-label*="Csatorna létrehozása"] svg *,
+[aria-label*="Kategória létrehozása"] svg *,
+[aria-label="Channel Info"] svg *,
+[aria-label*="About this Channel"] svg *,
+[aria-label*="Csatorna infó"] svg *,
+[aria-label="Információ"] svg *,
+[aria-label*="Copy Link"] svg *,
+[aria-label*="Copy Message Link"] svg *,
+[aria-label*="Hivatkozás másol"] svg *,
+[aria-label*="Server Boost"] svg *,
+[aria-label="Boost"] svg *,
+[aria-label*="Boost this Server"] svg *,
+[aria-label*="Erősítés"] svg *,
+[aria-label="Add Reaction"] svg *,
+[aria-label*="Reakció hozzáad"] svg * {
   display: var(--icon-native, revert) !important;
 }

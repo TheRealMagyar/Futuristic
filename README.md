@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-2.2.8-7c5cff?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-2.2.9-7c5cff?style=flat-square">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-6b7280?style=flat-square">
   <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
 </p>
@@ -200,7 +200,7 @@ The pack is [Phosphor](https://phosphoricons.com/) **duotone** (MIT), white on t
 | `home.svg` | Direct Messages / home |
 | `discover.svg` | Discover |
 | `add.svg` | Add a server |
-| `settings.svg` | User settings |
+| `settings.svg` | User / server / channel settings |
 | `inbox.svg` | Inbox |
 | `help.svg` | Help |
 | `nitro.svg` | Nitro |
@@ -215,9 +215,34 @@ The pack is [Phosphor](https://phosphoricons.com/) **duotone** (MIT), white on t
 | `members.svg` | Member list |
 | `call.svg` | Voice call |
 | `video.svg` | Video call |
-| `mute.svg` | Mute |
+| `mute.svg` | Mute mic |
 | `deaf.svg` | Deafen |
-| `send.svg` | Send (where wired) |
+| `send.svg` | Send message |
+| `notifications.svg` | Notification settings / mute channel |
+| `notifications-off.svg` | Unmute channel |
+| `attach.svg` | Upload / attach file |
+| `apps.svg` | Apps launcher |
+| `disconnect.svg` | Leave voice |
+| `screenshare.svg` | Share screen |
+| `soundboard.svg` | Soundboard |
+| `activity.svg` | Activities |
+| `invite.svg` | Invite people / add friend |
+| `events.svg` | Events |
+| `reply.svg` | Reply |
+| `forward.svg` | Forward |
+| `more.svg` | More / overflow |
+| `edit.svg` | Edit |
+| `bookmark.svg` | Bookmark / save |
+| `friends.svg` | Friends / new group DM |
+| `download.svg` | Download apps |
+| `mention.svg` | Mention |
+| `copy.svg` | Copy text / message |
+| `delete.svg` | Delete |
+| `create.svg` | Create channel / category |
+| `info.svg` | Channel info |
+| `link.svg` | Copy link |
+| `boost.svg` | Server boost |
+| `react.svg` | Add reaction |
 
 One icon only (example: home):
 
