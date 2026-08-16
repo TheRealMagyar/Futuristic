@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheReal + Grok
- * @version 2.1.1
+ * @version 2.1.2
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin (vc-grokai).
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -496,7 +496,11 @@ dialog::backdrop,
 /*
  * Server-rail hover labels — complete on the first frame.
  * Live backdrop-filter waits for Discord's slide, so the pill used
- * to fill in two steps. Baked gradient; only tooltip layers snap in.
+ * to fill in two steps. Bake the gradient on the pill.
+ *
+ * Do not lock the wrapper at opacity: 1. Vencord's Tooltip (AI
+ * notifications) keeps the layer mounted for Discord's hide fade;
+ * forcing opacity made that pill linger after the cursor left.
  */
 .full-motion .translate_faf9c0:has([role="tooltip"]),
 .full-motion .translate_faf9c0:has([class*="tooltipPrimary"]),
@@ -512,8 +516,8 @@ dialog::backdrop,
   animation-duration: 0s !important;
   animation-delay: 0s !important;
   transition: none !important;
-  opacity: 1 !important;
   transform: unset !important;
+  pointer-events: none !important;
 }
 
 [role="tooltip"],
@@ -546,8 +550,8 @@ dialog::backdrop,
   animation-duration: 0s !important;
   transition: none !important;
   transform: none !important;
-  opacity: 1 !important;
   filter: none !important;
+  pointer-events: none !important;
 }
 
 @starting-style {
