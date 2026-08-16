@@ -2,24 +2,18 @@
  * @name Futuristic
  * @author TheReal + Grok
  * @version 2.0.0
- * @description Liquid-glass ClearVision preset — deeper tones and a full restyle of the Vencord AI plugin (vc-grokai).
- * @source https://github.com/TheRealMagyar
- * @website https://github.com/TheRealMagyar/Vencord-ai-plugin
+ * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin (vc-grokai).
+ * @source https://github.com/TheRealMagyar/Futuristic
+ * @website https://github.com/TheRealMagyar/Futuristic
  *
- * ClearVision preset for Vencord / Equicord / Vesktop / BetterDiscord.
- * Engine: ClearVision v7.0.1 (81822515a91db4b821e2573f635e80fec3e763a0)
- * https://github.com/ClearVision/ClearVision-v7/tree/81822515a91db4b821e2573f635e80fec3e763a0
- *
- * Same variable API as official presets (Sapphire, Amethyst, …).
- * Extra CSS below restyles glass + the AI plugin.
- *
- * Disable the official ClearVision theme. Enable only this file.
+ * Vencord / Equicord / Vesktop / BetterDiscord.
+ * Enable only this file.
  */
 
-/* IMPORT CSS — same host official Vencord presets use */
-@import url("https://clearvision.github.io/ClearVision-v7/main.css");
-@import url("https://clearvision.github.io/ClearVision-v7/vencord.css");
-@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+/* IMPORT CSS */
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/main.css");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/vencord.css");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/betterdiscord.css");
 
 /* SETTINGS */
 :root {
@@ -39,11 +33,11 @@
   --offline-color: #6b7280; /* offline/invisible status color (hex, rgb or hsl) [default: #6b7280] */
 
   /* APP BACKGROUND
-     Must be ONE layer (url or a single gradient). ClearVision v7 applies:
+     Must be ONE layer (url or a single gradient). The engine applies:
      background: var(--background-image) center / cover no-repeat;
      Photo: --background-image: url(https://…);
      Repo wallpaper after push: url(https://raw.githubusercontent.com/<you>/Futuristic/main/assets/futuristic-void.jpg) */
-  --background-shading-percent: 64%; /* 0 = wallpaper fully visible [ClearVision default: 100%] */
+  --background-shading-percent: 64%; /* 0 = wallpaper fully visible */
   --background-image: radial-gradient(
     1400px 920px at 16% -8%,
     color-mix(in srgb, var(--main-color) 40%, #0a0a12) 0%,
@@ -89,7 +83,7 @@
   /* ACCESSIBILITY */
   --focus-color: var(--main-color);
 
-  /* FUTURISTIC TOKENS (not part of ClearVision) */
+  /* FUTURISTIC TOKENS */
   --futuristic-void: #06060a;
   --futuristic-ink: #0c0c12;
   --futuristic-glass: rgba(14, 14, 20, 0.48);
@@ -105,7 +99,7 @@
   --futuristic-ease: 0.18s ease;
 }
 
-/* Variants — uncomment ONE, same as editing a ClearVision preset */
+/* Variants — uncomment ONE */
 /*
 :root { --main-color: #22d3ee; --hover-color: #67e8f9; }
 */
@@ -255,7 +249,7 @@
 }
 
 /* ==================== BRANDING ==================== */
-/* hashes from ClearVision-v7 src/backend/_classes.scss @ 8182251 */
+/* titlebar hashes */
 :is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before {
   content: "Futuristic" !important;
   filter: drop-shadow(0 0 6px color-mix(in srgb, var(--main-color) 55%, transparent)) !important;
@@ -268,7 +262,7 @@
 }
 
 /* ==================== GLASS LAYER ==================== */
-/* classes: main appMount / bg / layer / chatForm / sidebar / button @ 8182251 */
+/* classes: appMount / bg / layer / chatForm / sidebar / button */
 html,
 body,
 .appMount__51fd7 {
@@ -296,7 +290,7 @@ body,
   box-shadow: var(--futuristic-glow);
 }
 
-/* Chat input: one surface, no stacked rings (ClearVision adds a 2px box-shadow) */
+/* Chat input: one surface, no stacked rings */
 .form_f75fb0,
 .channelBottomBarArea_f75fb0,
 .channelTextArea__74017,
@@ -344,11 +338,7 @@ body,
 .interactiveSelected__972a0::before,
 .modeSelected__2ea32 .link__2ea32::before {
   background: color-mix(in srgb, var(--main-color) 26%, transparent) !important;
-}
-
-.modeSelected__2ea32,
-.interactiveSelected__972a0 {
-  box-shadow: inset 3px 0 0 var(--main-color);
+  border-radius: 8px !important;
 }
 
 /* Vencord / Equicord settings */
@@ -389,7 +379,7 @@ body,
   color: #fff;
 }
 
-/* Slim scrollbars — ClearVision auto is 14px; keep the transparent inset so the thumb stays thin */
+/* Slim scrollbars — keep the transparent inset so the thumb stays thin */
 :is(.auto__99f8c, .auto_d125d2)::-webkit-scrollbar {
   width: 8px !important;
 }

@@ -1,11 +1,5 @@
 Futuristic
 Copyright (c) 2026 TheReal + Grok
 
-This theme is a ClearVision v7 preset. It imports and restyles
-ClearVision v7.0.1 (commit 81822515a91db4b821e2573f635e80fec3e763a0).
-
-ClearVision v7
-Copyright ClearVision Team
-https://github.com/ClearVision/ClearVision-v7
-Licensed under the Apache License, Version 2.0
-https://www.apache.org/licenses/LICENSE-2.0
+This distribution includes unmodified and modified CSS originally
+released under the Apache License, Version 2.0. See LICENSE.
