@@ -237,7 +237,7 @@
   --bg-base-tertiary: rgba(26, 26, 36, 0.38);
   --bg-overlay-1: var(--futuristic-glass);
   --bg-overlay-2: var(--futuristic-glass-strong);
-  --bg-overlay-3: rgba(8, 8, 14, 0.82);
+  --bg-overlay-3: rgba(8, 8, 14, 0.28);
   --bg-overlay-app-frame: var(--futuristic-void);
   --bg-mod-faint: rgba(255, 255, 255, 0.035);
   --bg-mod-subtle: rgba(255, 255, 255, 0.055);
@@ -297,13 +297,28 @@ body,
   background-color: var(--futuristic-void);
 }
 
-/* Dimmer behind modals — liquid glass, not a solid black sheet */
+/*
+ * Scrim around dialogs (AI window, etc.).
+ * Discord paints this as solid black + element opacity, often on a hashed
+ * backdrop node that is a sibling of the dialog — not the dialog itself.
+ */
+[class*="layer"]:has([role="dialog"]) > :not(:has([role="dialog"])):not([role="dialog"]),
+[class*="layer"]:has(.vc-grokai-root) > :not(:has(.vc-grokai-root)):not(:has([role="dialog"])),
+[class*="layerContainer"] [class*="layer"]:has([role="dialog"]) > [class*="backdrop"],
+[class*="layer_"] > [class*="backdrop"],
 .backdrop__78332,
 .withLayer__78332,
 .layer_bc663c > [class*="backdrop"] {
-  background: color-mix(in srgb, var(--futuristic-void) 42%, transparent) !important;
-  backdrop-filter: blur(32px) saturate(1.5);
-  -webkit-backdrop-filter: blur(32px) saturate(1.5);
+  --black-500: rgba(6, 6, 10, 0.2);
+  --opacity-black-860: 1;
+  --opacity-black-800: 1;
+  --opacity-black-700: 1;
+  --bg-overlay-3: rgba(6, 6, 10, 0.2);
+  background: rgba(6, 6, 10, 0.22) !important;
+  background-color: rgba(6, 6, 10, 0.22) !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(40px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(1.6) !important;
 }
 
 .layer_da8173 [role="dialog"],
