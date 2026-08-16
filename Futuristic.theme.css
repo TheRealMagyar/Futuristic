@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheRealMagyar
- * @version 2.2.2
+ * @version 2.2.3
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin.
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -45,6 +45,10 @@
   --background-attachment: scroll;
   --background-filter: none;
   --futuristic-void-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
+  --futuristic-nebula-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/nebula.jpg");
+  --futuristic-ice-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/ice.jpg");
+  --futuristic-orbit-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/orbit.jpg");
+  --futuristic-aurora-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/aurora.jpg");
 
   /* User popout / modal (ignored for Nitro profiles) */
   --user-popout-image: var(--background-image);
@@ -112,13 +116,55 @@
 }
 */
 
-/* Void photo — assets/futuristic-void.jpg */
+/* Wallpapers — uncomment ONE. Photos live in assets/. */
+
+/* Void — abstract purple bokeh */
 /*
 :root {
   --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
   --background-shading-percent: 40%;
   --background-attachment: fixed;
   --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12)) brightness(0.88) contrast(1.04);
+}
+*/
+
+/* Nebula — violet dust, dark center */
+/*
+:root {
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/nebula.jpg");
+  --background-shading-percent: 40%;
+  --background-attachment: fixed;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.1)) brightness(0.86) contrast(1.05);
+}
+*/
+
+/* Ice — cyan / teal nebula */
+/*
+:root {
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/ice.jpg");
+  --background-shading-percent: 42%;
+  --background-attachment: fixed;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.08)) brightness(0.84) contrast(1.04);
+}
+*/
+
+/* Orbit — ringed planet and moon */
+/*
+:root {
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/orbit.jpg");
+  --background-shading-percent: 38%;
+  --background-attachment: fixed;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.06)) brightness(0.82) contrast(1.06);
+}
+*/
+
+/* Aurora — glass shards and ribbons */
+/*
+:root {
+  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/aurora.jpg");
+  --background-shading-percent: 40%;
+  --background-attachment: fixed;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12)) brightness(0.86) contrast(1.04);
 }
 */
 

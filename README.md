@@ -32,17 +32,15 @@ Online import:
 
 The default is an accent-tinted void gradient.
 
-To use the repo wallpaper (`assets/futuristic-void.jpg`), uncomment the **Void photo** block in `Futuristic.theme.css` (the last variant after `:root`):
+Uncomment **one** wallpaper block in `Futuristic.theme.css`:
 
-```css
-:root {
-  --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
-  --background-shading-percent: 40%;
-  --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12))
-    brightness(0.88) contrast(1.04);
-}
-```
+| Wallpaper | File | Look |
+| --- | --- | --- |
+| Void | `assets/futuristic-void.jpg` | Abstract purple bokeh |
+| Nebula | `assets/nebula.jpg` | Violet dust, dark center |
+| Ice | `assets/ice.jpg` | Cyan / teal nebula |
+| Orbit | `assets/orbit.jpg` | Ringed planet and moon |
+| Aurora | `assets/aurora.jpg` | Glass shards and light ribbons |
 
 Or any photo:
 
