@@ -11,9 +11,9 @@
  */
 
 /* IMPORT CSS */
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/main.css");
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/vencord.css");
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/betterdiscord.css");
+@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/engine/main.css");
+@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/engine/vencord.css");
+@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/engine/betterdiscord.css");
 
 /* SETTINGS */
 :root {
@@ -36,7 +36,7 @@
      Must be ONE layer (url or a single gradient). The engine applies:
      background: var(--background-image) center / cover no-repeat;
      Photo: --background-image: url(https://…);
-     Wallpaper: url(https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg) */
+     Wallpaper: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/futuristic-void.jpg) */
   --background-shading-percent: 64%; /* 0 = wallpaper fully visible */
   --background-image: radial-gradient(
     1400px 920px at 16% -8%,
@@ -67,7 +67,7 @@
     saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8);
 
   /* HOME ICON */
-  --home-icon: url(https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/home.svg);
+  --home-icon: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/home.svg);
   --home-size: cover;
 
   /* FONTS */

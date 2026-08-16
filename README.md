@@ -25,7 +25,7 @@ The engine CSS is loaded from this repository (`engine/main.css`, `engine/vencor
 Online import:
 
 ```css
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/Futuristic.theme.css");
+@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/Futuristic.theme.css");
 ```
 
 ## Background
@@ -41,7 +41,7 @@ To use a photo, set this in the `:root` block:
 Repo wallpaper:
 
 ```css
---background-image: url(https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/assets/futuristic-void.jpg);
+--background-image: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/futuristic-void.jpg);
 ```
 
 `--background-shading-percent` (default `64%`): a lower value shows more of the wallpaper through the glass.
