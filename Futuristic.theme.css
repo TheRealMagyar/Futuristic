@@ -598,6 +598,44 @@ dialog::backdrop,
   opacity: 0 !important;
 }
 
+/*
+ * Guild banner behind the server name: Discord only frosts it on
+ * header hover. Keep that hover look all the time.
+ */
+.container__2637a [class*="animatedContainer"],
+.container__2637a [class*="animatedContainer"] > *,
+.animatedContainer_f37cb1,
+.animatedContainer_f37cb1 > *,
+[class*="sidebar"] [class*="animatedContainer"],
+[class*="sidebar"] [class*="animatedContainer"] > *,
+[class*="sidebarList"] [class*="animatedContainer"],
+[class*="sidebarList"] [class*="animatedContainer"] > *,
+[class*="bannerVisible"] [class*="animatedContainer"],
+[class*="bannerVisible"] [class*="bannerImage"],
+[class*="bannerVisible"] [class*="bannerImg"] {
+  filter: blur(14px) saturate(1.2) !important;
+  transform: scale(1.14) !important;
+}
+
+.container__2637a:has([class*="animatedContainer"]) [class*="header"],
+[class*="sidebar"] [class*="header"]:has([class*="animatedContainer"]),
+[class*="sidebar"] [class*="header"]:has(+ [class*="animatedContainer"]),
+[class*="sidebarList"] [class*="header"]:has([class*="animatedContainer"]),
+[class*="header"][class*="bannerVisible"],
+[class*="bannerVisible"] [class*="header"] {
+  background: rgba(10, 10, 16, 0.32) !important;
+  backdrop-filter: blur(18px) saturate(1.35) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.35) !important;
+}
+
+[class*="bannerVisible"] [class*="overlay"],
+[class*="bannerVisible"] [class*="glass"],
+[class*="header"][class*="bannerVisible"]::before,
+[class*="header"][class*="bannerVisible"]::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* Chat input: one surface, no stacked rings */
 .form_f75fb0,
 .channelBottomBarArea_f75fb0,
