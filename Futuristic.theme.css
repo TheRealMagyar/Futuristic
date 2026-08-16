@@ -47,21 +47,24 @@
   --background-position: center;
   --background-size: cover;
   --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18)) brightness(0.9) contrast(1.04);
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18))
+    brightness(0.9) contrast(1.04);
 
   /* USER POPOUT BACKGROUND */
   --user-popout-image: var(--background-image);
   --user-popout-position: var(--background-position);
   --user-popout-size: var(--background-size);
   --user-popout-attachment: var(--background-attachment);
-  --user-popout-filter: blur(28px) saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82);
+  --user-popout-filter: blur(28px)
+    saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82);
 
   /* USER MODAL BACKGROUND */
   --user-modal-image: var(--background-image);
   --user-modal-position: var(--background-position);
   --user-modal-size: var(--background-size);
   --user-modal-attachment: var(--background-attachment);
-  --user-modal-filter: blur(36px) saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8);
+  --user-modal-filter: blur(36px)
+    saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8);
 
   /* HOME ICON */
   --home-icon: url(https://clearvision.github.io/icons/discord.svg);
@@ -95,7 +98,8 @@
   --futuristic-radius-sm: 10px;
   --futuristic-radius-md: 14px;
   --futuristic-radius-lg: 18px;
-  --futuristic-glow: 0 12px 40px -12px color-mix(in srgb, var(--main-color) 28%, transparent);
+  --futuristic-glow: 0 12px 40px -12px
+    color-mix(in srgb, var(--main-color) 28%, transparent);
   --futuristic-ease: 0.18s ease;
 }
 
@@ -194,15 +198,27 @@
   --background-mobile-secondary: rgba(18, 18, 24, 0.55);
   --background-modifier-hover: rgba(255, 255, 255, 0.045);
   --background-modifier-active: rgba(255, 255, 255, 0.07);
-  --background-modifier-selected: color-mix(in srgb, var(--main-color) 18%, transparent);
+  --background-modifier-selected: color-mix(
+    in srgb,
+    var(--main-color) 18%,
+    transparent
+  );
   --background-modifier-accent: var(--futuristic-border);
   --channeltextarea-background: var(--futuristic-glass-soft);
   --input-background: var(--futuristic-glass-soft);
   --modal-background: var(--futuristic-glass-strong);
   --modal-footer-background: rgba(8, 8, 14, 0.55);
 
-  --background-mentioned: color-mix(in srgb, var(--main-color) 12%, transparent);
-  --background-mentioned-hover: color-mix(in srgb, var(--main-color) 18%, transparent);
+  --background-mentioned: color-mix(
+    in srgb,
+    var(--main-color) 12%,
+    transparent
+  );
+  --background-mentioned-hover: color-mix(
+    in srgb,
+    var(--main-color) 18%,
+    transparent
+  );
   --mention-foreground: var(--hover-color);
   --mention-background: color-mix(in srgb, var(--main-color) 20%, transparent);
 
@@ -242,9 +258,17 @@
   --background-surface-higher: rgba(26, 26, 36, 0.5);
   --background-surface-highest: rgba(34, 34, 46, 0.55);
 
-  --scrollbar-auto-thumb: color-mix(in srgb, var(--main-color) 38%, transparent);
+  --scrollbar-auto-thumb: color-mix(
+    in srgb,
+    var(--main-color) 38%,
+    transparent
+  );
   --scrollbar-auto-track: transparent;
-  --scrollbar-thin-thumb: color-mix(in srgb, var(--main-color) 32%, transparent);
+  --scrollbar-thin-thumb: color-mix(
+    in srgb,
+    var(--main-color) 32%,
+    transparent
+  );
   --scrollbar-thin-track: transparent;
 }
 
@@ -252,7 +276,9 @@
 /* titlebar hashes */
 :is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before {
   content: "Futuristic" !important;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--main-color) 55%, transparent)) !important;
+  filter: drop-shadow(
+    0 0 6px color-mix(in srgb, var(--main-color) 55%, transparent)
+  ) !important;
 }
 :is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after {
   content: "2.0.0" !important;
@@ -281,7 +307,8 @@ body,
   -webkit-backdrop-filter: blur(24px) saturate(1.35);
 }
 
-.layer_da8173 [role="dialog"]:not(:has(.vc-grokai-root)):not(:has(.vc-grokai-nc)),
+.layer_da8173
+  [role="dialog"]:not(:has(.vc-grokai-root)):not(:has(.vc-grokai-nc)),
 .layer_da8173 [role="menu"],
 .menu_c1e9c4,
 .root__49fc1 {
@@ -315,7 +342,8 @@ body,
 
 .channelTextArea__74017:focus-within,
 .channelTextArea_d9be46:focus-within {
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 50%, transparent) !important;
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--main-color) 50%, transparent) !important;
 }
 
 .channelTextArea__74017 :focus,
@@ -351,19 +379,30 @@ body,
   -webkit-backdrop-filter: blur(16px) saturate(1.25);
   border: 1px solid var(--futuristic-border) !important;
   border-radius: var(--futuristic-radius-md) !important;
-  transition: border-color var(--futuristic-ease), box-shadow var(--futuristic-ease), transform var(--futuristic-ease);
+  transition:
+    border-color var(--futuristic-ease),
+    box-shadow var(--futuristic-ease),
+    transform var(--futuristic-ease);
 }
 .vc-addon-card:hover,
 .vc-settings-quickActions-pill:hover,
 .bd-addon-card:hover,
 .bd-store-card:hover {
-  border-color: color-mix(in srgb, var(--main-color) 45%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--main-color) 45%,
+    transparent
+  ) !important;
   box-shadow: var(--futuristic-glow);
 }
 
 .vc-switch-container.vc-switch-checked,
 .bd-button-filled.bd-button-color-primary {
-  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+  background: linear-gradient(
+    135deg,
+    var(--main-color),
+    var(--hover-color)
+  ) !important;
 }
 
 .vc-notification-root {
@@ -386,25 +425,63 @@ body,
 :is(.thin__99f8c, .thin_d125d2)::-webkit-scrollbar {
   width: 4px !important;
 }
-:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-thumb,
-:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-track {
+:is(
+  .auto__99f8c,
+  .auto_d125d2,
+  .thin__99f8c,
+  .thin_d125d2
+)::-webkit-scrollbar-thumb,
+:is(
+  .auto__99f8c,
+  .auto_d125d2,
+  .thin__99f8c,
+  .thin_d125d2
+)::-webkit-scrollbar-track {
   border: 2px solid transparent !important;
   background-clip: padding-box !important;
 }
-:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-thumb {
-  background-color: color-mix(in srgb, var(--main-color) 40%, transparent) !important;
+:is(
+  .auto__99f8c,
+  .auto_d125d2,
+  .thin__99f8c,
+  .thin_d125d2
+)::-webkit-scrollbar-thumb {
+  background-color: color-mix(
+    in srgb,
+    var(--main-color) 40%,
+    transparent
+  ) !important;
   border-radius: 99px !important;
 }
-:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-thumb:hover {
-  background-color: color-mix(in srgb, var(--main-color) 62%, transparent) !important;
+:is(
+    .auto__99f8c,
+    .auto_d125d2,
+    .thin__99f8c,
+    .thin_d125d2
+  )::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--main-color) 62%,
+    transparent
+  ) !important;
 }
-:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-track {
+:is(
+  .auto__99f8c,
+  .auto_d125d2,
+  .thin__99f8c,
+  .thin_d125d2
+)::-webkit-scrollbar-track {
   background: transparent !important;
 }
 
 @keyframes futuristic-pulse {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* ==================== AI PLUGIN (vc-grokai) ==================== */
@@ -464,11 +541,19 @@ body,
 
 .vc-grokai-thread-del:hover:not(:disabled) {
   color: var(--danger-color) !important;
-  background: color-mix(in srgb, var(--danger-color) 16%, transparent) !important;
+  background: color-mix(
+    in srgb,
+    var(--danger-color) 16%,
+    transparent
+  ) !important;
 }
 
 .vc-grokai-spinner {
-  border-color: color-mix(in srgb, var(--main-color) 25%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--main-color) 25%,
+    transparent
+  ) !important;
   border-top-color: var(--main-color) !important;
 }
 
@@ -483,7 +568,8 @@ body,
 
 .vc-grokai-dot.vc-grokai-ok {
   background: var(--success-color) !important;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success-color) 18%, transparent);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--success-color) 18%, transparent);
 }
 
 .vc-grokai-toolbar {
@@ -500,7 +586,9 @@ body,
 
 .vc-grokai-mini {
   border-radius: 8px !important;
-  transition: background var(--futuristic-ease), color var(--futuristic-ease);
+  transition:
+    background var(--futuristic-ease),
+    color var(--futuristic-ease);
 }
 
 .vc-grokai-mini:hover:not(:disabled) {
@@ -511,7 +599,8 @@ body,
 .vc-grokai-mini.vc-grokai-on {
   color: #fff !important;
   background: color-mix(in srgb, var(--main-color) 28%, transparent) !important;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 40%, transparent);
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--main-color) 40%, transparent);
 }
 
 .vc-grokai-messages {
@@ -533,7 +622,11 @@ body,
 .vc-grokai-input::-webkit-scrollbar-thumb,
 .vc-grokai-sidebar-list::-webkit-scrollbar-thumb,
 .vc-grokai-nc-summary::-webkit-scrollbar-thumb {
-  background-color: color-mix(in srgb, var(--main-color) 40%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--main-color) 40%,
+    transparent
+  ) !important;
 }
 
 .vc-grokai-empty {
@@ -548,7 +641,8 @@ body,
   background: color-mix(in srgb, var(--main-color) 16%, transparent) !important;
   border: 1px solid color-mix(in srgb, var(--main-color) 32%, transparent) !important;
   color: var(--main-color) !important;
-  box-shadow: 0 0 24px -8px color-mix(in srgb, var(--main-color) 50%, transparent);
+  box-shadow: 0 0 24px -8px
+    color-mix(in srgb, var(--main-color) 50%, transparent);
 }
 
 .vc-grokai-meta {
@@ -556,10 +650,15 @@ body,
 }
 
 .vc-grokai-bubble.vc-grokai-user {
-  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+  background: linear-gradient(
+    135deg,
+    var(--main-color),
+    var(--hover-color)
+  ) !important;
   color: #fff !important;
   border: none !important;
-  box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--main-color) 55%, transparent);
+  box-shadow: 0 6px 20px -6px
+    color-mix(in srgb, var(--main-color) 55%, transparent);
   border-radius: 18px 18px 6px 18px !important;
 }
 
@@ -577,8 +676,16 @@ body,
 }
 
 .vc-grokai-bubble.vc-grokai-error {
-  border-color: color-mix(in srgb, var(--danger-color) 55%, transparent) !important;
-  background: color-mix(in srgb, var(--danger-color) 12%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--danger-color) 55%,
+    transparent
+  ) !important;
+  background: color-mix(
+    in srgb,
+    var(--danger-color) 12%,
+    transparent
+  ) !important;
 }
 
 .vc-grokai-bubble.vc-grokai-assistant a {
@@ -643,7 +750,8 @@ body,
 
 .vc-grokai-composer:focus-within {
   border: none !important;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 50%, transparent) !important;
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--main-color) 50%, transparent) !important;
 }
 
 .vc-grokai-input,
@@ -660,10 +768,16 @@ body,
 }
 
 .vc-grokai-send {
-  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+  background: linear-gradient(
+    135deg,
+    var(--main-color),
+    var(--hover-color)
+  ) !important;
   border-radius: var(--futuristic-radius-sm) !important;
   font-weight: 600 !important;
-  transition: filter 0.15s ease, transform 0.15s ease !important;
+  transition:
+    filter 0.15s ease,
+    transform 0.15s ease !important;
 }
 
 .vc-grokai-send:hover:not(:disabled) {
@@ -677,12 +791,16 @@ body,
 
 .vc-grokai-icon.vc-grokai-chat-button {
   color: var(--interactive-normal);
-  transition: color var(--futuristic-ease), filter var(--futuristic-ease);
+  transition:
+    color var(--futuristic-ease),
+    filter var(--futuristic-ease);
 }
 
 .vc-grokai-icon.vc-grokai-chat-button:hover {
   color: var(--main-color) !important;
-  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--main-color) 55%, transparent));
+  filter: drop-shadow(
+    0 0 8px color-mix(in srgb, var(--main-color) 55%, transparent)
+  );
 }
 
 .vc-grokai-settings {
@@ -708,7 +826,11 @@ body,
 .vc-grokai-sl-btn:hover,
 .vc-grokai-sl-btn:focus-visible {
   border-radius: 16px !important;
-  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+  background: linear-gradient(
+    135deg,
+    var(--main-color),
+    var(--hover-color)
+  ) !important;
   border-color: transparent !important;
   color: #fff !important;
   transform: scale(1.04);
@@ -734,7 +856,11 @@ body,
 }
 
 .vc-grokai-nc-summary.vc-grokai-error {
-  border-color: color-mix(in srgb, var(--danger-color) 50%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--danger-color) 50%,
+    transparent
+  ) !important;
 }
 
 .vc-grokai-nc-empty {
@@ -743,7 +869,11 @@ body,
 
 .vc-grokai-nc-link {
   color: var(--hover-color) !important;
-  border-bottom-color: color-mix(in srgb, var(--hover-color) 45%, transparent) !important;
+  border-bottom-color: color-mix(
+    in srgb,
+    var(--hover-color) 45%,
+    transparent
+  ) !important;
 }
 
 .vc-grokai-nc-link:hover {
