@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheReal + Grok
- * @version 2.1.2
+ * @version 2.1.3
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin (vc-grokai).
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -122,6 +122,7 @@
   --futuristic-ink: #0c0c12;
   --futuristic-glass: rgba(14, 14, 20, 0.78);
   --futuristic-glass-strong: rgba(10, 10, 16, 0.9);
+  --futuristic-popout-fill: rgba(12, 12, 18, 0.95);
   --futuristic-glass-soft: rgba(255, 255, 255, 0.045);
   --futuristic-border: rgba(255, 255, 255, 0.085);
   --futuristic-border-hover: rgba(255, 255, 255, 0.16);
@@ -199,6 +200,7 @@
   --muted-text: #6b6b78; /* muted text color [default: #6b6b78] */
   --futuristic-glass: rgba(255, 255, 255, 0.82);
   --futuristic-glass-strong: rgba(255, 255, 255, 0.92);
+  --futuristic-popout-fill: rgba(248, 248, 252, 0.96);
   --futuristic-border: rgba(20, 20, 30, 0.1);
 }
 
@@ -737,6 +739,39 @@ dialog::backdrop,
   border: 1px solid var(--futuristic-border);
   border-radius: var(--futuristic-radius-md);
   isolation: isolate;
+}
+
+/*
+ * Pins + threads header popouts. Discord tokens / engine shading
+ * leave them at ~50–88% so chat shows through. Keep a hint of glass.
+ */
+.messagesPopoutWrap_e8b59c,
+[class*="messagesPopoutWrap"],
+.recentMentionsPopout__95796,
+[class*="recentMentionsPopout"],
+.browser_d98031,
+.popout__76f04,
+[class*="threadBrowser"],
+[class*="ThreadBrowser"],
+.container__01ae2.floating__01ae2,
+[class*="container"][class*="floating"]:has([class*="resizeHandle"]),
+[class*="layer"] [class*="focusLock"] > *:has(> [class*="header"]):has([class*="messageGroup"]),
+[class*="layer"] [class*="focusLock"] > *:has(> [class*="header"]):has([class*="thread"]) {
+  background: var(--futuristic-popout-fill) !important;
+  background-color: var(--futuristic-popout-fill) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--futuristic-border) !important;
+  box-shadow: var(--futuristic-glow) !important;
+}
+
+.messagesPopoutWrap_e8b59c [class*="header"],
+[class*="messagesPopoutWrap"] [class*="header"],
+[class*="messagesPopout"] [class*="header"],
+.recentMentionsPopout__95796 [class*="header"],
+.browser_d98031 [class*="header"],
+[class*="threadBrowser"] [class*="header"] {
+  background: transparent !important;
 }
 
 /* ==================== POLISH ==================== */
