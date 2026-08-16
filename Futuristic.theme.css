@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheReal + Grok
- * @version 2.0.0
+ * @version 2.1.0
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin (vc-grokai).
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -42,9 +42,8 @@
   ); /* app background image (link must be HTTPS) [default: radial gradient] */
   --background-position: center; /* app background position [default: center] */
   --background-size: cover; /* app background size (px) [default: cover] */
-  --background-attachment: fixed; /* app background attachment [default: fixed] */
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18))
-    brightness(0.9) contrast(1.04); /* app background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
+  --background-attachment: scroll; /* app background attachment [default: scroll — fixed repaints the whole window] */
+  --background-filter: none; /* photo wallpapers can use: saturate(calc(var(--saturation-factor, 1) * 1.18)) brightness(0.9) contrast(1.04) */
 
   /* USER POPOUT BACKGROUND */
   --user-popout-image: var(
@@ -59,8 +58,8 @@
   --user-popout-attachment: var(
     --background-attachment
   ); /* user popout background attachment [default: var(--background-attachment)] */
-  --user-popout-filter: blur(28px)
-    saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82); /* user popout background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
+  --user-popout-filter: blur(16px)
+    saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.82); /* user popout background adjustments — set to none for extra FPS */
 
   /* USER MODAL BACKGROUND */
   --user-modal-image: var(
@@ -75,8 +74,8 @@
   --user-modal-attachment: var(
     --background-attachment
   ); /* user modal background attachment [default: var(--background-attachment)] */
-  --user-modal-filter: blur(36px)
-    saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8); /* user modal background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
+  --user-modal-filter: blur(18px)
+    saturate(calc(var(--saturation-factor, 1) * 1.15)) brightness(0.8); /* user modal background adjustments — set to none for extra FPS */
 
   /* HOME ICON — none = keep Discord's built-in DMs / home mark */
   --home-icon: none;
@@ -130,10 +129,13 @@
   --futuristic-radius-sm: 10px;
   --futuristic-radius-md: 14px;
   --futuristic-radius-lg: 18px;
-  --futuristic-glow: 0 12px 40px -12px
-    color-mix(in srgb, var(--main-color) 28%, transparent);
-  --futuristic-ease: 0.18s ease;
+  --futuristic-glow: 0 8px 24px -10px
+    color-mix(in srgb, var(--main-color) 26%, transparent);
+  --futuristic-ease: 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+  --futuristic-ease-out: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   --futuristic-liquid: rgba(24, 24, 30, 0.58);
+  /* menus / popouts only — set to `none` if Discord still stutters */
+  --futuristic-overlay-filter: blur(14px) saturate(1.18);
 }
 
 /* Variants — uncomment ONE */
@@ -441,8 +443,8 @@ body,
  * Overlay only — layer / focusLock / backdrop. Do not clear the
  * modal root: that node is the window (title + close + body).
  */
-html:has(.vc-grokai-root) [class*="layer"]:has(.vc-grokai-root),
-html:has(.vc-grokai-nc) [class*="layer"]:has(.vc-grokai-nc),
+[class*="layer"]:has(.vc-grokai-root),
+[class*="layer"]:has(.vc-grokai-nc),
 html:has(.vc-grokai-root) [class*="focusLock"],
 html:has(.vc-grokai-nc) [class*="focusLock"],
 .layer_bc663c,
@@ -480,11 +482,13 @@ dialog::backdrop,
 .layer_da8173 [role="listbox"],
 .menu_c1e9c4 {
   background: var(--futuristic-glass-strong) !important;
-  backdrop-filter: blur(28px) saturate(1.35);
-  -webkit-backdrop-filter: blur(28px) saturate(1.35);
+  backdrop-filter: var(--futuristic-overlay-filter);
+  -webkit-backdrop-filter: var(--futuristic-overlay-filter);
   border: 1px solid var(--futuristic-border) !important;
   border-radius: var(--futuristic-radius-lg) !important;
   box-shadow: var(--futuristic-glow);
+  isolation: isolate;
+  contain: layout style;
 }
 
 /*
@@ -617,8 +621,8 @@ dialog::backdrop,
 .channelTextArea_d9be46 {
   border-radius: var(--futuristic-radius-md) !important;
   box-shadow: none !important;
-  backdrop-filter: blur(18px) saturate(1.25);
-  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .channelTextArea__74017:focus-within,
@@ -656,14 +660,13 @@ dialog::backdrop,
 .vc-settings-quickActions-pill,
 .bd-addon-card,
 .bd-store-card {
-  backdrop-filter: blur(16px) saturate(1.25);
-  -webkit-backdrop-filter: blur(16px) saturate(1.25);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid var(--futuristic-border) !important;
   border-radius: var(--futuristic-radius-md) !important;
   transition:
     border-color var(--futuristic-ease),
-    box-shadow var(--futuristic-ease),
-    transform var(--futuristic-ease);
+    box-shadow var(--futuristic-ease);
 }
 .vc-addon-card:hover,
 .vc-settings-quickActions-pill:hover,
@@ -723,10 +726,11 @@ dialog::backdrop,
 }
 
 .vc-notification-root {
-  backdrop-filter: blur(20px) saturate(1.3);
-  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  backdrop-filter: var(--futuristic-overlay-filter);
+  -webkit-backdrop-filter: var(--futuristic-overlay-filter);
   border: 1px solid var(--futuristic-border);
   border-radius: var(--futuristic-radius-md);
+  isolation: isolate;
 }
 
 /* ==================== POLISH ==================== */
@@ -1071,8 +1075,8 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 .vc-grokai-bubble.vc-grokai-assistant {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid var(--futuristic-border) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-radius: 18px 18px 18px 6px !important;
   color: var(--normal-text) !important;
 }
@@ -1190,7 +1194,12 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 }
 
 .vc-grokai-send:hover:not(:disabled) {
-  filter: brightness(1.1) !important;
+  filter: none !important;
+  background: linear-gradient(
+    135deg,
+    var(--hover-color),
+    var(--main-color)
+  ) !important;
   transform: translateY(-1px);
 }
 
@@ -1200,24 +1209,20 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 
 .vc-grokai-icon.vc-grokai-chat-button {
   color: var(--interactive-normal);
-  transition:
-    color var(--futuristic-ease),
-    filter var(--futuristic-ease);
+  transition: color var(--futuristic-ease);
 }
 
 .vc-grokai-icon.vc-grokai-chat-button:hover {
   color: var(--main-color) !important;
-  filter: drop-shadow(
-    0 0 8px color-mix(in srgb, var(--main-color) 55%, transparent)
-  );
+  filter: none;
 }
 
 .vc-grokai-settings {
   background: var(--futuristic-glass) !important;
   border: 1px solid var(--futuristic-border) !important;
   border-radius: var(--futuristic-radius-md) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .vc-grokai-sl-btn {
@@ -1289,19 +1294,167 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   border-bottom-color: var(--hover-color) !important;
 }
 
+/* If any leftover engine rule still calls cv-channel-select, keep it on the compositor. */
+@keyframes cv-channel-select {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ==================== SMOOTHNESS ==================== */
+/*
+ * Engine (ClearVision) animates `right` and `transition: all` on channel
+ * rows, DMs, members, and voice pills. That forces layout every frame.
+ * Drive the same look with transform / opacity, and drop per-row filters.
+ */
+.link__2ea32,
+.link__2ea32::before,
+.icon__2ea32,
+.name__2ea32,
+.interactive__972a0,
+.interactive__972a0::before,
+.navItem__551b0,
+.navItem__551b0::after,
+.memberInner__5d473,
+.member__5d473 .nameContainer__703b9,
+.member__5d473 .nameContainer__703b9::before,
+.member__5d473 .nameContainer__703b9::after,
+.truncated_c9d15c,
+.truncated_c9d15c strong,
+.voiceUser__07f91 .content__07f91,
+.voiceUser__07f91 .avatarSpeaking__07f91,
+.voiceUser__07f91 .username__07f91,
+.avatar_c19a55,
+.radioBar__88a69,
+.pill_a2c9e8,
+.name__29444::before,
+.name__29444::after,
+.newMessagesBar__0f481 {
+  transition:
+    background-color var(--futuristic-ease),
+    color var(--futuristic-ease),
+    border-color var(--futuristic-ease),
+    box-shadow var(--futuristic-ease),
+    opacity var(--futuristic-ease),
+    transform var(--futuristic-ease-out),
+    filter var(--futuristic-ease) !important;
+}
+
+.link__2ea32::before,
+.interactive__972a0::before,
+.navItem__551b0::after {
+  right: 0 !important;
+  left: 0 !important;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: none !important;
+  transition: transform var(--futuristic-ease-out) !important;
+}
+
+.wrapper__2ea32.modeSelected__2ea32 .link__2ea32::before,
+.interactive__972a0.interactiveSelected__972a0::before,
+.navItem__551b0.selected__551b0::after {
+  right: 0 !important;
+  transform: scaleX(1);
+  animation: none !important;
+}
+
+.member__5d473 .nameContainer__703b9::after {
+  right: 0 !important;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--futuristic-ease-out) !important;
+}
+
+.selected__91a9d .nameContainer__703b9::after {
+  right: 0 !important;
+  transform: scaleX(1);
+}
+
+.member__5d473 .nameContainer__703b9::before {
+  transition: opacity var(--futuristic-ease) !important;
+}
+
+.wrapper__2ea32.modeUnreadImportant__2ea32 .name__2ea32,
+.wrapper__2ea32.modeConnected__2ea32 .name__2ea32 {
+  text-shadow: none !important;
+}
+
+.wrapper__2ea32.modeUnreadImportant__2ea32 .icon__2ea32,
+.wrapper__2ea32.modeConnected__2ea32 .icon__2ea32,
+.selected__91a9d .ownerIcon__5d473 {
+  filter: none !important;
+}
+
+.unread__2ea32,
+.item__58105 {
+  box-shadow: none !important;
+}
+
+.voiceUser__07f91 .avatarSpeaking__07f91::after {
+  content: none !important;
+  display: none !important;
+}
+
+.voiceUser__07f91 .avatarSpeaking__07f91 {
+  box-shadow: 0 0 0 2px var(--hsl-main-color) !important;
+}
+
+.mainPageScroller_ca1a02 {
+  transition: none !important;
+}
+
+.slider_a562c8 .grabber_a562c8 {
+  filter: none;
+}
+
+.sidebarList__5e434,
+.members_c8ffbb,
+.privateChannels_e6b769 {
+  contain: style;
+}
+
 /* ==================== REDUCED MOTION ==================== */
 @media (prefers-reduced-motion: reduce) {
   .vc-grokai-send,
   .vc-grokai-sl-btn,
   .vc-grokai-thread,
   .vc-addon-card,
-  .vc-grokai-icon.vc-grokai-chat-button {
+  .vc-grokai-icon.vc-grokai-chat-button,
+  .link__2ea32,
+  .link__2ea32::before,
+  .interactive__972a0,
+  .interactive__972a0::before,
+  .navItem__551b0::after,
+  .memberInner__5d473,
+  .member__5d473 .nameContainer__703b9::after,
+  .avatar_c19a55,
+  .voiceUser__07f91 .content__07f91 {
     transition: none !important;
+  }
+
+  .vc-grokai-send,
+  .vc-grokai-sl-btn,
+  .avatar_c19a55.clickable_c19a55:active,
+  .memberInner__5d473:active {
     transform: none !important;
   }
+
   .vc-grokai-trace.vc-grokai-live summary::before,
   .vc-grokai-tool.vc-grokai-running .vc-grokai-tool-dot,
-  .vc-grokai-spinner {
+  .vc-grokai-spinner,
+  .wrapper_d852db,
+  .loadingCard_f369db {
     animation: none !important;
   }
+}
+
+.reduce-motion .link__2ea32::before,
+.reduce-motion .interactive__972a0::before,
+.reduce-motion .navItem__551b0::after,
+.reduce-motion .member__5d473 .nameContainer__703b9::after {
+  transition: none !important;
 }

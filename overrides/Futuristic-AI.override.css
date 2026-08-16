@@ -13,7 +13,8 @@
   --futuristic-ai-glass: rgba(14, 14, 20, 0.5);
   --futuristic-ai-glass-strong: rgba(10, 10, 16, 0.72);
   --futuristic-ai-border: rgba(255, 255, 255, 0.085);
-  --futuristic-ai-glow: 0 12px 40px -12px color-mix(in srgb, var(--futuristic-ai-accent) 28%, transparent);
+  --futuristic-ai-glow: 0 8px 24px -10px color-mix(in srgb, var(--futuristic-ai-accent) 26%, transparent);
+  --futuristic-ai-ease: 0.16s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .theme-light {
@@ -31,8 +32,8 @@
 [role="dialog"]:has(.vc-grokai-root),
 [role="dialog"]:has(.vc-grokai-nc) {
   background: var(--futuristic-ai-glass-strong) !important;
-  backdrop-filter: blur(28px) saturate(1.4);
-  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid var(--futuristic-ai-border) !important;
   border-radius: 20px !important;
   box-shadow: var(--futuristic-ai-glow);
@@ -40,8 +41,8 @@
 
 .vc-grokai-sidebar {
   background: var(--futuristic-ai-glass-strong) !important;
-  backdrop-filter: blur(22px) saturate(1.35);
-  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: none !important;
   border-radius: 18px !important;
   box-shadow: none !important;
@@ -51,6 +52,10 @@
   color: var(--futuristic-ai-accent) !important;
   letter-spacing: 0.08em !important;
   font-weight: 700 !important;
+}
+
+.vc-grokai-thread {
+  transition: background-color var(--futuristic-ai-ease);
 }
 
 .vc-grokai-thread:hover {
@@ -93,8 +98,8 @@
 
 .vc-grokai-messages {
   background: var(--futuristic-ai-glass) !important;
-  backdrop-filter: blur(24px) saturate(1.25);
-  -webkit-backdrop-filter: blur(24px) saturate(1.25);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: none !important;
   border-radius: 18px !important;
   box-shadow: none !important;
@@ -117,7 +122,8 @@
 .vc-grokai-bubble.vc-grokai-assistant {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid var(--futuristic-ai-border) !important;
-  backdrop-filter: blur(12px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-radius: 18px 18px 18px 6px !important;
 }
 
@@ -182,10 +188,12 @@
   background: linear-gradient(135deg, var(--futuristic-ai-accent), var(--futuristic-ai-hover)) !important;
   border-radius: 10px !important;
   font-weight: 600 !important;
+  transition: background var(--futuristic-ai-ease), transform var(--futuristic-ai-ease) !important;
 }
 
 .vc-grokai-send:hover:not(:disabled) {
-  filter: brightness(1.1) !important;
+  filter: none !important;
+  background: linear-gradient(135deg, var(--futuristic-ai-hover), var(--futuristic-ai-accent)) !important;
   transform: translateY(-1px);
 }
 
@@ -195,7 +203,7 @@
 
 .vc-grokai-icon.vc-grokai-chat-button:hover {
   color: var(--futuristic-ai-accent) !important;
-  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--futuristic-ai-accent) 55%, transparent));
+  filter: none;
 }
 
 .vc-grokai-settings {
@@ -229,9 +237,19 @@
   background: var(--futuristic-ai-glass) !important;
   border: 1px solid var(--futuristic-ai-border) !important;
   border-radius: 16px !important;
-  backdrop-filter: blur(20px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .vc-grokai-nc-link {
   color: var(--futuristic-ai-hover) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vc-grokai-send,
+  .vc-grokai-sl-btn,
+  .vc-grokai-thread {
+    transition: none !important;
+    transform: none !important;
+  }
 }

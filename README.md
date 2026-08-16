@@ -65,6 +65,18 @@ Or edit `--main-color` and `--hover-color` directly.
 
 If you want to keep another theme and only restyle the AI plugin, paste [`overrides/Futuristic-AI.override.css`](overrides/Futuristic-AI.override.css) into Vencord → Settings → **QuickCSS**.
 
+## Performance
+
+Chat, the channel list, and plugin cards no longer run live `backdrop-filter` blur. Menus still frost.
+
+If Discord still stutters, add this under `:root` in `Futuristic.theme.css`:
+
+```css
+--futuristic-overlay-filter: none;
+--user-popout-filter: none;
+--user-modal-filter: none;
+```
+
 ## Notes
 
 - The first load needs internet (the engine is fetched from GitHub).
