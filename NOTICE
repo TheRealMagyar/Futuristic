@@ -1,10 +1,10 @@
-Futuristic
-Copyright (c) 2026 TheReal + Grok
+Futuristic is MIT. See LICENSE.
 
-This distribution includes unmodified and modified CSS originally
-released under the Apache License, Version 2.0. See LICENSE.
+This distribution also includes:
 
-Icon SVGs in assets/icons/ are from Phosphor Icons (duotone)
-https://github.com/phosphor-icons/core
-Copyright (c) Phosphor Icons
-Licensed under the MIT License.
+- ClearVision engine CSS (`engine/main.css`, `engine/vencord.css`,
+  `engine/betterdiscord.css`) — Apache License 2.0
+  https://github.com/ClearVision/ClearVision-v7
+
+- Phosphor Icons duotone SVGs (`assets/icons/`) — MIT
+  https://github.com/phosphor-icons/core

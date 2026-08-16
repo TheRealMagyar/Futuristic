@@ -12,7 +12,7 @@
 
 <p align="center">
   <img alt="version" src="https://img.shields.io/badge/version-2.2.8-7c5cff?style=flat-square">
-  <img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-6b7280?style=flat-square">
+  <img alt="license" src="https://img.shields.io/badge/license-MIT-6b7280?style=flat-square">
   <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
 </p>
 
@@ -278,7 +278,6 @@ overrides/               AI-only QuickCSS
 
 ## License
 
-Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+MIT. See [LICENSE](LICENSE).
 
-Icons: [Phosphor Icons](https://github.com/phosphor-icons/core) (MIT).  
-Engine CSS includes ClearVision (Apache 2.0).
+Third-party bits are listed in [NOTICE](NOTICE): ClearVision engine (Apache 2.0) and [Phosphor Icons](https://github.com/phosphor-icons/core) (MIT).
