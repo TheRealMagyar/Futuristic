@@ -1573,11 +1573,39 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   -webkit-mask: var(--icon-threads) center / contain no-repeat;
   mask: var(--icon-threads) center / contain no-repeat;
 }
+[aria-label*="Member List"],
+[aria-label*="Hide Member List"],
+[aria-label*="Show Member List"],
+[aria-label*="Taglista"] {
+  color: var(--interactive-normal) !important;
+}
+[aria-label*="Member List"]:hover,
+[aria-label*="Hide Member List"]:hover,
+[aria-label*="Show Member List"]:hover,
+[aria-label*="Taglista"]:hover {
+  color: var(--interactive-hover) !important;
+}
+[aria-label*="Hide Member List"],
+[aria-label*="Taglista elrejt"] {
+  color: var(--interactive-active) !important;
+}
 [aria-label*="Member List"] svg,
+[aria-label*="Hide Member List"] svg,
+[aria-label*="Show Member List"] svg,
 [aria-label*="Taglista"] svg {
+  color: inherit !important;
+  fill: currentColor !important;
   background-color: var(--icon-fill);
   -webkit-mask: var(--icon-members) center / contain no-repeat;
   mask: var(--icon-members) center / contain no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+[aria-label*="Member List"] svg path,
+[aria-label*="Hide Member List"] svg path,
+[aria-label*="Show Member List"] svg path,
+[aria-label*="Taglista"] svg path {
+  fill: currentColor !important;
 }
 [aria-label*="Voice Call"] svg,
 [aria-label*="Start Voice"] svg,
