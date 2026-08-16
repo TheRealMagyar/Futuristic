@@ -275,9 +275,15 @@
   display: none !important;
 }
 
-/* Restore Discord's native DMs / home icon (engine hides the SVG paths) */
+/* Native DMs / home icon — engine stretched the SVG to 100% of the 48px button */
+.childWrapper__6e9f8 {
+  display: grid !important;
+  place-items: center;
+}
 .childWrapper__6e9f8 > svg {
   background: none !important;
+  width: 24px !important;
+  height: 24px !important;
 }
 .childWrapper__6e9f8 path {
   display: revert !important;
