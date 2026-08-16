@@ -305,21 +305,12 @@ body,
  */
 html:has(.vc-grokai-root) [class*="layer"]:has(.vc-grokai-root),
 html:has(.vc-grokai-nc) [class*="layer"]:has(.vc-grokai-nc),
-html:has(.vc-grokai-root) [class*="layer"]:has(.vc-grokai-root) [role="dialog"],
-html:has(.vc-grokai-nc) [class*="layer"]:has(.vc-grokai-nc) [role="dialog"],
 html:has(.vc-grokai-root) [class*="focusLock"],
 html:has(.vc-grokai-nc) [class*="focusLock"],
-.layer_bc663c,
-.layer_bc663c [role="dialog"],
-[role="dialog"]:has(.vc-grokai-root),
-[role="dialog"]:has(.vc-grokai-nc),
-.root__49fc1:has(.vc-grokai-root),
-.root__49fc1:has(.vc-grokai-nc) {
+.layer_bc663c {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
 }
 
 html:has(.vc-grokai-root) [class*="backdrop"],
@@ -587,26 +578,45 @@ dialog::backdrop,
   gap: 12px !important;
 }
 
-/* Glass fill only — do not change padding/size or the plugin layout slips */
-.vc-grokai-root,
-.vc-grokai-nc {
+/* The window chrome: title, close, and body share one glass card */
+[role="dialog"]:has(.vc-grokai-root),
+[role="dialog"]:has(.vc-grokai-nc),
+.root__49fc1:has(.vc-grokai-root),
+.root__49fc1:has(.vc-grokai-nc) {
   background: var(--futuristic-liquid) !important;
   background-color: var(--futuristic-liquid) !important;
   backdrop-filter: blur(40px) saturate(2) brightness(1.06) !important;
   -webkit-backdrop-filter: blur(40px) saturate(2) brightness(1.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 18px !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
     0 18px 48px rgba(0, 0, 0, 0.42) !important;
-  box-sizing: border-box !important;
+  overflow: hidden;
 }
 
 [role="dialog"]:has(.vc-grokai-root) .header__49fc1,
 [role="dialog"]:has(.vc-grokai-nc) .header__49fc1 {
-  background: var(--futuristic-liquid) !important;
-  backdrop-filter: blur(40px) saturate(2) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(2) !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+[role="dialog"]:has(.vc-grokai-root) .close__49fc1,
+[role="dialog"]:has(.vc-grokai-nc) .close__49fc1,
+[role="dialog"]:has(.vc-grokai-root) .closeWithCircleBackground__49fc1,
+[role="dialog"]:has(.vc-grokai-nc) .closeWithCircleBackground__49fc1,
+[role="dialog"]:has(.vc-grokai-root) button[aria-label*="lose"],
+[role="dialog"]:has(.vc-grokai-nc) button[aria-label*="lose"] {
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+.vc-grokai-root,
+.vc-grokai-nc {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .vc-grokai-sidebar {
