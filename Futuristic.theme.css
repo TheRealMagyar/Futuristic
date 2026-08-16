@@ -59,8 +59,8 @@
   --user-modal-attachment: var(--background-attachment); /* user modal background attachment [default: var(--background-attachment)] */
   --user-modal-filter: blur(36px) saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8); /* user modal background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
 
-  /* HOME ICON */
-  --home-icon: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/home.svg); /* home button icon (link must be HTTPS) */
+  /* HOME ICON — none = keep Discord's built-in DMs / home mark */
+  --home-icon: none;
   --home-size: cover; /* home button icon size (px) [default: cover] */
 
   /* FONTS */
@@ -265,19 +265,22 @@
   --scrollbar-thin-track: transparent;
 }
 
-/* ==================== BRANDING ==================== */
-/* titlebar hashes */
-:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before {
-  content: "Futuristic" !important;
-  filter: drop-shadow(
-    0 0 6px color-mix(in srgb, var(--main-color) 55%, transparent)
-  ) !important;
-}
-:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after {
-  content: "2.0.0" !important;
-}
+/* Hide engine titlebar / settings watermark (Futuristic 1.0.0 / 2.0.0) */
+.visual-refresh:not(.platform-osx) .leading_c38106::before,
+.visual-refresh:not(.platform-osx) .leading_c38106::after,
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before,
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after,
 .info__2debe::after {
-  content: "Futuristic 2.0.0" !important;
+  content: none !important;
+  display: none !important;
+}
+
+/* Restore Discord's native DMs / home icon (engine hides the SVG paths) */
+.childWrapper__6e9f8 > svg {
+  background: none !important;
+}
+.childWrapper__6e9f8 path {
+  display: revert !important;
 }
 
 /* ==================== GLASS LAYER ==================== */
