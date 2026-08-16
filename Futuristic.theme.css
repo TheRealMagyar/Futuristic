@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheRealMagyar
- * @version 2.2.3
+ * @version 2.2.4
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin.
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -55,12 +55,12 @@
   --user-popout-position: var(--background-position);
   --user-popout-size: var(--background-size);
   --user-popout-attachment: var(--background-attachment);
-  --user-popout-filter: blur(16px) saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.82);
+  --user-popout-filter: none;
   --user-modal-image: var(--background-image);
   --user-modal-position: var(--background-position);
   --user-modal-size: var(--background-size);
   --user-modal-attachment: var(--background-attachment);
-  --user-modal-filter: blur(18px) saturate(calc(var(--saturation-factor, 1) * 1.15)) brightness(0.8);
+  --user-modal-filter: none;
 
   /* Home icon — none keeps Discord's DMs mark */
   --home-icon: none;
@@ -81,7 +81,7 @@
 
   /* Other */
   --focus-color: var(--main-color);
-  --futuristic-overlay-filter: blur(14px) saturate(1.18); /* menus only — set to none if Discord stutters */
+  --futuristic-overlay-filter: none; /* menus. blur(14px) saturate(1.18) if you want frost */
 }
 
 /* Variants — uncomment ONE */
@@ -123,8 +123,6 @@
 :root {
   --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/futuristic-void.jpg");
   --background-shading-percent: 40%;
-  --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12)) brightness(0.88) contrast(1.04);
 }
 */
 
@@ -133,8 +131,6 @@
 :root {
   --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/nebula.jpg");
   --background-shading-percent: 40%;
-  --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.1)) brightness(0.86) contrast(1.05);
 }
 */
 
@@ -143,8 +139,6 @@
 :root {
   --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/ice.jpg");
   --background-shading-percent: 42%;
-  --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.08)) brightness(0.84) contrast(1.04);
 }
 */
 
@@ -153,8 +147,6 @@
 :root {
   --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/orbit.jpg");
   --background-shading-percent: 38%;
-  --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.06)) brightness(0.82) contrast(1.06);
 }
 */
 
@@ -163,8 +155,6 @@
 :root {
   --background-image: url("https://cdn.jsdelivr.net/gh/TheRealMagyar/Futuristic@main/assets/aurora.jpg");
   --background-shading-percent: 40%;
-  --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12)) brightness(0.86) contrast(1.04);
 }
 */
 

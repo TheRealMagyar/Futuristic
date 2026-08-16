@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-2.2.3-7c5cff?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-2.2.4-7c5cff?style=flat-square">
   <img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-6b7280?style=flat-square">
   <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
 </p>
@@ -130,14 +130,14 @@ Keep another theme and only restyle the AI windows: paste [`overrides/Futuristic
 
 ## Performance
 
-Chat, the channel list, and plugin cards do not run live `backdrop-filter`. Menus still frost.
+Live blur is off by default (chat, menus, profiles). The wallpaper paints on one layer only.
 
-If Discord stutters, add this under `:root`:
+To turn frost back on:
 
 ```css
---futuristic-overlay-filter: none;
---user-popout-filter: none;
---user-modal-filter: none;
+--futuristic-overlay-filter: blur(14px) saturate(1.18);
+--user-popout-filter: blur(16px) saturate(1.2) brightness(0.82);
+--user-modal-filter: blur(18px) saturate(1.15) brightness(0.8);
 ```
 
 ---

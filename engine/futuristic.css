@@ -22,7 +22,7 @@
   --futuristic-modal-in: 0.13s cubic-bezier(0.22, 1, 0.36, 1);
   --futuristic-modal-out: 0.09s cubic-bezier(0.4, 0, 1, 1);
   --futuristic-liquid: rgba(24, 24, 30, 0.58);
-  --futuristic-overlay-filter: blur(14px) saturate(1.18);
+  --futuristic-overlay-filter: none;
 }
 
 /* THEME SPECIFIC SHADING */
@@ -293,9 +293,6 @@
   letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
   color: var(--header-primary, #f4f4f8) !important;
-  filter: drop-shadow(
-    0 0 8px color-mix(in srgb, var(--main-color) 40%, transparent)
-  );
 }
 
 .visual-refresh:not(.platform-osx) .leading_c38106::after,
@@ -336,24 +333,18 @@ body,
 .appMount__51fd7,
 #app-mount {
   background-color: var(--futuristic-void);
-  background-image: var(--background-image);
-  background-position: var(--background-position);
-  background-size: var(--background-size);
-  background-repeat: no-repeat;
-  background-attachment: var(--background-attachment);
 }
 
-/* Engine paints .bg__960e4; hashes change. Longhand so url() in a custom prop works. */
+/* One wallpaper layer only. Do not paint html/body/#app-mount — that is 3 extra full-screen decodes. */
 .bg__960e4,
-[class*="app"] > [class^="bg_"],
-#app-mount [class^="bg_"] {
+.app_a3002d > [class^="bg__"] {
   background-color: transparent !important;
   background-image: var(--background-image) !important;
   background-position: var(--background-position) !important;
   background-size: var(--background-size) !important;
   background-repeat: no-repeat !important;
-  background-attachment: var(--background-attachment) !important;
-  filter: var(--background-filter);
+  background-attachment: scroll !important;
+  filter: none !important;
 }
 
 /*
@@ -404,8 +395,6 @@ dialog::backdrop,
   border: 1px solid var(--futuristic-border) !important;
   border-radius: var(--futuristic-radius-lg) !important;
   box-shadow: var(--futuristic-glow);
-  isolation: isolate;
-  contain: layout style;
 }
 
 /*
@@ -667,9 +656,7 @@ dialog::backdrop,
 [class*="threadBrowser"],
 [class*="ThreadBrowser"],
 .container__01ae2.floating__01ae2,
-[class*="container"][class*="floating"]:has([class*="resizeHandle"]),
-[class*="layer"] [class*="focusLock"] > *:has(> [class*="header"]):has([class*="messageGroup"]),
-[class*="layer"] [class*="focusLock"] > *:has(> [class*="header"]):has([class*="thread"]) {
+[class*="container"][class*="floating"] {
   background: var(--futuristic-popout-fill) !important;
   background-color: var(--futuristic-popout-fill) !important;
   backdrop-filter: none !important;
