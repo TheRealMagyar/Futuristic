@@ -297,6 +297,15 @@ body,
   background-color: var(--futuristic-void);
 }
 
+/* Dimmer behind modals — liquid glass, not a solid black sheet */
+.backdrop__78332,
+.withLayer__78332,
+.layer_bc663c > [class*="backdrop"] {
+  background: color-mix(in srgb, var(--futuristic-void) 42%, transparent) !important;
+  backdrop-filter: blur(32px) saturate(1.5);
+  -webkit-backdrop-filter: blur(32px) saturate(1.5);
+}
+
 .layer_da8173 [role="dialog"],
 .layer_da8173 [role="menu"],
 .layer_da8173 [role="listbox"],
@@ -418,17 +427,30 @@ body,
   ) !important;
 }
 
-/* Plugin / Discord switches: engine painted the knob the same as the track */
-.vc-switch-container,
-.container__3f21e {
-  background: color-mix(in srgb, var(--interactive-normal) 22%, transparent) !important;
+/* Vencord plugin switch: white knob + accent check / X. Do not paint paths white. */
+.vc-switch-container {
+  background: color-mix(in srgb, var(--interactive-normal) 40%, #2b2d31) !important;
 }
-.vc-switch-container.vc-switch-checked,
+.vc-switch-container.vc-switch-checked {
+  background: var(--main-color) !important;
+}
+.vc-switch-container rect {
+  fill: #fff !important;
+}
+.vc-switch-container:not(.vc-switch-checked) path {
+  fill: var(--interactive-muted) !important;
+}
+.vc-switch-container.vc-switch-checked path {
+  fill: var(--main-color) !important;
+}
+
+/* Discord native switch knob stays light on the accent track */
+.container__3f21e {
+  background: color-mix(in srgb, var(--interactive-normal) 40%, #2b2d31) !important;
+}
 .container__3f21e.checked__3f21e {
   background: var(--main-color) !important;
 }
-.vc-switch-container.vc-switch-checked path,
-.vc-switch-container.vc-switch-checked circle,
 .container__3f21e.checked__3f21e path,
 .container__3f21e.checked__3f21e circle {
   fill: #fff !important;
