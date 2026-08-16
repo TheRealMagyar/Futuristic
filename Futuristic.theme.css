@@ -1,8 +1,8 @@
 /**
  * @name Futuristic
  * @author TheRealMagyar
- * @version 2.1.4
- * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin (vc-grokai).
+ * @version 2.1.5
+ * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin.
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
  *
@@ -45,6 +45,7 @@
   --background-size: cover; /* app background size (px) [default: cover] */
   --background-attachment: scroll; /* app background attachment [default: scroll — fixed repaints the whole window] */
   --background-filter: none; /* photo wallpapers can use: saturate(calc(var(--saturation-factor, 1) * 1.18)) brightness(0.9) contrast(1.04) */
+  --futuristic-void-image: url("https://github.com/TheRealMagyar/Futuristic/raw/main/assets/futuristic-void.jpg"); /* repo wallpaper — uncomment the Void photo variant below */
 
   /* USER POPOUT BACKGROUND */
   --user-popout-image: var(
@@ -161,6 +162,14 @@
   --hover-color: #ffffff;
   --background-shading-percent: 86%;
   --background-image: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+}
+*/
+/*
+:root {
+  --background-image: var(--futuristic-void-image);
+  --background-shading-percent: 52%;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12))
+    brightness(0.88) contrast(1.04);
 }
 */
 

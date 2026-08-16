@@ -32,16 +32,21 @@ Online import:
 
 The default is an accent-tinted void gradient.
 
-To use a photo, set this in the `:root` block:
+To use the repo wallpaper (`assets/futuristic-void.jpg`), uncomment the **Void photo** block in `Futuristic.theme.css` (the last variant after `:root`):
+
+```css
+:root {
+  --background-image: var(--futuristic-void-image);
+  --background-shading-percent: 52%;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.12))
+    brightness(0.88) contrast(1.04);
+}
+```
+
+Or any photo:
 
 ```css
 --background-image: url(https://example.com/your-image.jpg);
-```
-
-Repo wallpaper:
-
-```css
---background-image: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/futuristic-void.jpg);
 ```
 
 `--background-shading-percent` (default `64%`): a lower value shows more of the wallpaper through the glass.
