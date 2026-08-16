@@ -3,3 +3,8 @@ Copyright (c) 2026 TheReal + Grok
 
 This distribution includes unmodified and modified CSS originally
 released under the Apache License, Version 2.0. See LICENSE.
+
+Icon SVGs in assets/icons/ are from Phosphor Icons (duotone)
+https://github.com/phosphor-icons/core
+Copyright (c) Phosphor Icons
+Licensed under the MIT License.
