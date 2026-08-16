@@ -1,0 +1,225 @@
+/**
+ * Futuristic — AI plugin only
+ * Paste into Vencord / Equicord QuickCSS if you want to keep another theme
+ * (including official ClearVision) and only restyle
+ * https://github.com/TheRealMagyar/Vencord-ai-plugin
+ */
+
+:root {
+  --futuristic-ai-accent: var(--main-color, #7c5cff);
+  --futuristic-ai-hover: var(--hover-color, #9b82ff);
+  --futuristic-ai-ok: var(--success-color, #3ecf8e);
+  --futuristic-ai-danger: var(--danger-color, #ff5c7a);
+  --futuristic-ai-glass: rgba(14, 14, 20, 0.5);
+  --futuristic-ai-glass-strong: rgba(10, 10, 16, 0.72);
+  --futuristic-ai-border: rgba(255, 255, 255, 0.085);
+  --futuristic-ai-glow:
+    0 0 0 1px color-mix(in srgb, var(--futuristic-ai-accent) 28%, transparent),
+    0 12px 40px -12px color-mix(in srgb, var(--futuristic-ai-accent) 28%, transparent);
+}
+
+.theme-light {
+  --futuristic-ai-glass: rgba(255, 255, 255, 0.5);
+  --futuristic-ai-glass-strong: rgba(255, 255, 255, 0.7);
+  --futuristic-ai-border: rgba(20, 20, 30, 0.1);
+}
+
+.vc-grokai-root {
+  --vc-grokai-line: var(--futuristic-ai-border);
+  --vc-grokai-focus: var(--futuristic-ai-accent);
+  gap: 12px !important;
+}
+
+[role="dialog"]:has(.vc-grokai-root),
+[role="dialog"]:has(.vc-grokai-nc) {
+  background: var(--futuristic-ai-glass-strong) !important;
+  backdrop-filter: blur(28px) saturate(1.4);
+  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--futuristic-ai-glow);
+}
+
+.vc-grokai-sidebar {
+  background: var(--futuristic-ai-glass-strong) !important;
+  backdrop-filter: blur(22px) saturate(1.35);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--futuristic-ai-glow);
+}
+
+.vc-grokai-sidebar-title {
+  color: var(--futuristic-ai-accent) !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 700 !important;
+}
+
+.vc-grokai-thread:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.vc-grokai-thread.vc-grokai-active {
+  background: color-mix(in srgb, var(--futuristic-ai-accent) 18%, transparent) !important;
+  box-shadow: inset 3px 0 0 var(--futuristic-ai-accent);
+}
+
+.vc-grokai-thread-del:hover:not(:disabled) {
+  color: var(--futuristic-ai-danger) !important;
+  background: color-mix(in srgb, var(--futuristic-ai-danger) 16%, transparent) !important;
+}
+
+.vc-grokai-spinner {
+  border-color: color-mix(in srgb, var(--futuristic-ai-accent) 25%, transparent) !important;
+  border-top-color: var(--futuristic-ai-accent) !important;
+}
+
+.vc-grokai-dot {
+  background: var(--futuristic-ai-danger) !important;
+}
+
+.vc-grokai-dot.vc-grokai-ok {
+  background: var(--futuristic-ai-ok) !important;
+}
+
+.vc-grokai-toolbar {
+  background: var(--futuristic-ai-glass-strong) !important;
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 14px !important;
+}
+
+.vc-grokai-mini.vc-grokai-on {
+  color: #fff !important;
+  background: color-mix(in srgb, var(--futuristic-ai-accent) 28%, transparent) !important;
+}
+
+.vc-grokai-messages {
+  background: var(--futuristic-ai-glass) !important;
+  backdrop-filter: blur(24px) saturate(1.25);
+  -webkit-backdrop-filter: blur(24px) saturate(1.25);
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--futuristic-ai-glow);
+}
+
+.vc-grokai-empty-icon {
+  background: color-mix(in srgb, var(--futuristic-ai-accent) 16%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--futuristic-ai-accent) 32%, transparent) !important;
+  color: var(--futuristic-ai-accent) !important;
+}
+
+.vc-grokai-bubble.vc-grokai-user {
+  background: linear-gradient(135deg, var(--futuristic-ai-accent), var(--futuristic-ai-hover)) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--futuristic-ai-accent) 55%, transparent);
+  border-radius: 18px 18px 6px 18px !important;
+}
+
+.vc-grokai-bubble.vc-grokai-assistant {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--futuristic-ai-border) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 18px 18px 18px 6px !important;
+}
+
+.vc-grokai-bubble.vc-grokai-error {
+  border-color: color-mix(in srgb, var(--futuristic-ai-danger) 55%, transparent) !important;
+  background: color-mix(in srgb, var(--futuristic-ai-danger) 12%, transparent) !important;
+}
+
+.vc-grokai-bubble.vc-grokai-assistant pre {
+  background: rgba(0, 0, 0, 0.35) !important;
+  border-radius: 10px !important;
+}
+
+.vc-grokai-trace {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 14px !important;
+}
+
+.vc-grokai-trace.vc-grokai-live summary::before,
+.vc-grokai-tool.vc-grokai-running .vc-grokai-tool-dot {
+  background: var(--futuristic-ai-accent) !important;
+}
+
+.vc-grokai-tool.vc-grokai-done .vc-grokai-tool-dot {
+  background: var(--futuristic-ai-ok) !important;
+}
+
+.vc-grokai-tool.vc-grokai-error .vc-grokai-tool-dot {
+  background: var(--futuristic-ai-danger) !important;
+}
+
+.vc-grokai-composer {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+.vc-grokai-composer:focus-within {
+  border-color: var(--futuristic-ai-accent) !important;
+  box-shadow:
+    0 0 0 1px var(--futuristic-ai-accent),
+    0 0 0 5px color-mix(in srgb, var(--futuristic-ai-accent) 22%, transparent) !important;
+}
+
+.vc-grokai-send {
+  background: linear-gradient(135deg, var(--futuristic-ai-accent), var(--futuristic-ai-hover)) !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}
+
+.vc-grokai-send:hover:not(:disabled) {
+  filter: brightness(1.1) !important;
+  transform: translateY(-1px);
+}
+
+.vc-grokai-send.vc-grokai-stop {
+  background: linear-gradient(135deg, #ff5c7a, #ff3d5e) !important;
+}
+
+.vc-grokai-icon.vc-grokai-chat-button:hover {
+  color: var(--futuristic-ai-accent) !important;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--futuristic-ai-accent) 55%, transparent));
+}
+
+.vc-grokai-settings {
+  background: var(--futuristic-ai-glass) !important;
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 14px !important;
+}
+
+.vc-grokai-sl-btn {
+  background: var(--futuristic-ai-glass-strong) !important;
+  border: 1px solid var(--futuristic-ai-border) !important;
+}
+
+.vc-grokai-sl-btn:hover,
+.vc-grokai-sl-btn:focus-visible {
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, var(--futuristic-ai-accent), var(--futuristic-ai-hover)) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  transform: scale(1.04);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--futuristic-ai-accent) 42%, transparent);
+}
+
+.vc-grokai-nc-banner {
+  background: color-mix(in srgb, var(--futuristic-ai-accent) 18%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--futuristic-ai-accent) 32%, transparent);
+  border-radius: 10px !important;
+}
+
+.vc-grokai-nc-summary {
+  background: var(--futuristic-ai-glass) !important;
+  border: 1px solid var(--futuristic-ai-border) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(20px);
+}
+
+.vc-grokai-nc-link {
+  color: var(--futuristic-ai-hover) !important;
+}

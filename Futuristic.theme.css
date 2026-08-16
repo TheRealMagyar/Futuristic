@@ -1,0 +1,730 @@
+/**
+ * @name Futuristic
+ * @author TheReal + Grok
+ * @version 2.0.0
+ * @description Liquid-glass ClearVision preset — deeper tones and a full restyle of the Vencord AI plugin (vc-grokai).
+ * @source https://github.com/TheRealMagyar
+ * @website https://github.com/TheRealMagyar/Vencord-ai-plugin
+ *
+ * ClearVision preset for Vencord / Equicord / Vesktop / BetterDiscord.
+ * Engine: ClearVision v7.0.1 (81822515a91db4b821e2573f635e80fec3e763a0)
+ * https://github.com/ClearVision/ClearVision-v7/tree/81822515a91db4b821e2573f635e80fec3e763a0
+ *
+ * Same variable API as official presets (Sapphire, Amethyst, …).
+ * Extra CSS below restyles glass + the AI plugin.
+ *
+ * Disable the official ClearVision theme. Enable only this file.
+ */
+
+/* IMPORT CSS — same host official Vencord presets use */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/vencord.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* SETTINGS */
+:root {
+  /* ACCENT COLORS */
+  --main-color: #7c5cff; /* main accent color (hex, rgb or hsl) [default: #7c5cff] */
+  --hover-color: #9b82ff; /* hover accent color (hex, rgb or hsl) [default: #9b82ff] */
+  --success-color: #3ecf8e; /* positive accent color (hex, rgb or hsl) [default: #3ecf8e] */
+  --warning-color: #f5a623;
+  --danger-color: #ff5c7a; /* danger accent color (hex, rgb or hsl) [default: #ff5c7a] */
+  --info-color: #67e8f9;
+
+  /* STATUS COLORS */
+  --online-color: #3ecf8e; /* online status color (hex, rgb or hsl) [default: #3ecf8e] */
+  --idle-color: #f5a623; /* idle status color (hex, rgb or hsl) [default: #f5a623] */
+  --dnd-color: #ff5c7a; /* dnd status color (hex, rgb or hsl) [default: #ff5c7a] */
+  --streaming-color: #a78bfa; /* streaming status color (hex, rgb or hsl) [default: #a78bfa] */
+  --offline-color: #6b7280; /* offline/invisible status color (hex, rgb or hsl) [default: #6b7280] */
+
+  /* APP BACKGROUND
+     Must be ONE layer (url or a single gradient). ClearVision v7 applies:
+     background: var(--background-image) center / cover no-repeat;
+     Photo: --background-image: url(https://…);
+     Repo wallpaper after push: url(https://raw.githubusercontent.com/<you>/Futuristic/main/assets/futuristic-void.jpg) */
+  --background-shading-percent: 64%; /* 0 = wallpaper fully visible [ClearVision default: 100%] */
+  --background-image: radial-gradient(
+    1400px 920px at 16% -8%,
+    color-mix(in srgb, var(--main-color) 40%, #0a0a12) 0%,
+    #0a0a12 46%,
+    #06060a 100%
+  );
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18)) brightness(0.9) contrast(1.04);
+
+  /* USER POPOUT BACKGROUND */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: blur(28px) saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82);
+
+  /* USER MODAL BACKGROUND */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: blur(36px) saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8);
+
+  /* HOME ICON */
+  --home-icon: url(https://clearvision.github.io/icons/discord.svg);
+  --home-size: cover;
+
+  /* FONTS */
+  --main-font: "gg sans", "Inter", "Segoe UI", system-ui, sans-serif;
+  --code-font: "JetBrains Mono", "Fira Code", "gg mono", Consolas, monospace;
+
+  /* CHANNEL COLORS — selected bg is the sliding fill in src/theme/sidebar/_channels.scss */
+  --channel-normal: var(--interactive-text-default);
+  --channel-muted: var(--interactive-muted);
+  --channel-hover: var(--interactive-text-hover);
+  --channel-selected: var(--interactive-text-active);
+  --channel-selected-bg: color-mix(in srgb, var(--main-color) 26%, transparent);
+  --channel-unread: var(--main-color);
+  --channel-unread-hover: var(--hover-color);
+
+  /* ACCESSIBILITY */
+  --focus-color: var(--main-color);
+
+  /* FUTURISTIC TOKENS (not part of ClearVision) */
+  --futuristic-void: #06060a;
+  --futuristic-ink: #0c0c12;
+  --futuristic-glass: rgba(14, 14, 20, 0.48);
+  --futuristic-glass-strong: rgba(10, 10, 16, 0.7);
+  --futuristic-glass-soft: rgba(255, 255, 255, 0.045);
+  --futuristic-border: rgba(255, 255, 255, 0.085);
+  --futuristic-border-hover: rgba(255, 255, 255, 0.16);
+  --futuristic-highlight: rgba(255, 255, 255, 0.06);
+  --futuristic-radius-sm: 10px;
+  --futuristic-radius-md: 14px;
+  --futuristic-radius-lg: 18px;
+  --futuristic-glow:
+    0 0 0 1px color-mix(in srgb, var(--main-color) 28%, transparent),
+    0 12px 40px -12px color-mix(in srgb, var(--main-color) 28%, transparent);
+  --futuristic-ease: 0.18s ease;
+}
+
+/* Variants — uncomment ONE, same as editing a ClearVision preset */
+/*
+:root { --main-color: #22d3ee; --hover-color: #67e8f9; }
+*/
+/*
+:root { --main-color: #34d399; --hover-color: #6ee7b7; }
+*/
+/*
+:root { --main-color: #fb7185; --hover-color: #fda4af; }
+*/
+/*
+:root { --main-color: #f59e0b; --hover-color: #fbbf24; }
+*/
+/*
+:root {
+  --main-color: #e5e7eb;
+  --hover-color: #ffffff;
+  --background-shading-percent: 86%;
+  --background-image: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+}
+*/
+
+/* THEME SPECIFIC SHADING */
+/* LIGHT THEME */
+:is(.theme-light, .theme-dark .theme-light) {
+  --background-shading: rgba(248, 248, 252, 0.38);
+  --card-shading: rgba(255, 255, 255, 0.42);
+  --popout-shading: rgba(252, 252, 255, 0.68);
+  --modal-shading: rgba(250, 250, 255, 0.56);
+  --input-shading: rgba(0, 0, 0, 0.06);
+  --normal-text: #1c1c24;
+  --muted-text: #6b6b78;
+  --futuristic-glass: rgba(255, 255, 255, 0.46);
+  --futuristic-glass-strong: rgba(255, 255, 255, 0.62);
+  --futuristic-border: rgba(20, 20, 30, 0.1);
+}
+
+/* ASH THEME */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(6, 6, 10, 0.42);
+  --card-shading: rgba(16, 16, 24, 0.4);
+  --popout-shading: rgba(10, 10, 16, 0.64);
+  --modal-shading: rgba(8, 8, 14, 0.56);
+  --input-shading: rgba(255, 255, 255, 0.045);
+  --normal-text: #e8e8ed;
+  --muted-text: #9494a3;
+}
+
+/* DARK THEME */
+:is(.theme-darker, .theme-light .theme-darker) {
+  --background-shading: rgba(4, 4, 8, 0.55);
+  --card-shading: rgba(12, 12, 18, 0.46);
+  --popout-shading: rgba(8, 8, 14, 0.72);
+  --modal-shading: rgba(6, 6, 12, 0.62);
+  --input-shading: rgba(255, 255, 255, 0.04);
+  --normal-text: #f2f2f6;
+  --muted-text: #8e8e9a;
+}
+
+/* ONYX THEME */
+:is(.theme-midnight, .theme-light .theme-midnight) {
+  --background-shading: rgba(0, 0, 0, 0.68);
+  --card-shading: rgba(10, 10, 14, 0.52);
+  --popout-shading: rgba(6, 6, 10, 0.78);
+  --modal-shading: rgba(4, 4, 8, 0.7);
+  --input-shading: rgba(255, 255, 255, 0.035);
+  --normal-text: #e4e4ea;
+  --muted-text: #848490;
+}
+
+/* ADD ADDITIONAL CSS BELOW HERE */
+
+/* ==================== DISCORD TOKENS ==================== */
+:is(.theme-dark, .theme-darker, .theme-midnight) {
+  --header-primary: #f4f4f8;
+  --header-secondary: #b8b8c4;
+  --text-normal: var(--normal-text);
+  --text-muted: var(--muted-text);
+  --text-link: var(--hover-color);
+  --interactive-normal: #b4b4c0;
+  --interactive-hover: #e4e4ec;
+  --interactive-active: #ffffff;
+  --interactive-muted: #6e6e7a;
+
+  --background-primary: rgba(12, 12, 18, 0.52);
+  --background-secondary: rgba(18, 18, 24, 0.42);
+  --background-secondary-alt: rgba(22, 22, 30, 0.38);
+  --background-tertiary: rgba(26, 26, 36, 0.38);
+  --background-accent: rgba(30, 30, 42, 0.45);
+  --background-floating: var(--futuristic-glass-strong);
+  --background-nested-floating: var(--futuristic-glass);
+  --background-mobile-primary: rgba(12, 12, 18, 0.7);
+  --background-mobile-secondary: rgba(18, 18, 24, 0.55);
+  --background-modifier-hover: rgba(255, 255, 255, 0.045);
+  --background-modifier-active: rgba(255, 255, 255, 0.07);
+  --background-modifier-selected: color-mix(in srgb, var(--main-color) 18%, transparent);
+  --background-modifier-accent: var(--futuristic-border);
+  --channeltextarea-background: var(--futuristic-glass-soft);
+  --input-background: var(--futuristic-glass-soft);
+  --modal-background: var(--futuristic-glass-strong);
+  --modal-footer-background: rgba(8, 8, 14, 0.55);
+
+  --background-mentioned: color-mix(in srgb, var(--main-color) 12%, transparent);
+  --background-mentioned-hover: color-mix(in srgb, var(--main-color) 18%, transparent);
+  --mention-foreground: var(--hover-color);
+  --mention-background: color-mix(in srgb, var(--main-color) 20%, transparent);
+
+  --brand-experiment: var(--main-color);
+  --brand-experiment-560: var(--hover-color);
+  --brand-100: color-mix(in srgb, var(--main-color) 16%, #fff);
+  --brand-200: color-mix(in srgb, var(--main-color) 28%, #fff);
+  --brand-360: color-mix(in srgb, var(--main-color) 70%, #fff);
+  --brand-400: var(--hover-color);
+  --brand-500: var(--main-color);
+  --brand-530: var(--main-color);
+  --brand-560: var(--hover-color);
+  --brand-600: var(--main-color);
+  --control-brand-foreground: var(--main-color);
+  --control-brand-foreground-new: var(--main-color);
+
+  --status-positive: var(--success-color);
+  --status-danger: var(--danger-color);
+  --status-warning: var(--idle-color);
+
+  --bg-base-primary: rgba(12, 12, 18, 0.52);
+  --bg-base-secondary: rgba(18, 18, 24, 0.42);
+  --bg-base-tertiary: rgba(26, 26, 36, 0.38);
+  --bg-overlay-1: var(--futuristic-glass);
+  --bg-overlay-2: var(--futuristic-glass-strong);
+  --bg-overlay-3: rgba(8, 8, 14, 0.82);
+  --bg-overlay-app-frame: var(--futuristic-void);
+  --bg-mod-faint: rgba(255, 255, 255, 0.035);
+  --bg-mod-subtle: rgba(255, 255, 255, 0.055);
+  --bg-mod-strong: rgba(255, 255, 255, 0.09);
+  --bg-surface-overlay: var(--futuristic-glass-strong);
+  --bg-surface-raised: rgba(22, 22, 30, 0.5);
+  --background-base-low: rgba(18, 18, 24, 0.42);
+  --background-base-lower: rgba(12, 12, 18, 0.55);
+  --background-base-lowest: var(--futuristic-void);
+  --background-surface-high: rgba(22, 22, 30, 0.45);
+  --background-surface-higher: rgba(26, 26, 36, 0.5);
+  --background-surface-highest: rgba(34, 34, 46, 0.55);
+
+  --border-subtle: var(--futuristic-border);
+  --border-faint: rgba(255, 255, 255, 0.05);
+  --border-normal: var(--futuristic-border);
+  --border-strong: var(--futuristic-border-hover);
+  --input-border: var(--futuristic-border);
+  --input-border-default: var(--futuristic-border);
+
+  --scrollbar-auto-thumb: color-mix(in srgb, var(--main-color) 38%, transparent);
+  --scrollbar-auto-track: transparent;
+  --scrollbar-thin-thumb: color-mix(in srgb, var(--main-color) 32%, transparent);
+  --scrollbar-thin-track: transparent;
+}
+
+/* ==================== BRANDING ==================== */
+/* hashes from ClearVision-v7 src/backend/_classes.scss @ 8182251 */
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before {
+  content: "Futuristic" !important;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--main-color) 55%, transparent)) !important;
+}
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after {
+  content: "2.0.0" !important;
+}
+.info__2debe::after {
+  content: "Futuristic 2.0.0" !important;
+}
+
+/* ==================== GLASS LAYER ==================== */
+/* classes: main appMount / bg / layer / chatForm / sidebar / button @ 8182251 */
+html,
+body,
+.appMount__51fd7 {
+  background-color: var(--futuristic-void);
+}
+
+.layer_da8173 [role="dialog"],
+.layer_da8173 [role="menu"],
+.layer_da8173 [role="listbox"],
+.layerContainer_da8173 [role="dialog"],
+.menu_c1e9c4,
+.root__49fc1,
+.tooltip_c36707,
+.tooltip__4e35b {
+  backdrop-filter: blur(24px) saturate(1.35);
+  -webkit-backdrop-filter: blur(24px) saturate(1.35);
+}
+
+.layer_da8173 [role="dialog"],
+.layer_da8173 [role="menu"],
+.menu_c1e9c4,
+.root__49fc1 {
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-lg) !important;
+  box-shadow: var(--futuristic-glow);
+}
+
+.channelTextArea__74017,
+.channelTextArea_d9be46 {
+  border-radius: var(--futuristic-radius-md) !important;
+  backdrop-filter: blur(18px) saturate(1.25);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.button__201d5,
+.lookFilled__201d5 {
+  border-radius: var(--futuristic-radius-sm);
+}
+
+.interactiveSelected__972a0::before,
+.modeSelected__2ea32 .link__2ea32::before {
+  background: color-mix(in srgb, var(--main-color) 26%, transparent) !important;
+}
+
+.modeSelected__2ea32,
+.interactiveSelected__972a0 {
+  box-shadow: inset 3px 0 0 var(--main-color);
+}
+
+/* Vencord / Equicord settings */
+.vc-addon-card,
+.vc-card-base,
+.vc-settings-quickActions-pill,
+.bd-addon-card,
+.bd-store-card {
+  backdrop-filter: blur(16px) saturate(1.25);
+  -webkit-backdrop-filter: blur(16px) saturate(1.25);
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-md) !important;
+  transition: border-color var(--futuristic-ease), box-shadow var(--futuristic-ease), transform var(--futuristic-ease);
+}
+.vc-addon-card:hover,
+.vc-settings-quickActions-pill:hover,
+.bd-addon-card:hover,
+.bd-store-card:hover {
+  border-color: color-mix(in srgb, var(--main-color) 45%, transparent) !important;
+  box-shadow: var(--futuristic-glow);
+}
+
+.vc-switch-container.vc-switch-checked,
+.bd-button-filled.bd-button-color-primary {
+  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+}
+
+.vc-notification-root {
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--futuristic-radius-md);
+}
+
+/* ==================== POLISH ==================== */
+::selection {
+  background: color-mix(in srgb, var(--main-color) 55%, transparent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--main-color) !important;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--main-color) 36%, transparent) !important;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--main-color) 56%, transparent) !important;
+}
+
+@keyframes futuristic-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* ==================== AI PLUGIN (vc-grokai) ==================== */
+.vc-grokai-root {
+  --vc-grokai-line: var(--futuristic-border);
+  --vc-grokai-focus: var(--main-color);
+  gap: 12px !important;
+}
+
+[role="dialog"]:has(.vc-grokai-root),
+[role="dialog"]:has(.vc-grokai-nc) {
+  background: var(--futuristic-glass-strong) !important;
+  backdrop-filter: blur(28px) saturate(1.4);
+  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--futuristic-glow);
+}
+
+.vc-grokai-sidebar {
+  background: var(--futuristic-glass-strong) !important;
+  backdrop-filter: blur(22px) saturate(1.35);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-lg) !important;
+  box-shadow: var(--futuristic-glow);
+}
+
+.vc-grokai-sidebar-title {
+  color: var(--main-color) !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 700 !important;
+}
+
+.vc-grokai-sidebar-empty {
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-thread {
+  border-radius: 10px !important;
+  transition: background var(--futuristic-ease);
+}
+
+.vc-grokai-thread:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.vc-grokai-thread.vc-grokai-active {
+  background: color-mix(in srgb, var(--main-color) 18%, transparent) !important;
+  box-shadow: inset 3px 0 0 var(--main-color);
+}
+
+.vc-grokai-thread.vc-grokai-live .vc-grokai-thread-name {
+  color: var(--header-primary, #f4f4f8);
+}
+
+.vc-grokai-thread-del:hover:not(:disabled) {
+  color: var(--danger-color) !important;
+  background: color-mix(in srgb, var(--danger-color) 16%, transparent) !important;
+}
+
+.vc-grokai-spinner {
+  border-color: color-mix(in srgb, var(--main-color) 25%, transparent) !important;
+  border-top-color: var(--main-color) !important;
+}
+
+.vc-grokai-status {
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-dot {
+  background: var(--danger-color) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger-color) 18%, transparent);
+}
+
+.vc-grokai-dot.vc-grokai-ok {
+  background: var(--success-color) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success-color) 18%, transparent);
+}
+
+.vc-grokai-toolbar {
+  background: var(--futuristic-glass-strong) !important;
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-md) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.vc-grokai-toolbar-label {
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-mini {
+  border-radius: 8px !important;
+  transition: background var(--futuristic-ease), color var(--futuristic-ease);
+}
+
+.vc-grokai-mini:hover:not(:disabled) {
+  color: var(--header-primary, #fff) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.vc-grokai-mini.vc-grokai-on {
+  color: #fff !important;
+  background: color-mix(in srgb, var(--main-color) 28%, transparent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 40%, transparent);
+}
+
+.vc-grokai-messages {
+  background: var(--futuristic-glass) !important;
+  backdrop-filter: blur(24px) saturate(1.25);
+  -webkit-backdrop-filter: blur(24px) saturate(1.25);
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-lg) !important;
+  box-shadow: var(--futuristic-glow);
+}
+
+.vc-grokai-messages::-webkit-scrollbar-thumb,
+.vc-grokai-input::-webkit-scrollbar-thumb,
+.vc-grokai-sidebar-list::-webkit-scrollbar-thumb,
+.vc-grokai-nc-summary::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--main-color) 40%, transparent) !important;
+}
+
+.vc-grokai-empty {
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-empty strong {
+  color: var(--header-primary, #f4f4f8) !important;
+}
+
+.vc-grokai-empty-icon {
+  background: color-mix(in srgb, var(--main-color) 16%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--main-color) 32%, transparent) !important;
+  color: var(--main-color) !important;
+  box-shadow: 0 0 24px -8px color-mix(in srgb, var(--main-color) 50%, transparent);
+}
+
+.vc-grokai-meta {
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-bubble.vc-grokai-user {
+  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--main-color) 55%, transparent);
+  border-radius: 18px 18px 6px 18px !important;
+}
+
+.vc-grokai-bubble.vc-grokai-assistant {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--futuristic-border) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px 18px 18px 6px !important;
+  color: var(--normal-text) !important;
+}
+
+.vc-grokai-bubble.vc-grokai-pending {
+  opacity: 0.78;
+}
+
+.vc-grokai-bubble.vc-grokai-error {
+  border-color: color-mix(in srgb, var(--danger-color) 55%, transparent) !important;
+  background: color-mix(in srgb, var(--danger-color) 12%, transparent) !important;
+}
+
+.vc-grokai-bubble.vc-grokai-assistant a {
+  color: var(--hover-color) !important;
+}
+
+.vc-grokai-bubble.vc-grokai-assistant pre {
+  background: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid var(--futuristic-border);
+  border-radius: 10px !important;
+}
+
+.vc-grokai-bubble.vc-grokai-assistant code {
+  font-family: var(--code-font) !important;
+}
+
+.vc-grokai-bubble.vc-grokai-assistant blockquote {
+  border-left-color: var(--main-color) !important;
+}
+
+.vc-grokai-trace {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-md) !important;
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-trace.vc-grokai-live summary::before {
+  background: var(--main-color) !important;
+  animation: futuristic-pulse 1.1s ease-in-out infinite;
+}
+
+.vc-grokai-tool.vc-grokai-running .vc-grokai-tool-dot {
+  background: var(--main-color) !important;
+  animation: futuristic-pulse 1.1s ease-in-out infinite;
+}
+
+.vc-grokai-tool.vc-grokai-done .vc-grokai-tool-dot {
+  background: var(--success-color) !important;
+}
+
+.vc-grokai-tool.vc-grokai-error .vc-grokai-tool-dot {
+  background: var(--danger-color) !important;
+}
+
+.vc-grokai-thought {
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-composer {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-md) !important;
+  box-shadow: none !important;
+  transition: border-color var(--futuristic-ease), box-shadow var(--futuristic-ease) !important;
+}
+
+.vc-grokai-composer:hover:not(.vc-grokai-disabled):not(:focus-within) {
+  border-color: var(--futuristic-border-hover) !important;
+}
+
+.vc-grokai-composer:focus-within {
+  border-color: var(--main-color) !important;
+  box-shadow:
+    0 0 0 1px var(--main-color),
+    0 0 0 5px color-mix(in srgb, var(--main-color) 22%, transparent) !important;
+}
+
+.vc-grokai-input,
+.vc-grokai-input::placeholder {
+  font-family: var(--main-font) !important;
+}
+
+.vc-grokai-send {
+  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+  border-radius: var(--futuristic-radius-sm) !important;
+  font-weight: 600 !important;
+  transition: filter 0.15s ease, transform 0.15s ease !important;
+}
+
+.vc-grokai-send:hover:not(:disabled) {
+  filter: brightness(1.1) !important;
+  transform: translateY(-1px);
+}
+
+.vc-grokai-send.vc-grokai-stop {
+  background: linear-gradient(135deg, #ff5c7a, #ff3d5e) !important;
+}
+
+.vc-grokai-icon.vc-grokai-chat-button {
+  color: var(--interactive-normal);
+  transition: color var(--futuristic-ease), filter var(--futuristic-ease);
+}
+
+.vc-grokai-icon.vc-grokai-chat-button:hover {
+  color: var(--main-color) !important;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--main-color) 55%, transparent));
+}
+
+.vc-grokai-settings {
+  background: var(--futuristic-glass) !important;
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-md) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.vc-grokai-sl-btn {
+  background: var(--futuristic-glass-strong) !important;
+  border: 1px solid var(--futuristic-border) !important;
+  color: var(--interactive-normal) !important;
+  transition:
+    border-radius 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease !important;
+}
+
+.vc-grokai-sl-btn:hover,
+.vc-grokai-sl-btn:focus-visible {
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, var(--main-color), var(--hover-color)) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  transform: scale(1.04);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--main-color) 42%, transparent);
+}
+
+.vc-grokai-nc {
+  gap: 12px !important;
+}
+
+.vc-grokai-nc-banner {
+  background: color-mix(in srgb, var(--main-color) 18%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--main-color) 32%, transparent);
+  border-radius: var(--futuristic-radius-sm) !important;
+}
+
+.vc-grokai-nc-summary {
+  background: var(--futuristic-glass) !important;
+  border: 1px solid var(--futuristic-border) !important;
+  border-radius: var(--futuristic-radius-lg) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.vc-grokai-nc-summary.vc-grokai-error {
+  border-color: color-mix(in srgb, var(--danger-color) 50%, transparent) !important;
+}
+
+.vc-grokai-nc-empty {
+  color: var(--muted-text) !important;
+}
+
+.vc-grokai-nc-link {
+  color: var(--hover-color) !important;
+  border-bottom-color: color-mix(in srgb, var(--hover-color) 45%, transparent) !important;
+}
+
+.vc-grokai-nc-link:hover {
+  border-bottom-color: var(--hover-color) !important;
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  .vc-grokai-send,
+  .vc-grokai-sl-btn,
+  .vc-grokai-thread,
+  .vc-addon-card,
+  .vc-grokai-icon.vc-grokai-chat-button {
+    transition: none !important;
+    transform: none !important;
+  }
+  .vc-grokai-trace.vc-grokai-live summary::before,
+  .vc-grokai-tool.vc-grokai-running .vc-grokai-tool-dot,
+  .vc-grokai-spinner {
+    animation: none !important;
+  }
+}
