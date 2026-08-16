@@ -17,6 +17,7 @@
 </p>
 
 <p align="center">
+  <a href="#screenshots">Screenshots</a> ·
   <a href="#install">Install</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="#wallpapers">Wallpapers</a> ·
@@ -40,6 +41,35 @@
 The theme file is knobs only (colors, wallpaper, fonts, icons). Glass, motion, and AI chrome load from [`engine/`](engine/).
 
 Enable **only this theme**. Another full theme on top will clash.
+
+---
+
+## Screenshots
+
+Drop three Discord captures in [`assets/screenshots/`](assets/screenshots/) using these names. GitHub will show them here.
+
+<p align="center">
+  <img src="assets/screenshots/01-chat.png" alt="Chat" width="100%">
+</p>
+<p align="center"><sub>Chat</sub></p>
+
+<p align="center">
+  <img src="assets/screenshots/02-server.png" alt="Servers and channels" width="100%">
+</p>
+<p align="center"><sub>Servers and channels</sub></p>
+
+<p align="center">
+  <img src="assets/screenshots/03-ai.png" alt="AI plugin" width="100%">
+</p>
+<p align="center"><sub>AI plugin</sub></p>
+
+| # | File | Show |
+| --- | --- | --- |
+| 1 | [`assets/screenshots/01-chat.png`](assets/screenshots/01-chat.png) | Chat |
+| 2 | [`assets/screenshots/02-server.png`](assets/screenshots/02-server.png) | Servers and channels |
+| 3 | [`assets/screenshots/03-ai.png`](assets/screenshots/03-ai.png) | AI plugin |
+
+PNG or JPG is fine if you keep the file name (or change the `src` above). Wide 16:9 reads best.
 
 ---
 
@@ -271,6 +301,7 @@ engine/betterdiscord.css BetterDiscord bits
 engine/futuristic.css    Futuristic glass, AI, motion, icon hooks
 assets/                  wallpapers
 assets/icons/            Phosphor duotone SVGs
+assets/screenshots/      README shots (01-chat, 02-server, 03-ai)
 overrides/               AI-only QuickCSS
 ```
 
