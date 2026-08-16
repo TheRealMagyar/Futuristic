@@ -19,7 +19,7 @@
 :root {
   /* ACCENT COLORS */
   --main-color: #7c5cff; /* main accent color (hex, rgb or hsl) [default: #7c5cff] */
-  --hover-color: #9b82ff; /* hover accent color (hex, rgb or hsl) [default: #9b82ff] */
+  --hover-color: #9b82ff; /* hover accent color (hex, argb or hsl) [default: #9b82ff] */
   --success-color: #3ecf8e; /* positive accent color (hex, rgb or hsl) [default: #3ecf8e] */
   --danger-color: #ff5c7a; /* danger accent color (hex, rgb or hsl) [default: #ff5c7a] */
   --warning-color: #f5a623;
@@ -43,41 +43,80 @@
   --background-position: center; /* app background position [default: center] */
   --background-size: cover; /* app background size (px) [default: cover] */
   --background-attachment: fixed; /* app background attachment [default: fixed] */
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18)) brightness(0.9) contrast(1.04); /* app background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18))
+    brightness(0.9) contrast(1.04); /* app background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
 
   /* USER POPOUT BACKGROUND */
-  --user-popout-image: var(--background-image); /* user popout background image (link must be HTTPS) (not applied to nitro users) [default: var(--background-image)] */
-  --user-popout-position: var(--background-position); /* user popout position [default: var(--background-position)] */
-  --user-popout-size: var(--background-size); /* user popout size (px) [default: var(--background-size)] */
-  --user-popout-attachment: var(--background-attachment); /* user popout background attachment [default: var(--background-attachment)] */
-  --user-popout-filter: blur(28px) saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82); /* user popout background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
+  --user-popout-image: var(
+    --background-image
+  ); /* user popout background image (link must be HTTPS) (not applied to nitro users) [default: var(--background-image)] */
+  --user-popout-position: var(
+    --background-position
+  ); /* user popout position [default: var(--background-position)] */
+  --user-popout-size: var(
+    --background-size
+  ); /* user popout size (px) [default: var(--background-size)] */
+  --user-popout-attachment: var(
+    --background-attachment
+  ); /* user popout background attachment [default: var(--background-attachment)] */
+  --user-popout-filter: blur(28px)
+    saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82); /* user popout background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
 
   /* USER MODAL BACKGROUND */
-  --user-modal-image: var(--background-image); /* user modal background image (link must be HTTPS) (not applied to nitro users) [default: var(--background-image)] */
-  --user-modal-position: var(--background-position); /* user modal position [default: var(--background-position)] */
-  --user-modal-size: var(--background-size); /* user modal size (px) [default: var(--background-size)] */
-  --user-modal-attachment: var(--background-attachment); /* user modal background attachment [default: var(--background-attachment)] */
-  --user-modal-filter: blur(36px) saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8); /* user modal background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
+  --user-modal-image: var(
+    --background-image
+  ); /* user modal background image (link must be HTTPS) (not applied to nitro users) [default: var(--background-image)] */
+  --user-modal-position: var(
+    --background-position
+  ); /* user modal position [default: var(--background-position)] */
+  --user-modal-size: var(
+    --background-size
+  ); /* user modal size (px) [default: var(--background-size)] */
+  --user-modal-attachment: var(
+    --background-attachment
+  ); /* user modal background attachment [default: var(--background-attachment)] */
+  --user-modal-filter: blur(36px)
+    saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8); /* user modal background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
 
   /* HOME ICON — none = keep Discord's built-in DMs / home mark */
   --home-icon: none;
   --home-size: cover; /* home button icon size (px) [default: cover] */
 
   /* FONTS */
-  --main-font: "gg sans", "Inter", "Segoe UI", system-ui, sans-serif; /* main font for app (font must be installed) [default: gg sans, Inter, Segoe UI, system-ui, sans-serif] */
-  --code-font: "JetBrains Mono", "Fira Code", "gg mono", Consolas, monospace; /* font for codeblocks (font must be installed) [default: JetBrains Mono, Fira Code, gg mono, Consolas, monospace] */
+  --main-font:
+    "gg sans", "Inter", "Segoe UI", system-ui, sans-serif; /* main font for app (font must be installed) [default: gg sans, Inter, Segoe UI, system-ui, sans-serif] */
+  --code-font:
+    "JetBrains Mono", "Fira Code", "gg mono", Consolas, monospace; /* font for codeblocks (font must be installed) [default: JetBrains Mono, Fira Code, gg mono, Consolas, monospace] */
 
   /* CHANNEL COLORS */
-  --channel-normal: var(--interactive-text-default); /* channel text color [default: var(--interactive-text-default)] */
-  --channel-muted: var(--interactive-muted); /* muted channel text color [default: var(--interactive-muted)] */
-  --channel-hover: var(--interactive-text-hover); /* hovered channel text color [default: var(--interactive-text-hover)] */
-  --channel-selected: var(--interactive-text-active); /* selected channel text color [default: var(--interactive-text-active)] */
-  --channel-selected-bg: color-mix(in srgb, var(--main-color) 26%, transparent); /* selected channel background [default: color-mix accent] */
-  --channel-unread: var(--main-color); /* unread channel text color [default: var(--main-color)] */
-  --channel-unread-hover: var(--hover-color); /* unread channel hover color [default: var(--hover-color)] */
+  --channel-normal: var(
+    --interactive-text-default
+  ); /* channel text color [default: var(--interactive-text-default)] */
+  --channel-muted: var(
+    --interactive-muted
+  ); /* muted channel text color [default: var(--interactive-muted)] */
+  --channel-hover: var(
+    --interactive-text-hover
+  ); /* hovered channel text color [default: var(--interactive-text-hover)] */
+  --channel-selected: var(
+    --interactive-text-active
+  ); /* selected channel text color [default: var(--interactive-text-active)] */
+  --channel-selected-bg: color-mix(
+    in srgb,
+    var(--main-color) 26%,
+    transparent
+  ); /* selected channel background [default: color-mix accent] */
+  --channel-unread: var(
+    --main-color
+  ); /* unread channel text color [default: var(--main-color)] */
+  --channel-unread-hover: var(
+    --hover-color
+  ); /* unread channel hover color [default: var(--hover-color)] */
 
   /* ACCESSIBILITY */
-  --focus-color: var(--main-color); /* outline when pressing TAB key [default: var(--main-color)] */
+  --focus-color: var(
+    --main-color
+  ); /* outline when pressing TAB key [default: var(--main-color)] */
 
   /* FUTURISTIC TOKENS */
   --futuristic-void: #06060a;
@@ -122,11 +161,36 @@
 /* THEME SPECIFIC SHADING */
 /* LIGHT THEME */
 :is(.theme-light, .theme-dark .theme-light) {
-  --background-shading: rgba(248, 248, 252, 0.38); /* app background shading color [default: rgba(248, 248, 252, 0.38)] */
-  --card-shading: rgba(255, 255, 255, 0.42); /* cards background shading color [default: rgba(255, 255, 255, 0.42)] */
-  --popout-shading: rgba(252, 252, 255, 0.9); /* popouts background shading color [default: rgba(252, 252, 255, 0.9)] */
-  --modal-shading: rgba(250, 250, 255, 0.92); /* modals background shading color [default: rgba(250, 250, 255, 0.92)] */
-  --input-shading: rgba(0, 0, 0, 0.06); /* inputs background shading color [default: rgba(0, 0, 0, 0.06)] */
+  --background-shading: rgba(
+    248,
+    248,
+    252,
+    0.38
+  ); /* app background shading color [default: rgba(248, 248, 252, 0.38)] */
+  --card-shading: rgba(
+    255,
+    255,
+    255,
+    0.42
+  ); /* cards background shading color [default: rgba(255, 255, 255, 0.42)] */
+  --popout-shading: rgba(
+    252,
+    252,
+    255,
+    0.9
+  ); /* popouts background shading color [default: rgba(252, 252, 255, 0.9)] */
+  --modal-shading: rgba(
+    250,
+    250,
+    255,
+    0.92
+  ); /* modals background shading color [default: rgba(250, 250, 255, 0.92)] */
+  --input-shading: rgba(
+    0,
+    0,
+    0,
+    0.06
+  ); /* inputs background shading color [default: rgba(0, 0, 0, 0.06)] */
   --normal-text: #1c1c24; /* text color [default: #1c1c24] */
   --muted-text: #6b6b78; /* muted text color [default: #6b6b78] */
   --futuristic-glass: rgba(255, 255, 255, 0.82);
@@ -136,33 +200,108 @@
 
 /* ASH THEME */
 :is(.theme-dark, .theme-light .theme-dark) {
-  --background-shading: rgba(6, 6, 10, 0.42); /* app background shading color [default: rgba(6, 6, 10, 0.42)] */
-  --card-shading: rgba(16, 16, 24, 0.4); /* cards background shading color [default: rgba(16, 16, 24, 0.4)] */
-  --popout-shading: rgba(10, 10, 16, 0.88); /* popouts background shading color [default: rgba(10, 10, 16, 0.88)] */
-  --modal-shading: rgba(8, 8, 14, 0.9); /* modals background shading color [default: rgba(8, 8, 14, 0.9)] */
-  --input-shading: rgba(255, 255, 255, 0.045); /* inputs background shading color [default: rgba(255, 255, 255, 0.045)] */
+  --background-shading: rgba(
+    6,
+    6,
+    10,
+    0.42
+  ); /* app background shading color [default: rgba(6, 6, 10, 0.42)] */
+  --card-shading: rgba(
+    16,
+    16,
+    24,
+    0.4
+  ); /* cards background shading color [default: rgba(16, 16, 24, 0.4)] */
+  --popout-shading: rgba(
+    10,
+    10,
+    16,
+    0.88
+  ); /* popouts background shading color [default: rgba(10, 10, 16, 0.88)] */
+  --modal-shading: rgba(
+    8,
+    8,
+    14,
+    0.9
+  ); /* modals background shading color [default: rgba(8, 8, 14, 0.9)] */
+  --input-shading: rgba(
+    255,
+    255,
+    255,
+    0.045
+  ); /* inputs background shading color [default: rgba(255, 255, 255, 0.045)] */
   --normal-text: #e8e8ed; /* text color [default: #e8e8ed] */
   --muted-text: #9494a3; /* muted text color [default: #9494a3] */
 }
 
 /* DARK THEME */
 :is(.theme-darker, .theme-light .theme-darker) {
-  --background-shading: rgba(4, 4, 8, 0.55); /* app background shading color [default: rgba(4, 4, 8, 0.55)] */
-  --card-shading: rgba(12, 12, 18, 0.46); /* cards background shading color [default: rgba(12, 12, 18, 0.46)] */
-  --popout-shading: rgba(8, 8, 14, 0.9); /* popouts background shading color [default: rgba(8, 8, 14, 0.9)] */
-  --modal-shading: rgba(6, 6, 12, 0.92); /* modals background shading color [default: rgba(6, 6, 12, 0.92)] */
-  --input-shading: rgba(255, 255, 255, 0.04); /* inputs background shading color [default: rgba(255, 255, 255, 0.04)] */
+  --background-shading: rgba(
+    4,
+    4,
+    8,
+    0.55
+  ); /* app background shading color [default: rgba(4, 4, 8, 0.55)] */
+  --card-shading: rgba(
+    12,
+    12,
+    18,
+    0.46
+  ); /* cards background shading color [default: rgba(12, 12, 18, 0.46)] */
+  --popout-shading: rgba(
+    8,
+    8,
+    14,
+    0.9
+  ); /* popouts background shading color [default: rgba(8, 8, 14, 0.9)] */
+  --modal-shading: rgba(
+    6,
+    6,
+    12,
+    0.92
+  ); /* modals background shading color [default: rgba(6, 6, 12, 0.92)] */
+  --input-shading: rgba(
+    255,
+    255,
+    255,
+    0.04
+  ); /* inputs background shading color [default: rgba(255, 255, 255, 0.04)] */
   --normal-text: #f2f2f6; /* text color [default: #f2f2f6] */
   --muted-text: #8e8e9a; /* muted text color [default: #8e8e9a] */
 }
 
 /* ONYX THEME */
 :is(.theme-midnight, .theme-light .theme-midnight) {
-  --background-shading: rgba(0, 0, 0, 0.68); /* app background shading color [default: rgba(0, 0, 0, 0.68)] */
-  --card-shading: rgba(10, 10, 14, 0.52); /* cards background shading color [default: rgba(10, 10, 14, 0.52)] */
-  --popout-shading: rgba(6, 6, 10, 0.92); /* popouts background shading color [default: rgba(6, 6, 10, 0.92)] */
-  --modal-shading: rgba(4, 4, 8, 0.94); /* modals background shading color [default: rgba(4, 4, 8, 0.94)] */
-  --input-shading: rgba(255, 255, 255, 0.035); /* inputs background shading color [default: rgba(255, 255, 255, 0.035)] */
+  --background-shading: rgba(
+    0,
+    0,
+    0,
+    0.68
+  ); /* app background shading color [default: rgba(0, 0, 0, 0.68)] */
+  --card-shading: rgba(
+    10,
+    10,
+    14,
+    0.52
+  ); /* cards background shading color [default: rgba(10, 10, 14, 0.52)] */
+  --popout-shading: rgba(
+    6,
+    6,
+    10,
+    0.92
+  ); /* popouts background shading color [default: rgba(6, 6, 10, 0.92)] */
+  --modal-shading: rgba(
+    4,
+    4,
+    8,
+    0.94
+  ); /* modals background shading color [default: rgba(4, 4, 8, 0.94)] */
+  --input-shading: rgba(
+    255,
+    255,
+    255,
+    0.035
+  ); /* inputs background shading color [default: rgba(255, 255, 255, 0.035)] */
   --normal-text: #e4e4ea; /* text color [default: #e4e4ea] */
   --muted-text: #848490; /* muted text color [default: #848490] */
 }
@@ -307,7 +446,9 @@ html:has(.vc-grokai-root) [class*="layer"]:has(.vc-grokai-root),
 html:has(.vc-grokai-nc) [class*="layer"]:has(.vc-grokai-nc),
 html:has(.vc-grokai-root) [class*="focusLock"],
 html:has(.vc-grokai-nc) [class*="focusLock"],
-.layer_bc663c {
+.layer_bc663c,
+[role="dialog"]:has(.vc-grokai-root),
+[role="dialog"]:has(.vc-grokai-nc) {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -317,8 +458,10 @@ html:has(.vc-grokai-root) [class*="backdrop"],
 html:has(.vc-grokai-nc) [class*="backdrop"],
 html:has(.vc-grokai-root) [class*="layer"] [style*="opacity"],
 html:has(.vc-grokai-nc) [class*="layer"] [style*="opacity"],
-[class*="layer"]:has(.vc-grokai-root) > :not(:has(.vc-grokai-root)):not([role="dialog"]),
-[class*="layer"]:has(.vc-grokai-nc) > :not(:has(.vc-grokai-nc)):not([role="dialog"]),
+[class*="layer"]:has(.vc-grokai-root)
+  > :not(:has(.vc-grokai-root)):not([role="dialog"]),
+[class*="layer"]:has(.vc-grokai-nc)
+  > :not(:has(.vc-grokai-nc)):not([role="dialog"]),
 .backdrop__78332,
 .withLayer__78332,
 dialog::backdrop,
@@ -345,17 +488,7 @@ dialog::backdrop,
   box-shadow: var(--futuristic-glow);
 }
 
-/* Server-rail hover labels — Apple liquid glass, no staggered enter */
-[class*="layer"]:has([role="tooltip"]),
-[class*="layer"]:has([class*="tooltipPrimary"]),
-[class*="layer"]:has([class*="listItemTooltip"]),
-[class*="tooltipDisablePointerEvents"],
-.tooltipDisablePointerEvents_c36707 {
-  animation: none !important;
-  transition: none !important;
-  transform: none !important;
-}
-
+/* Server-rail hover labels — Apple liquid glass */
 [role="tooltip"],
 [class*="tooltipPrimary"],
 [class*="listItemTooltip"],
@@ -364,8 +497,8 @@ dialog::backdrop,
 .dialogWrapper_b1f768,
 .tooltip_c36707,
 .tooltipPrimary_c36707 {
-  background: rgba(28, 28, 36, 0.78) !important;
-  background-color: rgba(28, 28, 36, 0.78) !important;
+  background: var(--futuristic-liquid) !important;
+  background-color: var(--futuristic-liquid) !important;
   backdrop-filter: blur(40px) saturate(2.1) brightness(1.1) !important;
   -webkit-backdrop-filter: blur(40px) saturate(2.1) brightness(1.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.24) !important;
@@ -373,28 +506,17 @@ dialog::backdrop,
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.32),
     0 12px 36px rgba(0, 0, 0, 0.4) !important;
-  animation: none !important;
-  transition: none !important;
-  transform: none !important;
-  opacity: 1 !important;
-  isolation: isolate;
 }
 
 [role="tooltip"] [class*="tooltipContent"],
 .tooltipContent_c36707 {
   background: transparent !important;
   color: #f5f5f7 !important;
-  animation: none !important;
-  transition: none !important;
 }
 
-[class*="tooltipPointer"],
 .tooltipPointer_c36707,
-[class*="tooltipPointer"]::before,
-[class*="tooltipPointer"]::after {
+[class*="listItemTooltip"] [class*="tooltipPointer"] {
   display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
 }
 
 /* Chat input: one surface, no stacked rings */
@@ -486,7 +608,11 @@ dialog::backdrop,
 
 /* Vencord plugin switch: white knob + accent check / X. Do not paint paths white. */
 .vc-switch-container {
-  background: color-mix(in srgb, var(--interactive-normal) 40%, #2b2d31) !important;
+  background: color-mix(
+    in srgb,
+    var(--interactive-normal) 40%,
+    #2b2d31
+  ) !important;
 }
 .vc-switch-container.vc-switch-checked {
   background: var(--main-color) !important;
@@ -503,7 +629,11 @@ dialog::backdrop,
 
 /* Discord native switch knob stays light on the accent track */
 .container__3f21e {
-  background: color-mix(in srgb, var(--interactive-normal) 40%, #2b2d31) !important;
+  background: color-mix(
+    in srgb,
+    var(--interactive-normal) 40%,
+    #2b2d31
+  ) !important;
 }
 .container__3f21e.checked__3f21e {
   background: var(--main-color) !important;
@@ -599,13 +729,15 @@ dialog::backdrop,
   gap: 12px !important;
 }
 
-/* The window chrome: title, close, and body share one glass card */
-[role="dialog"]:has(.vc-grokai-root),
-[role="dialog"]:has(.vc-grokai-nc),
+/* Window chrome: same glass as inner panels, but opaque enough to read */
+[role="dialog"]:has(.vc-grokai-root) > :only-child,
+[role="dialog"]:has(.vc-grokai-nc) > :only-child,
+[role="dialog"]:has(.vc-grokai-root) [class*="focusLock"] > :only-child,
+[role="dialog"]:has(.vc-grokai-nc) [class*="focusLock"] > :only-child,
 .root__49fc1:has(.vc-grokai-root),
 .root__49fc1:has(.vc-grokai-nc) {
-  background: var(--futuristic-liquid) !important;
-  background-color: var(--futuristic-liquid) !important;
+  background: rgba(22, 22, 28, 0.9) !important;
+  background-color: rgba(22, 22, 28, 0.9) !important;
   backdrop-filter: blur(40px) saturate(2) brightness(1.06) !important;
   -webkit-backdrop-filter: blur(40px) saturate(2) brightness(1.06) !important;
   border: 1px solid rgba(255, 255, 255, 0.22) !important;
@@ -616,10 +748,31 @@ dialog::backdrop,
   overflow: hidden;
 }
 
-[role="dialog"]:has(.vc-grokai-root) .header__49fc1,
-[role="dialog"]:has(.vc-grokai-nc) .header__49fc1 {
-  background: transparent !important;
+[role="dialog"]:has(.vc-grokai-root) > .header__49fc1,
+[role="dialog"]:has(.vc-grokai-nc) > .header__49fc1,
+[role="dialog"]:has(.vc-grokai-root) > [class^="header_"],
+[role="dialog"]:has(.vc-grokai-nc) > [class^="header_"] {
+  background: rgba(22, 22, 28, 0.9) !important;
+  backdrop-filter: blur(40px) saturate(2) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px 18px 0 0 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+[role="dialog"]:has(.vc-grokai-root) > .header__49fc1 + *,
+[role="dialog"]:has(.vc-grokai-nc) > .header__49fc1 + *,
+[role="dialog"]:has(.vc-grokai-root) > [class^="header_"] + *,
+[role="dialog"]:has(.vc-grokai-nc) > [class^="header_"] + *,
+[role="dialog"]:has(.vc-grokai-root) > .content__49fc1,
+[role="dialog"]:has(.vc-grokai-nc) > .content__49fc1 {
+  background: rgba(22, 22, 28, 0.9) !important;
+  backdrop-filter: blur(40px) saturate(2) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-top: none !important;
+  border-radius: 0 0 18px 18px !important;
 }
 
 [role="dialog"]:has(.vc-grokai-root) .close__49fc1,
