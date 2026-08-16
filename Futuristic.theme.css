@@ -101,9 +101,7 @@
   --futuristic-radius-sm: 10px;
   --futuristic-radius-md: 14px;
   --futuristic-radius-lg: 18px;
-  --futuristic-glow:
-    0 0 0 1px color-mix(in srgb, var(--main-color) 28%, transparent),
-    0 12px 40px -12px color-mix(in srgb, var(--main-color) 28%, transparent);
+  --futuristic-glow: 0 12px 40px -12px color-mix(in srgb, var(--main-color) 28%, transparent);
   --futuristic-ease: 0.18s ease;
 }
 
@@ -250,13 +248,6 @@
   --background-surface-higher: rgba(26, 26, 36, 0.5);
   --background-surface-highest: rgba(34, 34, 46, 0.55);
 
-  --border-subtle: var(--futuristic-border);
-  --border-faint: rgba(255, 255, 255, 0.05);
-  --border-normal: var(--futuristic-border);
-  --border-strong: var(--futuristic-border-hover);
-  --input-border: var(--futuristic-border);
-  --input-border-default: var(--futuristic-border);
-
   --scrollbar-auto-thumb: color-mix(in srgb, var(--main-color) 38%, transparent);
   --scrollbar-auto-track: transparent;
   --scrollbar-thin-thumb: color-mix(in srgb, var(--main-color) 32%, transparent);
@@ -296,7 +287,7 @@ body,
   -webkit-backdrop-filter: blur(24px) saturate(1.35);
 }
 
-.layer_da8173 [role="dialog"],
+.layer_da8173 [role="dialog"]:not(:has(.vc-grokai-root)):not(:has(.vc-grokai-nc)),
 .layer_da8173 [role="menu"],
 .menu_c1e9c4,
 .root__49fc1 {
@@ -305,11 +296,44 @@ body,
   box-shadow: var(--futuristic-glow);
 }
 
+/* Chat input: one surface, no stacked rings (ClearVision adds a 2px box-shadow) */
+.form_f75fb0,
+.channelBottomBarArea_f75fb0,
+.channelTextArea__74017,
+.channelTextArea_d9be46,
+.channelTextArea_f75fb0,
+.themedBackground__74017,
+.scrollableContainer__74017,
+.inner__74017,
+.stackedBars__74017,
+.channelTextAreaInner_d9be46 {
+  border: none !important;
+  outline: none !important;
+}
+
 .channelTextArea__74017,
 .channelTextArea_d9be46 {
   border-radius: var(--futuristic-radius-md) !important;
+  box-shadow: none !important;
   backdrop-filter: blur(18px) saturate(1.25);
   -webkit-backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.channelTextArea__74017:focus-within,
+.channelTextArea_d9be46:focus-within {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 50%, transparent) !important;
+}
+
+.channelTextArea__74017 :focus,
+.channelTextArea__74017 :focus-visible,
+.channelTextArea_d9be46 :focus,
+.channelTextArea_d9be46 :focus-visible,
+.scrollableContainer__74017:focus,
+.inner__74017:focus,
+[data-slate-editor="true"]:focus,
+[data-slate-editor="true"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .button__201d5,
@@ -365,17 +389,27 @@ body,
   color: #fff;
 }
 
-:focus-visible {
-  outline: 2px solid var(--main-color) !important;
-  outline-offset: 2px;
+/* Slim scrollbars — ClearVision auto is 14px; keep the transparent inset so the thumb stays thin */
+:is(.auto__99f8c, .auto_d125d2)::-webkit-scrollbar {
+  width: 8px !important;
 }
-
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--main-color) 36%, transparent) !important;
-  border-radius: 99px;
+:is(.thin__99f8c, .thin_d125d2)::-webkit-scrollbar {
+  width: 4px !important;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--main-color) 56%, transparent) !important;
+:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-thumb,
+:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-track {
+  border: 2px solid transparent !important;
+  background-clip: padding-box !important;
+}
+:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--main-color) 40%, transparent) !important;
+  border-radius: 99px !important;
+}
+:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--main-color) 62%, transparent) !important;
+}
+:is(.auto__99f8c, .auto_d125d2, .thin__99f8c, .thin_d125d2)::-webkit-scrollbar-track {
+  background: transparent !important;
 }
 
 @keyframes futuristic-pulse {
@@ -398,15 +432,16 @@ body,
   border: 1px solid var(--futuristic-border) !important;
   border-radius: 20px !important;
   box-shadow: var(--futuristic-glow);
+  outline: none !important;
 }
 
 .vc-grokai-sidebar {
   background: var(--futuristic-glass-strong) !important;
   backdrop-filter: blur(22px) saturate(1.35);
   -webkit-backdrop-filter: blur(22px) saturate(1.35);
-  border: 1px solid var(--futuristic-border) !important;
+  border: none !important;
   border-radius: var(--futuristic-radius-lg) !important;
-  box-shadow: var(--futuristic-glow);
+  box-shadow: none !important;
 }
 
 .vc-grokai-sidebar-title {
@@ -463,7 +498,7 @@ body,
 
 .vc-grokai-toolbar {
   background: var(--futuristic-glass-strong) !important;
-  border: 1px solid var(--futuristic-border) !important;
+  border: none !important;
   border-radius: var(--futuristic-radius-md) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -493,11 +528,17 @@ body,
   background: var(--futuristic-glass) !important;
   backdrop-filter: blur(24px) saturate(1.25);
   -webkit-backdrop-filter: blur(24px) saturate(1.25);
-  border: 1px solid var(--futuristic-border) !important;
+  border: none !important;
   border-radius: var(--futuristic-radius-lg) !important;
-  box-shadow: var(--futuristic-glow);
+  box-shadow: none !important;
 }
 
+.vc-grokai-messages::-webkit-scrollbar,
+.vc-grokai-input::-webkit-scrollbar,
+.vc-grokai-sidebar-list::-webkit-scrollbar,
+.vc-grokai-nc-summary::-webkit-scrollbar {
+  width: 4px !important;
+}
 .vc-grokai-messages::-webkit-scrollbar-thumb,
 .vc-grokai-input::-webkit-scrollbar-thumb,
 .vc-grokai-sidebar-list::-webkit-scrollbar-thumb,
@@ -599,21 +640,28 @@ body,
 
 .vc-grokai-composer {
   background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid var(--futuristic-border) !important;
+  border: none !important;
   border-radius: var(--futuristic-radius-md) !important;
   box-shadow: none !important;
-  transition: border-color var(--futuristic-ease), box-shadow var(--futuristic-ease) !important;
+  outline: none !important;
+  transition: box-shadow var(--futuristic-ease) !important;
 }
 
 .vc-grokai-composer:hover:not(.vc-grokai-disabled):not(:focus-within) {
-  border-color: var(--futuristic-border-hover) !important;
+  box-shadow: none !important;
 }
 
 .vc-grokai-composer:focus-within {
-  border-color: var(--main-color) !important;
-  box-shadow:
-    0 0 0 1px var(--main-color),
-    0 0 0 5px color-mix(in srgb, var(--main-color) 22%, transparent) !important;
+  border: none !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 50%, transparent) !important;
+}
+
+.vc-grokai-input,
+.vc-grokai-input:focus,
+.vc-grokai-input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
 }
 
 .vc-grokai-input,
