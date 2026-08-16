@@ -21,8 +21,8 @@
   --main-color: #7c5cff; /* main accent color (hex, rgb or hsl) [default: #7c5cff] */
   --hover-color: #9b82ff; /* hover accent color (hex, rgb or hsl) [default: #9b82ff] */
   --success-color: #3ecf8e; /* positive accent color (hex, rgb or hsl) [default: #3ecf8e] */
-  --warning-color: #f5a623;
   --danger-color: #ff5c7a; /* danger accent color (hex, rgb or hsl) [default: #ff5c7a] */
+  --warning-color: #f5a623;
   --info-color: #67e8f9;
 
   /* STATUS COLORS */
@@ -32,59 +32,52 @@
   --streaming-color: #a78bfa; /* streaming status color (hex, rgb or hsl) [default: #a78bfa] */
   --offline-color: #6b7280; /* offline/invisible status color (hex, rgb or hsl) [default: #6b7280] */
 
-  /* APP BACKGROUND
-     Must be ONE layer (url or a single gradient). The engine applies:
-     background: var(--background-image) center / cover no-repeat;
-     Photo: --background-image: url(https://…);
-     Wallpaper: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/futuristic-void.jpg) */
-  --background-shading-percent: 64%; /* 0 = wallpaper fully visible */
+  /* APP BACKGROUND */
+  --background-shading-percent: 64%; /* app background shading amount (0 for complete smoothness) [default: 64%] */
   --background-image: radial-gradient(
     1400px 920px at 16% -8%,
     color-mix(in srgb, var(--main-color) 40%, #0a0a12) 0%,
     #0a0a12 46%,
     #06060a 100%
-  );
-  --background-position: center;
-  --background-size: cover;
-  --background-attachment: fixed;
-  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18))
-    brightness(0.9) contrast(1.04);
+  ); /* app background image (link must be HTTPS) [default: radial gradient] */
+  --background-position: center; /* app background position [default: center] */
+  --background-size: cover; /* app background size (px) [default: cover] */
+  --background-attachment: fixed; /* app background attachment [default: fixed] */
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1.18)) brightness(0.9) contrast(1.04); /* app background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
 
   /* USER POPOUT BACKGROUND */
-  --user-popout-image: var(--background-image);
-  --user-popout-position: var(--background-position);
-  --user-popout-size: var(--background-size);
-  --user-popout-attachment: var(--background-attachment);
-  --user-popout-filter: blur(28px)
-    saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82);
+  --user-popout-image: var(--background-image); /* user popout background image (link must be HTTPS) (not applied to nitro users) [default: var(--background-image)] */
+  --user-popout-position: var(--background-position); /* user popout position [default: var(--background-position)] */
+  --user-popout-size: var(--background-size); /* user popout size (px) [default: var(--background-size)] */
+  --user-popout-attachment: var(--background-attachment); /* user popout background attachment [default: var(--background-attachment)] */
+  --user-popout-filter: blur(28px) saturate(calc(var(--saturation-factor, 1) * 1.25)) brightness(0.82); /* user popout background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
 
   /* USER MODAL BACKGROUND */
-  --user-modal-image: var(--background-image);
-  --user-modal-position: var(--background-position);
-  --user-modal-size: var(--background-size);
-  --user-modal-attachment: var(--background-attachment);
-  --user-modal-filter: blur(36px)
-    saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8);
+  --user-modal-image: var(--background-image); /* user modal background image (link must be HTTPS) (not applied to nitro users) [default: var(--background-image)] */
+  --user-modal-position: var(--background-position); /* user modal position [default: var(--background-position)] */
+  --user-modal-size: var(--background-size); /* user modal size (px) [default: var(--background-size)] */
+  --user-modal-attachment: var(--background-attachment); /* user modal background attachment [default: var(--background-attachment)] */
+  --user-modal-filter: blur(36px) saturate(calc(var(--saturation-factor, 1) * 1.2)) brightness(0.8); /* user modal background adjustments (ex: blur, saturation, brightness) (more info: https://developer.mozilla.org/en-US/docs/Web/CSS/filter) */
 
   /* HOME ICON */
-  --home-icon: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/home.svg);
-  --home-size: cover;
+  --home-icon: url(https://github.com/TheRealMagyar/Futuristic/raw/main/assets/home.svg); /* home button icon (link must be HTTPS) */
+  --home-size: cover; /* home button icon size (px) [default: cover] */
 
   /* FONTS */
-  --main-font: "gg sans", "Inter", "Segoe UI", system-ui, sans-serif;
-  --code-font: "JetBrains Mono", "Fira Code", "gg mono", Consolas, monospace;
+  --main-font: "gg sans", "Inter", "Segoe UI", system-ui, sans-serif; /* main font for app (font must be installed) [default: gg sans, Inter, Segoe UI, system-ui, sans-serif] */
+  --code-font: "JetBrains Mono", "Fira Code", "gg mono", Consolas, monospace; /* font for codeblocks (font must be installed) [default: JetBrains Mono, Fira Code, gg mono, Consolas, monospace] */
 
   /* CHANNEL COLORS */
-  --channel-normal: var(--interactive-text-default);
-  --channel-muted: var(--interactive-muted);
-  --channel-hover: var(--interactive-text-hover);
-  --channel-selected: var(--interactive-text-active);
-  --channel-selected-bg: color-mix(in srgb, var(--main-color) 26%, transparent);
-  --channel-unread: var(--main-color);
-  --channel-unread-hover: var(--hover-color);
+  --channel-normal: var(--interactive-text-default); /* channel text color [default: var(--interactive-text-default)] */
+  --channel-muted: var(--interactive-muted); /* muted channel text color [default: var(--interactive-muted)] */
+  --channel-hover: var(--interactive-text-hover); /* hovered channel text color [default: var(--interactive-text-hover)] */
+  --channel-selected: var(--interactive-text-active); /* selected channel text color [default: var(--interactive-text-active)] */
+  --channel-selected-bg: color-mix(in srgb, var(--main-color) 26%, transparent); /* selected channel background [default: color-mix accent] */
+  --channel-unread: var(--main-color); /* unread channel text color [default: var(--main-color)] */
+  --channel-unread-hover: var(--hover-color); /* unread channel hover color [default: var(--hover-color)] */
 
   /* ACCESSIBILITY */
-  --focus-color: var(--main-color);
+  --focus-color: var(--main-color); /* outline when pressing TAB key [default: var(--main-color)] */
 
   /* FUTURISTIC TOKENS */
   --futuristic-void: #06060a;
@@ -128,13 +121,13 @@
 /* THEME SPECIFIC SHADING */
 /* LIGHT THEME */
 :is(.theme-light, .theme-dark .theme-light) {
-  --background-shading: rgba(248, 248, 252, 0.38);
-  --card-shading: rgba(255, 255, 255, 0.42);
-  --popout-shading: rgba(252, 252, 255, 0.68);
-  --modal-shading: rgba(250, 250, 255, 0.56);
-  --input-shading: rgba(0, 0, 0, 0.06);
-  --normal-text: #1c1c24;
-  --muted-text: #6b6b78;
+  --background-shading: rgba(248, 248, 252, 0.38); /* app background shading color [default: rgba(248, 248, 252, 0.38)] */
+  --card-shading: rgba(255, 255, 255, 0.42); /* cards background shading color [default: rgba(255, 255, 255, 0.42)] */
+  --popout-shading: rgba(252, 252, 255, 0.68); /* popouts background shading color [default: rgba(252, 252, 255, 0.68)] */
+  --modal-shading: rgba(250, 250, 255, 0.56); /* modals background shading color [default: rgba(250, 250, 255, 0.56)] */
+  --input-shading: rgba(0, 0, 0, 0.06); /* inputs background shading color [default: rgba(0, 0, 0, 0.06)] */
+  --normal-text: #1c1c24; /* text color [default: #1c1c24] */
+  --muted-text: #6b6b78; /* muted text color [default: #6b6b78] */
   --futuristic-glass: rgba(255, 255, 255, 0.46);
   --futuristic-glass-strong: rgba(255, 255, 255, 0.62);
   --futuristic-border: rgba(20, 20, 30, 0.1);
@@ -142,35 +135,35 @@
 
 /* ASH THEME */
 :is(.theme-dark, .theme-light .theme-dark) {
-  --background-shading: rgba(6, 6, 10, 0.42);
-  --card-shading: rgba(16, 16, 24, 0.4);
-  --popout-shading: rgba(10, 10, 16, 0.64);
-  --modal-shading: rgba(8, 8, 14, 0.56);
-  --input-shading: rgba(255, 255, 255, 0.045);
-  --normal-text: #e8e8ed;
-  --muted-text: #9494a3;
+  --background-shading: rgba(6, 6, 10, 0.42); /* app background shading color [default: rgba(6, 6, 10, 0.42)] */
+  --card-shading: rgba(16, 16, 24, 0.4); /* cards background shading color [default: rgba(16, 16, 24, 0.4)] */
+  --popout-shading: rgba(10, 10, 16, 0.64); /* popouts background shading color [default: rgba(10, 10, 16, 0.64)] */
+  --modal-shading: rgba(8, 8, 14, 0.56); /* modals background shading color [default: rgba(8, 8, 14, 0.56)] */
+  --input-shading: rgba(255, 255, 255, 0.045); /* inputs background shading color [default: rgba(255, 255, 255, 0.045)] */
+  --normal-text: #e8e8ed; /* text color [default: #e8e8ed] */
+  --muted-text: #9494a3; /* muted text color [default: #9494a3] */
 }
 
 /* DARK THEME */
 :is(.theme-darker, .theme-light .theme-darker) {
-  --background-shading: rgba(4, 4, 8, 0.55);
-  --card-shading: rgba(12, 12, 18, 0.46);
-  --popout-shading: rgba(8, 8, 14, 0.72);
-  --modal-shading: rgba(6, 6, 12, 0.62);
-  --input-shading: rgba(255, 255, 255, 0.04);
-  --normal-text: #f2f2f6;
-  --muted-text: #8e8e9a;
+  --background-shading: rgba(4, 4, 8, 0.55); /* app background shading color [default: rgba(4, 4, 8, 0.55)] */
+  --card-shading: rgba(12, 12, 18, 0.46); /* cards background shading color [default: rgba(12, 12, 18, 0.46)] */
+  --popout-shading: rgba(8, 8, 14, 0.72); /* popouts background shading color [default: rgba(8, 8, 14, 0.72)] */
+  --modal-shading: rgba(6, 6, 12, 0.62); /* modals background shading color [default: rgba(6, 6, 12, 0.62)] */
+  --input-shading: rgba(255, 255, 255, 0.04); /* inputs background shading color [default: rgba(255, 255, 255, 0.04)] */
+  --normal-text: #f2f2f6; /* text color [default: #f2f2f6] */
+  --muted-text: #8e8e9a; /* muted text color [default: #8e8e9a] */
 }
 
 /* ONYX THEME */
 :is(.theme-midnight, .theme-light .theme-midnight) {
-  --background-shading: rgba(0, 0, 0, 0.68);
-  --card-shading: rgba(10, 10, 14, 0.52);
-  --popout-shading: rgba(6, 6, 10, 0.78);
-  --modal-shading: rgba(4, 4, 8, 0.7);
-  --input-shading: rgba(255, 255, 255, 0.035);
-  --normal-text: #e4e4ea;
-  --muted-text: #848490;
+  --background-shading: rgba(0, 0, 0, 0.68); /* app background shading color [default: rgba(0, 0, 0, 0.68)] */
+  --card-shading: rgba(10, 10, 14, 0.52); /* cards background shading color [default: rgba(10, 10, 14, 0.52)] */
+  --popout-shading: rgba(6, 6, 10, 0.78); /* popouts background shading color [default: rgba(6, 6, 10, 0.78)] */
+  --modal-shading: rgba(4, 4, 8, 0.7); /* modals background shading color [default: rgba(4, 4, 8, 0.7)] */
+  --input-shading: rgba(255, 255, 255, 0.035); /* inputs background shading color [default: rgba(255, 255, 255, 0.035)] */
+  --normal-text: #e4e4ea; /* text color [default: #e4e4ea] */
+  --muted-text: #848490; /* muted text color [default: #848490] */
 }
 
 /* ADD ADDITIONAL CSS BELOW HERE */
