@@ -392,13 +392,28 @@ body,
   box-shadow: var(--futuristic-glow);
 }
 
-.vc-switch-container.vc-switch-checked,
 .bd-button-filled.bd-button-color-primary {
   background: linear-gradient(
     135deg,
     var(--main-color),
     var(--hover-color)
   ) !important;
+}
+
+/* Plugin / Discord switches: engine painted the knob the same as the track */
+.vc-switch-container,
+.container__3f21e {
+  background: color-mix(in srgb, var(--interactive-normal) 22%, transparent) !important;
+}
+.vc-switch-container.vc-switch-checked,
+.container__3f21e.checked__3f21e {
+  background: var(--main-color) !important;
+}
+.vc-switch-container.vc-switch-checked path,
+.vc-switch-container.vc-switch-checked circle,
+.container__3f21e.checked__3f21e path,
+.container__3f21e.checked__3f21e circle {
+  fill: #fff !important;
 }
 
 .vc-notification-root {
