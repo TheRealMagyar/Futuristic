@@ -1,7 +1,7 @@
 /**
  * @name Futuristic
  * @author TheRealMagyar
- * @version 2.3.1
+ * @version 2.3.2
  * @description Liquid-glass Discord theme with a full restyle of the Vencord AI plugin.
  * @source https://github.com/TheRealMagyar/Futuristic
  * @website https://github.com/TheRealMagyar/Futuristic
@@ -10,11 +10,11 @@
  * Enable only this file. Edit the values below — the rest lives in engine/.
  */
 
-@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/engine/main.css");
-@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/engine/vencord.css");
-@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/engine/betterdiscord.css");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/main.css?v=2.3.2r");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/vencord.css?v=2.3.2r");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/betterdiscord.css?v=2.3.2r");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap");
-@import url("https://github.com/TheRealMagyar/Futuristic/raw/main/engine/futuristic.css");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/futuristic.css?v=2.3.2r");
 
 :root {
   /* Colors */
