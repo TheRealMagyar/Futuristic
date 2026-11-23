@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-2.2.9-7c5cff?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-2.3.0-7c5cff?style=flat-square">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-6b7280?style=flat-square">
   <img alt="clients" src="https://img.shields.io/badge/Vencord%20·%20Equicord%20·%20Vesktop%20·%20BetterDiscord-0c0c12?style=flat-square">
 </p>

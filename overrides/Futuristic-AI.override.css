@@ -58,15 +58,15 @@
 [class*="layer"]:has(.vc-grokai-nc),
 [class*="layer"]:has(.vc-grokai-root) [class*="animator"],
 [class*="layer"]:has(.vc-grokai-nc) [class*="animator"],
-[class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
-[class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+[class*="layer"]:has(.vc-grokai-root) .translate_98D4cN,
+[class*="layer"]:has(.vc-grokai-nc) .translate_98D4cN {
   animation-duration: var(--futuristic-ai-modal-out) !important;
   transition-duration: var(--futuristic-ai-modal-out) !important;
   transition-property: opacity !important;
 }
 
-.full-motion [class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
-.full-motion [class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+.full-motion [class*="layer"]:has(.vc-grokai-root) .translate_98D4cN,
+.full-motion [class*="layer"]:has(.vc-grokai-nc) .translate_98D4cN {
   transform: none !important;
 }
 

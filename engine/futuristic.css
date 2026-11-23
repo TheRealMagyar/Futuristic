@@ -319,17 +319,96 @@
     transparent
   );
   --scrollbar-thin-track: transparent;
+
+  /* Tokens Discord build 679544 actually reads. Old names above stay
+     for rules that still reference them. */
+  --text-default: #f4f4f8;
+  --text-strong: #ffffff;
+  --text-subtle: #b8b8c4;
+  --interactive-text-default: #b4b4c0;
+  --interactive-text-hover: #e4e4ec;
+  --interactive-text-active: #ffffff;
+  --channels-default: var(--interactive-text-default);
+  --channel-icon: var(--interactive-muted);
+  --icon-default: var(--interactive-text-default);
+  --icon-muted: var(--interactive-muted);
+  --icon-subtle: var(--text-subtle);
+  --icon-strong: var(--text-strong);
+  --text-brand: var(--hover-color);
+  --input-placeholder-text-default: var(--interactive-muted);
+  --chat-text-muted: var(--text-muted);
+
+  --interactive-background-hover: rgba(255, 255, 255, 0.045);
+  --interactive-background-active: rgba(255, 255, 255, 0.07);
+  --interactive-background-selected: color-mix(
+    in srgb,
+    var(--main-color) 26%,
+    transparent
+  );
+  --background-mod-subtle: rgba(255, 255, 255, 0.045);
+  --background-mod-normal: rgba(255, 255, 255, 0.07);
+  --background-mod-strong: rgba(255, 255, 255, 0.09);
+  --background-mod-muted: rgba(255, 255, 255, 0.035);
+  --background-brand: var(--main-color);
+
+  --border-subtle: var(--futuristic-border);
+  --border-normal: var(--futuristic-border);
+  --border-muted: var(--futuristic-border);
+  --border-strong: var(--futuristic-border-hover);
+  --input-border-default: var(--futuristic-border);
+  --chat-border: var(--futuristic-border);
+  --app-frame-border: var(--futuristic-border);
+  --background-scrim: rgba(6, 6, 10, 0.72);
+
+  --input-background-default: var(--futuristic-glass-soft);
+  --chat-background: transparent;
+  --chat-background-default: var(--futuristic-glass-soft);
+  /* Chat column falls back to opaque --background-base-lowest. */
+  --background-gradient-chat: rgba(12, 12, 18, 0.55);
+  --app-frame-background: transparent;
+  --background-gradient-app-frame: transparent;
+  --home-background: transparent;
+  --card-background-default: rgba(22, 22, 30, 0.5);
+
+  --control-primary-background-default: var(--main-color);
+  --control-primary-background-hover: var(--hover-color);
+  --control-primary-background-active: var(--main-color);
+  --control-primary-text-default: #ffffff;
+  --control-primary-text-hover: #ffffff;
+  --control-secondary-background-default: rgba(255, 255, 255, 0.06);
+  --control-secondary-background-hover: rgba(255, 255, 255, 0.1);
+  --control-secondary-background-active: rgba(255, 255, 255, 0.14);
+  --control-secondary-text-default: var(--text-default);
+
+  /* Native switch track / thumb. The old .container__3f21e class is gone. */
+  --switch-background-default: color-mix(
+    in srgb,
+    var(--interactive-normal) 40%,
+    #2b2d31
+  );
+  --switch-background-hover: color-mix(
+    in srgb,
+    var(--interactive-normal) 55%,
+    #2b2d31
+  );
+  --switch-background-selected-default: var(--main-color);
+  --switch-background-selected-hover: var(--hover-color);
+  --switch-background-active: var(--hover-color);
+  --switch-thumb-background-default: #ffffff;
+  --switch-thumb-background-selected-default: #ffffff;
+  --switch-thumb-icon-default: var(--interactive-muted);
+  --switch-thumb-icon-active: var(--main-color);
 }
 
 /* Titlebar + settings mark — theme name in a Tesla-like display face */
-.visual-refresh:not(.platform-osx) .leading_c38106,
-:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106 {
+.visual-refresh:not(.platform-osx) .leading_3zSH5d,
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_3zSH5d {
   display: flex !important;
   align-items: center;
 }
 
-.visual-refresh:not(.platform-osx) .leading_c38106::before,
-:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::before {
+.visual-refresh:not(.platform-osx) .leading_3zSH5d::before,
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_3zSH5d::before {
   content: "Futuristic" !important;
   display: inline-block !important;
   position: static !important;
@@ -343,8 +422,8 @@
   color: var(--header-primary, #f4f4f8) !important;
 }
 
-.visual-refresh:not(.platform-osx) .leading_c38106::after,
-:is(.theme-dark, .theme-light):not(.platform-osx) .leading_c38106::after {
+.visual-refresh:not(.platform-osx) .leading_3zSH5d::after,
+:is(.theme-dark, .theme-light):not(.platform-osx) .leading_3zSH5d::after {
   content: none !important;
   display: none !important;
 }
@@ -361,16 +440,16 @@
 }
 
 /* Native DMs / home — custom --home-icon paints the SVG box; paths stay unless the pack is on */
-.childWrapper__6e9f8 {
+.childWrapper_JJ-hgR {
   display: grid !important;
   place-items: center;
 }
-.childWrapper__6e9f8 > svg {
+.childWrapper_JJ-hgR > svg {
   width: 24px !important;
   height: 24px !important;
   background: var(--home-icon) center / 24px no-repeat !important;
 }
-.childWrapper__6e9f8 path {
+.childWrapper_JJ-hgR path {
   display: var(--home-native, revert) !important;
 }
 
@@ -381,19 +460,20 @@ body {
   background-color: var(--futuristic-void);
 }
 
-/* One live wallpaper surface. #app-mount always exists; .bg is bonus. */
+/* One live wallpaper surface. #app-mount always exists; .bg is bonus.
+   Discord's shorthand on .appMount resets background-image, so these win. */
 #app-mount,
-.appMount__51fd7 {
-  background-color: var(--futuristic-void);
-  background-image: var(--background-image);
-  background-position: var(--background-position);
-  background-size: var(--background-size);
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+.appMount_gEkNtR {
+  background-color: var(--futuristic-void) !important;
+  background-image: var(--background-image) !important;
+  background-position: var(--background-position) !important;
+  background-size: var(--background-size) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
 }
 
-.bg__960e4,
-.app_a3002d > [class^="bg__"] {
+.bg_Fd0FEH,
+.app_QbT-Jy > [class^="bg_Fd0FEH"] {
   background-color: transparent !important;
   background-image: var(--background-image) !important;
   background-position: var(--background-position) !important;
@@ -444,7 +524,7 @@ dialog::backdrop,
 
 .layer_da8173 [role="menu"],
 .layer_da8173 [role="listbox"],
-.menu_c1e9c4 {
+.menu_M3qk4j {
   background: var(--futuristic-glass-strong) !important;
   backdrop-filter: var(--futuristic-overlay-filter);
   -webkit-backdrop-filter: var(--futuristic-overlay-filter);
@@ -462,14 +542,14 @@ dialog::backdrop,
  * notifications) keeps the layer mounted for Discord's hide fade;
  * forcing opacity made that pill linger after the cursor left.
  */
-.full-motion .translate_faf9c0:has([role="tooltip"]),
-.full-motion .translate_faf9c0:has([class*="tooltipPrimary"]),
-.full-motion .translate_faf9c0:has([class*="listItemTooltip"]),
-.full-motion .translate_faf9c0:has(.dialogWrapper_b1f768),
+.full-motion .translate_98D4cN:has([role="tooltip"]),
+.full-motion .translate_98D4cN:has([class*="tooltipPrimary"]),
+.full-motion .translate_98D4cN:has([class*="listItemTooltip"]),
+.full-motion .translate_98D4cN:has(.dialogWrapper_b1f768),
 .full-motion [class*="animator"]:has([role="tooltip"]),
 .full-motion [class*="animator"]:has([class*="tooltipPrimary"]),
 .full-motion [class*="animator"]:has([class*="listItemTooltip"]),
-.tooltipDisablePointerEvents_c36707,
+.tooltipDisablePointerEvents_3_v8qp,
 [class*="tooltipDisablePointerEvents"] {
   animation: none !important;
   animation-name: none !important;
@@ -486,8 +566,8 @@ dialog::backdrop,
 .listItemTooltip__90d72,
 .listItemTooltip_dfb2f8,
 .dialogWrapper_b1f768,
-.tooltip_c36707,
-.tooltipPrimary_c36707 {
+.tooltip_3_v8qp,
+.tooltipPrimary_3_v8qp {
   background:
     linear-gradient(
       165deg,
@@ -519,10 +599,10 @@ dialog::backdrop,
   [class*="tooltipPrimary"],
   [class*="listItemTooltip"],
   .dialogWrapper_b1f768,
-  .tooltip_c36707,
-  .tooltipPrimary_c36707,
-  .tooltipDisablePointerEvents_c36707,
-  .full-motion .translate_faf9c0:has([role="tooltip"]) {
+  .tooltip_3_v8qp,
+  .tooltipPrimary_3_v8qp,
+  .tooltipDisablePointerEvents_3_v8qp,
+  .full-motion .translate_98D4cN:has([role="tooltip"]) {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
@@ -535,8 +615,8 @@ dialog::backdrop,
 :is(.theme-light, .theme-dark .theme-light) [class*="tooltipPrimary"],
 :is(.theme-light, .theme-dark .theme-light) [class*="listItemTooltip"],
 :is(.theme-light, .theme-dark .theme-light) .dialogWrapper_b1f768,
-:is(.theme-light, .theme-dark .theme-light) .tooltip_c36707,
-:is(.theme-light, .theme-dark .theme-light) .tooltipPrimary_c36707 {
+:is(.theme-light, .theme-dark .theme-light) .tooltip_3_v8qp,
+:is(.theme-light, .theme-dark .theme-light) .tooltipPrimary_3_v8qp {
   background:
     linear-gradient(
       180deg,
@@ -552,7 +632,7 @@ dialog::backdrop,
 }
 
 [role="tooltip"] [class*="tooltipContent"],
-.tooltipContent_c36707 {
+.tooltipContent_3_v8qp {
   background: transparent !important;
   color: inherit !important;
   animation: none !important;
@@ -560,7 +640,7 @@ dialog::backdrop,
 }
 
 [class*="tooltipPointer"],
-.tooltipPointer_c36707,
+.tooltipPointer_3_v8qp,
 [class*="tooltipPointer"]::before,
 [class*="tooltipPointer"]::after {
   display: none !important;
@@ -569,21 +649,21 @@ dialog::backdrop,
 }
 
 /* Chat input: one surface, no stacked rings */
-.form_f75fb0,
-.channelBottomBarArea_f75fb0,
-.channelTextArea__74017,
+.form_z_gUBg,
+.channelBottomBarArea_z_gUBg,
+.channelTextArea_2x8-Qn,
 .channelTextArea_d9be46,
-.channelTextArea_f75fb0,
-.themedBackground__74017,
-.scrollableContainer__74017,
-.inner__74017,
-.stackedBars__74017,
+.channelTextArea_z_gUBg,
+.themedBackground_2x8-Qn,
+.scrollableContainer_2x8-Qn,
+.inner_2x8-Qn,
+.stackedBars_2x8-Qn,
 .channelTextAreaInner_d9be46 {
   border: none !important;
   outline: none !important;
 }
 
-.channelTextArea__74017,
+.channelTextArea_2x8-Qn,
 .channelTextArea_d9be46 {
   border-radius: var(--futuristic-radius-md) !important;
   box-shadow: none !important;
@@ -591,30 +671,30 @@ dialog::backdrop,
   -webkit-backdrop-filter: none;
 }
 
-.channelTextArea__74017:focus-within,
+.channelTextArea_2x8-Qn:focus-within,
 .channelTextArea_d9be46:focus-within {
   box-shadow: inset 0 0 0 1px
     color-mix(in srgb, var(--main-color) 50%, transparent) !important;
 }
 
-.channelTextArea__74017 :focus,
-.channelTextArea__74017 :focus-visible,
+.channelTextArea_2x8-Qn :focus,
+.channelTextArea_2x8-Qn :focus-visible,
 .channelTextArea_d9be46 :focus,
 .channelTextArea_d9be46 :focus-visible,
-.scrollableContainer__74017:focus,
-.inner__74017:focus,
+.scrollableContainer_2x8-Qn:focus,
+.inner_2x8-Qn:focus,
 [data-slate-editor="true"]:focus,
 [data-slate-editor="true"]:focus-visible {
   outline: none !important;
   box-shadow: none !important;
 }
 
-.button__201d5,
-.lookFilled__201d5 {
+.button_9OQtot,
+.lookFilled_9OQtot {
   border-radius: var(--futuristic-radius-sm);
 }
 
-.interactiveSelected__972a0::before,
+.interactiveSelected_zln_tS::before,
 .modeSelected__2ea32 .link__2ea32::before {
   background: color-mix(in srgb, var(--main-color) 26%, transparent) !important;
   border-radius: 8px !important;
@@ -675,21 +755,8 @@ dialog::backdrop,
   fill: var(--main-color) !important;
 }
 
-/* Discord native switch knob stays light on the accent track */
-.container__3f21e {
-  background: color-mix(
-    in srgb,
-    var(--interactive-normal) 40%,
-    #2b2d31
-  ) !important;
-}
-.container__3f21e.checked__3f21e {
-  background: var(--main-color) !important;
-}
-.container__3f21e.checked__3f21e path,
-.container__3f21e.checked__3f21e circle {
-  fill: #fff !important;
-}
+/* Native Discord switches read --switch-* tokens above.
+   The old track class (.container__3f21e) no longer exists. */
 
 .vc-notification-root {
   backdrop-filter: var(--futuristic-overlay-filter);
@@ -708,10 +775,10 @@ dialog::backdrop,
 .recentMentionsPopout__95796,
 [class*="recentMentionsPopout"],
 .browser_d98031,
-.popout__76f04,
+.popout_9Aa-7R,
 [class*="threadBrowser"],
 [class*="ThreadBrowser"],
-.container__01ae2.floating__01ae2,
+.container__01ae2.floating_z264eY,
 [class*="container"][class*="floating"] {
   background: var(--futuristic-popout-fill) !important;
   background-color: var(--futuristic-popout-fill) !important;
@@ -737,32 +804,32 @@ dialog::backdrop,
 }
 
 /* Slim scrollbars — keep the transparent inset so the thumb stays thin */
-:is(.auto__99f8c, .auto_d125d2)::-webkit-scrollbar {
+:is(.auto_JFqgFB, .auto_JFqgFB)::-webkit-scrollbar {
   width: 8px !important;
 }
-:is(.thin__99f8c, .thin_d125d2)::-webkit-scrollbar {
+:is(.thin_JFqgFB, .thin_JFqgFB)::-webkit-scrollbar {
   width: 4px !important;
 }
 :is(
-  .auto__99f8c,
-  .auto_d125d2,
-  .thin__99f8c,
-  .thin_d125d2
+  .auto_JFqgFB,
+  .auto_JFqgFB,
+  .thin_JFqgFB,
+  .thin_JFqgFB
 )::-webkit-scrollbar-thumb,
 :is(
-  .auto__99f8c,
-  .auto_d125d2,
-  .thin__99f8c,
-  .thin_d125d2
+  .auto_JFqgFB,
+  .auto_JFqgFB,
+  .thin_JFqgFB,
+  .thin_JFqgFB
 )::-webkit-scrollbar-track {
   border: 2px solid transparent !important;
   background-clip: padding-box !important;
 }
 :is(
-  .auto__99f8c,
-  .auto_d125d2,
-  .thin__99f8c,
-  .thin_d125d2
+  .auto_JFqgFB,
+  .auto_JFqgFB,
+  .thin_JFqgFB,
+  .thin_JFqgFB
 )::-webkit-scrollbar-thumb {
   background-color: color-mix(
     in srgb,
@@ -772,10 +839,10 @@ dialog::backdrop,
   border-radius: 99px !important;
 }
 :is(
-    .auto__99f8c,
-    .auto_d125d2,
-    .thin__99f8c,
-    .thin_d125d2
+    .auto_JFqgFB,
+    .auto_JFqgFB,
+    .thin_JFqgFB,
+    .thin_JFqgFB
   )::-webkit-scrollbar-thumb:hover {
   background-color: color-mix(
     in srgb,
@@ -784,10 +851,10 @@ dialog::backdrop,
   ) !important;
 }
 :is(
-  .auto__99f8c,
-  .auto_d125d2,
-  .thin__99f8c,
-  .thin_d125d2
+  .auto_JFqgFB,
+  .auto_JFqgFB,
+  .thin_JFqgFB,
+  .thin_JFqgFB
 )::-webkit-scrollbar-track {
   background: transparent !important;
 }
@@ -826,10 +893,10 @@ dialog::backdrop,
  */
 html:has(.vc-grokai-root) [role="dialog"][class*="root"],
 html:has(.vc-grokai-nc) [role="dialog"][class*="root"],
-html .root__49fc1:has(.vc-grokai-root),
-html .root__49fc1:has(.vc-grokai-nc),
-html .container__8a031:has(.vc-grokai-root),
-html .container__8a031:has(.vc-grokai-nc),
+html .root__KoJTP:has(.vc-grokai-root),
+html .root__KoJTP:has(.vc-grokai-nc),
+html .container_zR7iaP:has(.vc-grokai-root),
+html .container_zR7iaP:has(.vc-grokai-nc),
 html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root),
 html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   --modal-background: #0c0c12;
@@ -852,8 +919,8 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   [role="dialog"][class*="root"]:has(.vc-grokai-root),
 :is(.theme-light, .theme-dark .theme-light)
   [role="dialog"][class*="root"]:has(.vc-grokai-nc),
-:is(.theme-light, .theme-dark .theme-light) .root__49fc1:has(.vc-grokai-root),
-:is(.theme-light, .theme-dark .theme-light) .root__49fc1:has(.vc-grokai-nc) {
+:is(.theme-light, .theme-dark .theme-light) .root__KoJTP:has(.vc-grokai-root),
+:is(.theme-light, .theme-dark .theme-light) .root__KoJTP:has(.vc-grokai-nc) {
   --modal-background: #f4f4f8;
   --modal-shading: #f4f4f8;
   --hsl-modal-shading: #f4f4f8;
@@ -861,12 +928,12 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   background-color: #f4f4f8 !important;
 }
 
-.root__49fc1:has(.vc-grokai-root) > [class*="header"],
-.root__49fc1:has(.vc-grokai-nc) > [class*="header"],
-.root__49fc1:has(.vc-grokai-root) > [class*="content"],
-.root__49fc1:has(.vc-grokai-nc) > [class*="content"],
-.root__49fc1:has(.vc-grokai-root) > [class*="footer"],
-.root__49fc1:has(.vc-grokai-nc) > [class*="footer"],
+.root__KoJTP:has(.vc-grokai-root) > [class*="header"],
+.root__KoJTP:has(.vc-grokai-nc) > [class*="header"],
+.root__KoJTP:has(.vc-grokai-root) > [class*="content"],
+.root__KoJTP:has(.vc-grokai-nc) > [class*="content"],
+.root__KoJTP:has(.vc-grokai-root) > [class*="footer"],
+.root__KoJTP:has(.vc-grokai-nc) > [class*="footer"],
 [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root) > [class*="header"],
 [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) > [class*="header"],
 [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root) > [class*="content"],
@@ -921,8 +988,8 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 [class*="layer"]:has(.vc-grokai-nc),
 [class*="layer"]:has(.vc-grokai-root) [class*="animator"],
 [class*="layer"]:has(.vc-grokai-nc) [class*="animator"],
-[class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
-[class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0,
+[class*="layer"]:has(.vc-grokai-root) .translate_98D4cN,
+[class*="layer"]:has(.vc-grokai-nc) .translate_98D4cN,
 [class*="layer"]:has(.vc-grokai-root) [class*="focusLock"],
 [class*="layer"]:has(.vc-grokai-nc) [class*="focusLock"] {
   animation-duration: var(--futuristic-modal-out) !important;
@@ -932,8 +999,8 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   transition-property: opacity !important;
 }
 
-.full-motion [class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
-.full-motion [class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+.full-motion [class*="layer"]:has(.vc-grokai-root) .translate_98D4cN,
+.full-motion [class*="layer"]:has(.vc-grokai-nc) .translate_98D4cN {
   transform: none !important;
 }
 
@@ -1348,25 +1415,25 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 .link__2ea32::before,
 .icon__2ea32,
 .name__2ea32,
-.interactive__972a0,
-.interactive__972a0::before,
-.navItem__551b0,
-.navItem__551b0::after,
-.memberInner__5d473,
-.member__5d473 .nameContainer__703b9,
-.member__5d473 .nameContainer__703b9::before,
-.member__5d473 .nameContainer__703b9::after,
-.truncated_c9d15c,
-.truncated_c9d15c strong,
+.interactive_zln_tS,
+.interactive_zln_tS::before,
+.navItem_GQJi50,
+.navItem_GQJi50::after,
+.memberInner_Iy0c7A,
+.member_Iy0c7A .nameContainer_Wo4EpK,
+.member_Iy0c7A .nameContainer_Wo4EpK::before,
+.member_Iy0c7A .nameContainer_Wo4EpK::after,
+.truncated_BcddaK,
+.truncated_BcddaK strong,
 .voiceUser__07f91 .content__07f91,
 .voiceUser__07f91 .avatarSpeaking__07f91,
 .voiceUser__07f91 .username__07f91,
-.avatar_c19a55,
-.radioBar__88a69,
+.avatar_2i8Bfm,
+.radioBar_jqZBm0,
 .pill_a2c9e8,
 .name__29444::before,
 .name__29444::after,
-.newMessagesBar__0f481 {
+.newMessagesBar_j9Vvzj {
   transition:
     background-color var(--futuristic-ease),
     color var(--futuristic-ease),
@@ -1378,8 +1445,8 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 }
 
 .link__2ea32::before,
-.interactive__972a0::before,
-.navItem__551b0::after {
+.interactive_zln_tS::before,
+.navItem_GQJi50::after {
   right: 0 !important;
   left: 0 !important;
   transform: scaleX(0);
@@ -1389,26 +1456,26 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 }
 
 .wrapper__2ea32.modeSelected__2ea32 .link__2ea32::before,
-.interactive__972a0.interactiveSelected__972a0::before,
-.navItem__551b0.selected__551b0::after {
+.interactive_zln_tS.interactiveSelected_zln_tS::before,
+.navItem_GQJi50.selected_GQJi50::after {
   right: 0 !important;
   transform: scaleX(1);
   animation: none !important;
 }
 
-.member__5d473 .nameContainer__703b9::after {
+.member_Iy0c7A .nameContainer_Wo4EpK::after {
   right: 0 !important;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform var(--futuristic-ease-out) !important;
 }
 
-.selected__91a9d .nameContainer__703b9::after {
+.selected_J1Adu_ .nameContainer_Wo4EpK::after {
   right: 0 !important;
   transform: scaleX(1);
 }
 
-.member__5d473 .nameContainer__703b9::before {
+.member_Iy0c7A .nameContainer_Wo4EpK::before {
   transition: opacity var(--futuristic-ease) !important;
 }
 
@@ -1419,12 +1486,12 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 
 .wrapper__2ea32.modeUnreadImportant__2ea32 .icon__2ea32,
 .wrapper__2ea32.modeConnected__2ea32 .icon__2ea32,
-.selected__91a9d .ownerIcon__5d473 {
+.selected_J1Adu_ .ownerIcon_Iy0c7A {
   filter: none !important;
 }
 
-.unread__2ea32,
-.item__58105 {
+.unread_oJAkDB,
+.item_E_xQ-R {
   box-shadow: none !important;
 }
 
@@ -1441,13 +1508,13 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   transition: none !important;
 }
 
-.slider_a562c8 .grabber_a562c8 {
+.slider_OnqacX .grabber_OnqacX {
   filter: none;
 }
 
-.sidebarList__5e434,
-.members_c8ffbb,
-.privateChannels_e6b769 {
+.sidebarList_pog62O,
+.members_86es0b,
+.privateChannels_u88IQl {
   contain: style;
 }
 
@@ -1460,32 +1527,32 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   .vc-grokai-icon.vc-grokai-chat-button,
   .link__2ea32,
   .link__2ea32::before,
-  .interactive__972a0,
-  .interactive__972a0::before,
-  .navItem__551b0::after,
-  .memberInner__5d473,
-  .member__5d473 .nameContainer__703b9::after,
-  .avatar_c19a55,
+  .interactive_zln_tS,
+  .interactive_zln_tS::before,
+  .navItem_GQJi50::after,
+  .memberInner_Iy0c7A,
+  .member_Iy0c7A .nameContainer_Wo4EpK::after,
+  .avatar_2i8Bfm,
   .voiceUser__07f91 .content__07f91 {
     transition: none !important;
   }
 
   .vc-grokai-send,
   .vc-grokai-sl-btn,
-  .avatar_c19a55.clickable_c19a55:active,
-  .memberInner__5d473:active {
+  .avatar_2i8Bfm.clickable_2i8Bfm:active,
+  .memberInner_Iy0c7A:active {
     transform: none !important;
   }
 
   .vc-grokai-trace.vc-grokai-live summary::before,
   .vc-grokai-tool.vc-grokai-running .vc-grokai-tool-dot,
   .vc-grokai-spinner,
-  .wrapper_d852db,
+  .wrapper_xdTfZL,
   .loadingCard_f369db,
   [role="dialog"][class*="root"]:has(.vc-grokai-root),
   [role="dialog"][class*="root"]:has(.vc-grokai-nc),
-  .root__49fc1:has(.vc-grokai-root),
-  .root__49fc1:has(.vc-grokai-nc) {
+  .root__KoJTP:has(.vc-grokai-root),
+  .root__KoJTP:has(.vc-grokai-nc) {
     animation: none !important;
   }
 
@@ -1493,17 +1560,17 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   [class*="layer"]:has(.vc-grokai-nc),
   [class*="layer"]:has(.vc-grokai-root) [class*="animator"],
   [class*="layer"]:has(.vc-grokai-nc) [class*="animator"],
-  [class*="layer"]:has(.vc-grokai-root) .translate_faf9c0,
-  [class*="layer"]:has(.vc-grokai-nc) .translate_faf9c0 {
+  [class*="layer"]:has(.vc-grokai-root) .translate_98D4cN,
+  [class*="layer"]:has(.vc-grokai-nc) .translate_98D4cN {
     transition: none !important;
     animation: none !important;
   }
 }
 
 .reduce-motion .link__2ea32::before,
-.reduce-motion .interactive__972a0::before,
-.reduce-motion .navItem__551b0::after,
-.reduce-motion .member__5d473 .nameContainer__703b9::after {
+.reduce-motion .interactive_zln_tS::before,
+.reduce-motion .navItem_GQJi50::after,
+.reduce-motion .member_Iy0c7A .nameContainer_Wo4EpK::after {
   transition: none !important;
 }
 
