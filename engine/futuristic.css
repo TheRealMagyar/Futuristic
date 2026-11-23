@@ -439,17 +439,23 @@
   color: var(--text-muted) !important;
 }
 
-/* Native DMs / home — custom --home-icon paints the SVG box; paths stay unless the pack is on */
-.childWrapper_JJ-hgR {
-  display: grid !important;
-  place-items: center;
+/* DMs home mark. Discord draws a 28×20 logo in a square slot and no
+   longer clips it. Keep the mark's ratio and crop the slot to a circle.
+   Do not resize every guild svg — that also shrinks the blob mask. */
+.wrapper_JJ-hgR:has(.homeIcon_1IyMuq) .childWrapper_JJ-hgR {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
 }
-.childWrapper_JJ-hgR > svg {
-  width: 24px !important;
-  height: 24px !important;
-  background: var(--home-icon) center / 24px no-repeat !important;
+.childWrapper_JJ-hgR > .homeIcon_1IyMuq {
+  width: 22px !important;
+  height: 16px !important;
+  flex: 0 0 auto;
+  background: var(--home-icon) center / contain no-repeat !important;
 }
-.childWrapper_JJ-hgR path {
+.childWrapper_JJ-hgR:has(.homeIcon_1IyMuq) path {
   display: var(--home-native, revert) !important;
 }
 
@@ -491,9 +497,7 @@ body {
 [class*="layer"]:has(.vc-grokai-nc),
 html:has(.vc-grokai-root) [class*="focusLock"],
 html:has(.vc-grokai-nc) [class*="focusLock"],
-.layer_bc663c,
-[role="dialog"]:has(.vc-grokai-root):not([class*="root"]),
-[role="dialog"]:has(.vc-grokai-nc):not([class*="root"]) {
+.layer_bc663c {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -898,10 +902,15 @@ html .root__KoJTP:has(.vc-grokai-nc),
 html .container_zR7iaP:has(.vc-grokai-root),
 html .container_zR7iaP:has(.vc-grokai-nc),
 html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-root),
-html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
+html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc),
+.container_dvN-MP:has(.vc-grokai-root),
+.container_dvN-MP:has(.vc-grokai-nc),
+.container_dvN-MP[role="dialog"]:has(.vc-grokai-root),
+.container_dvN-MP[role="dialog"]:has(.vc-grokai-nc) {
   --modal-background: #0c0c12;
   --modal-shading: #0c0c12;
   --hsl-modal-shading: #0c0c12;
+  --background-surface-high: #0c0c12;
   background: #0c0c12 !important;
   background-color: #0c0c12 !important;
   background-image: none !important;
@@ -1006,13 +1015,13 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 
 .vc-grokai-root,
 .vc-grokai-nc {
-  background: transparent !important;
+  background: #0c0c12 !important;
   border: none !important;
   box-shadow: none !important;
 }
 
 .vc-grokai-sidebar {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: #16161f !important;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -1115,7 +1124,7 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
 
 .vc-grokai-messages,
 .vc-grokai-nc-summary {
-  background: rgba(255, 255, 255, 0.04) !important;
+  background: #12121a !important;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -1326,16 +1335,44 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   -webkit-backdrop-filter: none;
 }
 
+/* Same box as a guild-list item, so the bell sits under the DM logo. */
+.vc-grokai-sl {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: var(--custom-guild-list-width, 72px) !important;
+  max-width: 100% !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  box-sizing: border-box !important;
+}
+.vc-grokai-sl > * {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
 .vc-grokai-sl-btn {
+  position: relative !important;
+  inset: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+  flex: 0 0 auto !important;
   background: var(--futuristic-glass-strong) !important;
   border: 1px solid var(--futuristic-border) !important;
+  border-radius: 50% !important;
   color: var(--interactive-normal) !important;
   transition:
     border-radius 0.18s ease,
     background 0.18s ease,
     color 0.18s ease,
-    box-shadow 0.18s ease,
-    transform 0.18s ease !important;
+    box-shadow 0.18s ease !important;
 }
 
 .vc-grokai-sl-btn:hover,
@@ -1348,7 +1385,7 @@ html [class*="root"]:has(> [class*="header"]):has(.vc-grokai-nc) {
   ) !important;
   border-color: transparent !important;
   color: #fff !important;
-  transform: scale(1.04);
+  transform: none !important;
   box-shadow: 0 0 22px color-mix(in srgb, var(--main-color) 42%, transparent);
 }
 
