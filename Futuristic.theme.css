@@ -10,11 +10,11 @@
  * Enable only this file. Edit the values below — the rest lives in engine/.
  */
 
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/main.css?v=2.3.2s");
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/vencord.css?v=2.3.2s");
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/betterdiscord.css?v=2.3.2s");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/main.css?v=2.3.2t");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/vencord.css?v=2.3.2t");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/betterdiscord.css?v=2.3.2t");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap");
-@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/futuristic.css?v=2.3.2s");
+@import url("https://raw.githubusercontent.com/TheRealMagyar/Futuristic/main/engine/futuristic.css?v=2.3.2t");
 
 :root {
   /* Colors */
@@ -240,39 +240,57 @@ html body [class^="app_"] {
 html body .sidebar_pog62O,
 html body .sidebarList_pog62O,
 html body .privateChannels_u88IQl,
+html body .guildSidebar_iar92T,
 html body [class*="sidebarList"],
 html body [class*="privateChannels"],
 html body .panels_pog62O,
-html body [class*="panels_"] {
-  background: rgba(12, 12, 18, 0.4) !important;
-  background-color: rgba(12, 12, 18, 0.4) !important;
-  background-image: none !important;
-}
-
-html body .sidebar_pog62O::after {
-  background: transparent !important;
-}
-
+html body [class*="panels_"],
+html body .bar_3zSH5d,
+html body .container_ybUK7Z,
+html body .themed_ybUK7Z,
+html body .header_iar92T,
+html body .guildSidebarHeader_iar92T,
+html body .directMessagesHeader_u88IQl,
 html body .wrapper_5dqHTG,
 html body .refresh-fast-follow-guild-bg .wrapper_5dqHTG,
 html body .custom-theme-background .tree_5dqHTG,
 html body [class*="wrapper"]:has([data-list-item-id^="guildsnav"]),
 html body [class*="tree"]:has([data-list-item-id^="guildsnav"]) {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: rgba(12, 12, 18, 0.4) !important;
+  background-color: rgba(12, 12, 18, 0.4) !important;
   background-image: none !important;
 }
 
+html body .sidebar_pog62O::after,
 html body .bottomRailNotifCenterButton_5dqHTG::before,
 html body [class*="bottomRail"]::before {
   background: none !important;
   content: none !important;
 }
 
-html body [role="dialog"]:has(.vc-grokai-root):not([class*="outer"]),
-html body [role="dialog"]:has(.vc-grokai-nc):not([class*="outer"]),
-html body [class*="container"]:has(.vc-grokai-root):not([class*="outer"]),
-html body [class*="container"]:has(.vc-grokai-nc):not([class*="outer"]) {
+/* Only the AI card is solid. The scrim and every larger shell stay clear. */
+html body [class*="layer"]:has(.vc-grokai-root),
+html body [class*="layer"]:has(.vc-grokai-nc),
+html body [class*="layer"]:has(.vc-grokai-root) [class*="backdrop"],
+html body [class*="layer"]:has(.vc-grokai-nc) [class*="backdrop"],
+html body [class*="focusLock"]:has(.vc-grokai-root),
+html body [class*="focusLock"]:has(.vc-grokai-nc),
+html body [class*="outerContainer"]:has(.vc-grokai-root),
+html body [class*="outerContainer"]:has(.vc-grokai-nc),
+html body [role="dialog"]:has(.vc-grokai-root):not(.container_dvN-MP),
+html body [role="dialog"]:has(.vc-grokai-nc):not(.container_dvN-MP),
+html body [class*="container"]:has(.vc-grokai-root):not(.container_dvN-MP),
+html body [class*="container"]:has(.vc-grokai-nc):not(.container_dvN-MP) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body .container_dvN-MP:has(.vc-grokai-root),
+html body .container_dvN-MP:has(.vc-grokai-nc) {
   --background-surface-high: #0c0c12 !important;
   --modal-background: #0c0c12 !important;
   --hsl-modal-shading: #0c0c12 !important;
@@ -306,24 +324,44 @@ html body .vc-grokai-nc-summary {
   -webkit-backdrop-filter: none !important;
 }
 
-html body [class*="childWrapper"]:has([class*="homeIcon"]),
-html body [class*="circleIconButton"]:has([class*="homeIcon"]),
-html body [class*="wrapper"]:has(> [class*="homeIcon"]) {
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+/* Selected DM mark. The purple shape is the blob mask on the home
+   slot's foreignObject, behind the logo. Replace that mask with a circle.
+   Do not clip the logo svg, and do not touch the other server icons. */
+html body [data-guilds-bar-home] foreignObject {
+  clip-path: circle(50%) !important;
+  mask-image: radial-gradient(circle closest-side at center, #fff 99%, transparent 100%) !important;
+  -webkit-mask-image: radial-gradient(circle closest-side at center, #fff 99%, transparent 100%) !important;
 }
 
-html body [class*="homeIcon"],
-html body [class*="childWrapper"]:has([class*="homeIcon"]) > svg,
-html body [class*="circleIconButton"]:has([class*="homeIcon"]) > svg {
+html body [data-guilds-bar-home] defs > path {
+  d: path("M48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24Z") !important;
+}
+
+html body [data-guilds-bar-home] [class*="selected"] [class*="childWrapper"],
+html body [data-guilds-bar-home] [class*="wrapper_"]:is(:hover, [class*="selected"]) [class*="childWrapper"],
+html body [data-guilds-bar-home] [class*="circleIconButton"]:is(:hover, [class*="selected"]),
+html body [data-guilds-bar-home] foreignObject [class*="selected"] > div {
+  background-color: transparent !important;
+  background-image: radial-gradient(circle closest-side at center, var(--main-color, #7c5cff) 99%, transparent 100%) !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+}
+
+html body [data-guilds-bar-home] [class*="blobContainer"],
+html body [data-guilds-bar-home] [class*="circleIconButton"],
+html body [data-guilds-bar-home] [class*="childWrapper"] {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  scale: 1 !important;
+}
+
+html body [class*="homeIcon"] {
   width: 22px !important;
   height: 16px !important;
   max-width: 22px !important;
   max-height: 16px !important;
   flex: 0 0 auto !important;
+  clip-path: none !important;
   transform: none !important;
   translate: none !important;
 }
@@ -331,7 +369,7 @@ html body [class*="circleIconButton"]:has([class*="homeIcon"]) > svg {
 html body .vc-grokai-sl {
   display: flex !important;
   align-items: center !important;
-  align-self: center !important;
+  align-self: stretch !important;
   justify-content: center !important;
   width: var(--custom-guild-list-width, 72px) !important;
   max-width: var(--custom-guild-list-width, 72px) !important;
