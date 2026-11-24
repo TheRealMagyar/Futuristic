@@ -324,35 +324,24 @@ html body .vc-grokai-nc-summary {
   -webkit-backdrop-filter: none !important;
 }
 
-/* Selected DM mark. The purple shape is the blob mask on the home
-   slot's foreignObject, behind the logo. Replace that mask with a circle.
-   Do not clip the logo svg, and do not touch the other server icons. */
-html body [data-guilds-bar-home] foreignObject {
-  clip-path: circle(50%) !important;
-  mask-image: radial-gradient(circle closest-side at center, #fff 99%, transparent 100%) !important;
-  -webkit-mask-image: radial-gradient(circle closest-side at center, #fff 99%, transparent 100%) !important;
-}
-
-html body [data-guilds-bar-home] defs > path {
-  d: path("M48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24Z") !important;
-}
-
-html body [data-guilds-bar-home] [class*="selected"] [class*="childWrapper"],
-html body [data-guilds-bar-home] [class*="wrapper_"]:is(:hover, [class*="selected"]) [class*="childWrapper"],
-html body [data-guilds-bar-home] [class*="circleIconButton"]:is(:hover, [class*="selected"]),
-html body [data-guilds-bar-home] foreignObject [class*="selected"] > div {
+/* Selected DM button. ClearVision paints .selected_tQErD4 with a
+   solid brand square behind the logo. Discord keeps the class; drop
+   only that fill. Do not mask the foreignObject or the pill. */
+html body [data-guilds-bar-home] .selected_tQErD4,
+html body [data-guilds-bar-home] .selected_tQErD4:hover {
+  background: transparent !important;
   background-color: transparent !important;
-  background-image: radial-gradient(circle closest-side at center, var(--main-color, #7c5cff) 99%, transparent 100%) !important;
-  border-radius: 50% !important;
+  background-image: none !important;
   box-shadow: none !important;
 }
 
-html body [data-guilds-bar-home] [class*="blobContainer"],
-html body [data-guilds-bar-home] [class*="circleIconButton"],
-html body [data-guilds-bar-home] [class*="childWrapper"] {
+html body [data-guilds-bar-home] defs > path {
+  d: path("M20 0a20 20 0 1 0 0 40a20 20 0 1 0 0-40Z") !important;
+}
+
+html body [data-guilds-bar-home] .childWrapper_JJ-hgR {
   border-radius: 50% !important;
-  overflow: hidden !important;
-  scale: 1 !important;
+  clip-path: circle(50% at 50% 50%) !important;
 }
 
 html body [class*="homeIcon"] {
